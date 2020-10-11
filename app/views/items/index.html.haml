@@ -3,42 +3,73 @@
     .top-inner
       .top-inner_main
         %h1.top-inner_main-icon
-          %a{:href => "#"}
-            = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
+          %a{:href => "#" ,class:"top-inner_main-icon__a"}
+            = image_tag "logo.png", alt: "#N/A", id: "assets", class: "top-inner_main-icon__image"
         .top-inner_main-searchbox
           %form.top-inner_main-searchbox_form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
             %input#searchInput.top-inner_main-searchbox_form--input{:name => "key", :placeholder => "キーワードから探す"}/
             %button.top-inner_main-searchbox_form--button{:type => "submit"}
               .top-inner_main-searchbox_form--button__icon
-                = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "image"
+                = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "top-inner_main-searchbox_form--button__icon-image"
       .nav
-        %ul.nav-listsleft
-          %li.nav-listsleft_item カテゴリー
-          %li.nav-listsleft_item--second ブランド
-        %ul.nav-listsright
-          %li.nav-listsright_item ログイン
-          %li.nav-listsright_item 新規会員登録
+        %ul.nav-lisleft
+          %li.nav-lisleft_item カテゴリー
+          %li.nav-lisleft_item--second ブランド
+        %ul.nav-lisright
+          %li.nav-lisright_item ログイン
+          %li.nav-lisright_item 新規会員登録
   .main
-    .first_info
+    .firstinfo
+      .firstinfo-content
+        .firstinfo-content_title 人生を変えるフリマアプリ
+        .firstinfo-content_text
+          FURIMAはだれでも簡単に出品・購入が出来る
+          %br
+          フリマアプリです
+        .firstinfo-content_button
+          %a{:href => "#", class:"firstinfo-content_button--a"}
+            = image_tag "", alt: "#N/A", id: "assets", class: "firstinfo-content_button--a__image"
+          %a{:href => "#", class:"firstinfo-content_button--g"}
+            = image_tag "", alt: "#N/A", id: "assets", class: "firstinfo-content_button--g__image"
     .reason
-    .second_info
+    .secondinfo
     .feature
     .category
     .brand
-  .third_info
+  .thirdinfo
   .footer
     %ul.footer-contents
       %li.footer-contents_content
         %h2.footer-contents_content--head FURIMAについて
         %ul
           %li
-            %a{:href => "#"} 会社概要（運営会社）
+            %a{:href => "#",class:"footer-contents_content--link"} 会社概要（運営会社）
           %li
-            %a{:href => "#"} プライバシーポリシー
+            %a{:href => "#",class:"footer-contents_content--link"} プライバシーポリシー
           %li
-            %a{:href => "#"} FURIMA利用規約
+            %a{:href => "#",class:"footer-contents_content--link"} FURIMA利用規約
           %li
-            %a{:href => "#"} ポイントに関する特約
+            %a{:href => "#",class:"footer-contents_content--link"} ポイントに関する特約
+      %li.footer-contents_content
+        %h2.footer-contents_content--head FURIMAをみる
+        %ul
+          %li
+            %a{:href => "#",class:"footer-contents_content--link"} カテゴリー一覧
+          %li
+            %a{:href => "#",class:"footer-contents_content--link"} ブランド一覧
+      %li.footer-contents_content
+        %h2.footer-contents_content--head ヘルプ＆ガイド
+        %ul
+          %li
+            %a{:href => "#",class:"footer-contents_content--link"} FURIMAガイド
+          %li
+            %a{:href => "#",class:"footer-contents_content--link"} FURIMAロゴ利用ガイドライン
+          %li
+            %a{:href => "#",class:"footer-contents_content--link"} お知らせ
+    .footer-logo
+      %a{:href => "#"}
+        = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "footer-logo_image"
+    %p © FURIMA
   %a{:href => "#"}
     .sellicon
       %span.sellicon-text 出品する
