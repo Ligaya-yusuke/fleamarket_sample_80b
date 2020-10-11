@@ -1,0 +1,45 @@
+%body
+  .top
+    .top-inner
+      .top-inner_main
+        %h1.top-inner_main-icon
+          %a{:href => "#"}
+            = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
+        .top-inner_main-searchbox
+          %form.top-inner_main-searchbox_form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+            %input#searchInput.top-inner_main-searchbox_form--input{:name => "key", :placeholder => "キーワードから探す"}/
+            %button.top-inner_main-searchbox_form--button{:type => "submit"}
+              .top-inner_main-searchbox_form--button__icon
+                = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "image"
+      .nav
+        %ul.nav-listsleft
+          %li.nav-listsleft_item カテゴリー
+          %li.nav-listsleft_item--second ブランド
+        %ul.nav-listsright
+          %li.nav-listsright_item ログイン
+          %li.nav-listsright_item 新規会員登録
+  .main
+    .first_info
+    .reason
+    .second_info
+    .feature
+    .category
+    .brand
+  .third_info
+  .footer
+    %ul.footer-contents
+      %li.footer-contents_content
+        %h2.footer-contents_content--head FURIMAについて
+        %ul
+          %li
+            %a{:href => "#"} 会社概要（運営会社）
+          %li
+            %a{:href => "#"} プライバシーポリシー
+          %li
+            %a{:href => "#"} FURIMA利用規約
+          %li
+            %a{:href => "#"} ポイントに関する特約
+  %a{:href => "#"}
+    .sellicon
+      %span.sellicon-text 出品する
+      = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon-image"
