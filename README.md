@@ -39,8 +39,7 @@ Things you may want to cover:
 - has_many :order_histories, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_many :sell_products, dependent: :destroy
-- has_many :buy_products, dependent: :destroy
+- has_many :products, dependent: :destroy
 
 ## credit_cardsテーブル
 
