@@ -1,153 +1,153 @@
 %body
   .top
-    .top-inner
-      .top-inner_main
-        %h1.top-inner_main-icon
-          = link_to ("#") ,{class:"top-inner_main-icon__a"} do
+    .top--inner
+      .top--inner--main
+        %h1.top--inner--main--icon
+          = link_to ("#") ,{class:"top--inner--main--icon--a"} do
             = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
-        .top-inner_main-searchbox
-          %form.top-inner_main-searchbox_form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-            %input#searchInput.top-inner_main-searchbox_form--input{:name => "key", :placeholder => "キーワードから探す"}/
-            %button.top-inner_main-searchbox_form--button{:type => "submit"}
-              .top-inner_main-searchbox_form--button__icon
+        .top--inner--main--searchbox
+          %form.top--inner--main--searchbox--form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+            %input#searchInput.top--inner--main--searchbox--form--input{:name => "key", :placeholder => "キーワードから探す"}/
+            %button.top--inner--main--searchbox--form--button{:type => "submit"}
+              .top--inner--main--searchbox--form--button--icon
                 = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "image"
       .nav
-        %ul.nav-lisleft
-          %li.nav-lisleft_item
+        %ul.nav--lisleft
+          %li.nav--lisleft--item
             = link_to ("#") ,{class:"loginlink"} do
               カテゴリー
             .treedisplay
-          %li.nav-lisleft_item--second
+          %li.nav--lisleft--item--second
             = link_to ("#") ,{class:"loginlink"} do
               ブランド
-        %ul.nav-lisright
-          %li.nav-lisright_item
+        %ul.nav--lisright
+          %li.nav--lisright--item
             = link_to ("#") ,{class:"loginlink"} do
               ログイン
-          %li.nav-lisright_item
+          %li.nav--lisright--item
             = link_to ("#") ,{class:"loginlink"} do
               新規会員登録
   .main
     .firstinfo
-      .firstinfo-content
-        .firstinfo-content_title 人生を変えるフリマアプリ
-        .firstinfo-content_text
+      .firstinfo--content
+        .firstinfo--content--title 人生を変えるフリマアプリ
+        .firstinfo--content--text
           FURIMAはだれでも簡単に出品・購入が出来る
           %br
           フリマアプリです
-        .firstinfo-content_button
+        .firstinfo--content--button
           = link_to ("#"),{ class:"apple"} do
-            = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple-aimage"
+            = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple--aimage"
           = link_to ("#"),{ class:"google"} do
-            = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google-gimage"
+            = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google--gimage"
     .reason
-      .reason-title FURIMAが選ばれる３つの理由
-      .reason-list
-        %li.reason-list_lis
-          .reason-list_lis--picture
-            %span.reason-list_lis--picture__number 1
-            = image_tag "pict-reason-01.jpg", alt: "#N/A", id: "assets", class: "reason-list_lis--picture__image"
-          .reason-list_lis--text
-            %span.reason-list_lis--text__span 3分
+      .reason--title FURIMAが選ばれる３つの理由
+      .reason--list
+        %li.reason--list--lis
+          .reason--list--lis--picture
+            %span.reason--list--lis--picture--number 1
+            = image_tag "pict-reason-01.jpg", alt: "#N/A", id: "assets", class: "image"
+          .reason--list--lis--text
+            %span.reason--list--lis--text--span 3分
             ですぐに出品
-          .reason-list_lis--descript スマホで入力するだけで簡単に出品出来る！
-        %li.reason-list_lis
-          .reason-list_lis--picture
-            %span.reason-list_lis--picture__number 2
-            = image_tag "pict-reason-02.jpg", alt: "#N/A", id: "assets", class: "reason-list_lis--picture__image"
-          .reason-list_lis--text
-            %span.reason-list_lis--text__span シンプル
+          .reason--list--lis--descript スマホで入力するだけで簡単に出品出来る！
+        %li.reason--list--lis
+          .reason--list--lis--picture
+            %span.reason--list--lis--picture--number 2
+            = image_tag "pict-reason-02.jpg", alt: "#N/A", id: "assets", class: "image"
+          .reason--list--lis--text
+            %span.reason--list--lis--text--span シンプル
             で使いやすい
-          .reason-list_lis--descript めんどくさい入力は必要なく、検索も購入もスムーズ！
-        %li{class:"reason-list_lis lislas"}
-          .reason-list_lis--picture
-            %span.reason-list_lis--picture__number 3
-            = image_tag "pict-reason-03.jpg", alt: "#N/A", id: "assets", class: "reason-list_lis--picture__image"
-          .reason-list_lis--text
+          .reason--list--lis--descript めんどくさい入力は必要なく、検索も購入もスムーズ！
+        %li{class:"reason--list--lis lislas"}
+          .reason--list--lis--picture
+            %span.reason--list--lis--picture--number 3
+            = image_tag "pict-reason-03.jpg", alt: "#N/A", id: "assets", class: "image"
+          .reason--list--lis--text
             手数料
-            %span.reason-list_lis--text__span 業界最安
-          .reason-list_lis--descript 最大３％でお得に出品＆購入！
+            %span.reason--list--lis--text--span 業界最安
+          .reason--list--lis--descript 最大３％でお得に出品＆購入！
     .secondinfo
-      .secondinfo-inner
-        .secondinfo-inner_title 会員数日本一位
-        .secondinfo-inner_text
+      .secondinfo--inner
+        .secondinfo--inner--title 会員数日本一位
+        .secondinfo--inner--text
           FURIMAは、フリマアプリで最も人気、
           %br
           出品。購入回数も業界最多です！
           %br
           ほしかったあの商品に出会えるかもしれません。
-        .secondinfo-inner_button
+        .secondinfo--inner--button
           = link_to ("#"),{ class:"apple"} do
-            = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple-aimage"
+            = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple--aimage"
           = link_to ("#"),{ class:"google"} do
-            = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google-gimage"
+            = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google--gimage"
     .feature
-      .feature-top FURIMAの特徴
-      .feature-cates
-        .feature-cates_itm
-          .feature-cates_itm--photo
+      .feature--top FURIMAの特徴
+      .feature--cates
+        .feature--cates--itm
+          .feature--cates--itm--photo
             = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image"
-          .feature-cates_itm--title 簡単に売り買いできる
-          .feature-cates_itm--detail スマホひとつで、いつでもどこでも簡単に出品・購入可能！
-        .feature-cates_itm
-          .feature-cates_itm--photo
+          .feature--cates--itm--title 簡単に売り買いできる
+          .feature--cates--itm--detail スマホひとつで、いつでもどこでも簡単に出品・購入可能！
+        .feature--cates--itm
+          .feature--cates--itm--photo
             = image_tag "icon-03.png", alt: "#N/A", id: "assets", class: "image"
-          .feature-cates_itm--title 売上金は即日振込みに対応
-          .feature-cates_itm--detail 午前９時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
-        .feature-cates_itm
-          .feature-cates_itm--photo
+          .feature--cates--itm--title 売上金は即日振込みに対応
+          .feature--cates--itm--detail 午前９時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+        .feature--cates--itm
+          .feature--cates--itm--photo
             = image_tag "icon-04.png", alt: "#N/A", id: "assets", class: "image"
-          .feature-cates_itm--title 様々な支払いに対応
-          .feature-cates_itm--detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+          .feature--cates--itm--title 様々な支払いに対応
+          .feature--cates--itm--detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
     .category
-      .category-top ピックアップカテゴリー
-      .category-prodboxs
-        .category-prodboxs_topper
-          = link_to ('#'), {class:"category-prodboxs_topper--link"} do
+      .category--top ピックアップカテゴリー
+      .category--prodboxs
+        .category--prodboxs--topper
+          = link_to ('#'), {class:"category--prodboxs--topper--link"} do
             .catgbratitle 新規投稿商品
-        .category-prodboxs_lis
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+        .category--prodboxs--lis
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
                     = icon('fas', 'fa-star', class: "staricon")
                     1
                 %p (税込)
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-02.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-02.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
                     = icon('fas', 'fa-star', class: "staricon")
                     1
                 %p (税込)
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-03.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-03.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
                     = icon('fas', 'fa-star', class: "staricon")
                     1
                 %p (税込)
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-04.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-04.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
@@ -155,54 +155,54 @@
                     1
                 %p (税込)
     .category
-      .category-top ピックアップブランド
-      .category-prodboxs
-        .category-prodboxs_topper
-          = link_to ('#'), {class:"category-prodboxs_topper--link"} do
+      .category--top ピックアップブランド
+      .category--prodboxs
+        .category--prodboxs--topper
+          = link_to ('#'), {class:"category--prodboxs--topper--link"} do
             .catgbratitle アーカイバ
-        .category-prodboxs_lis
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+        .category--prodboxs--lis
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
                     = icon('fas', 'fa-star', class: "staricon")
                     1
                 %p (税込)
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-02.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-02.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
                     = icon('fas', 'fa-star', class: "staricon")
                     1
                 %p (税込)
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-03.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-03.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
                     = icon('fas', 'fa-star', class: "staricon")
                     1
                 %p (税込)
-          = link_to ('#'),{class:"category-prodboxs_lis--product"} do
-            .category-prodboxs_lis--product__image
-              = image_tag "icon-04.png", alt: "#N/A", id: "assets", class: "image-pro"
-            .category-prodboxs_lis--product__body
-              .category-prodboxs_lis--product__body-name テスト1
-              .category-prodboxs_lis--product__body-detail
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-04.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
                 %ul.detaillist
                   %li 1000円
                   %li
@@ -210,56 +210,56 @@
                     1
                 %p (税込)
   .thirdinfo
-    .thirdinfo-inside
-      .thirdinfo-inside_title だれでもかんたん、人生を変えるフリマアプリ
-      .thirdinfo-inside_text 今すぐ無料ダウンロード
-      .thirdinfo-inside_icon
+    .thirdinfo--inside
+      .thirdinfo--inside--title だれでもかんたん、人生を変えるフリマアプリ
+      .thirdinfo--inside--text 今すぐ無料ダウンロード
+      .thirdinfo--inside--icon
         = link_to ("#"),{ class:"apple"} do
-          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple-aimage"
+          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple--aimage"
         = link_to ("#"),{ class:"google"} do
-          = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google-gimage"
+          = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google--gimage"
   .footer
-    %ul.footer-contents
-      %li.footer-contents_content
-        %h2.footer-contents_content--head FURIMAについて
+    %ul.footer--contents
+      %li.footer--contents--content
+        %h2.footer--contents--content--head FURIMAについて
         %ul
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               会社概要（運営会社）
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               プライバシーポリシー
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               FURIMA利用規約
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               ポイントに関する特約
-      %li.footer-contents_content
-        %h2.footer-contents_content--head FURIMAをみる
+      %li.footer--contents--content
+        %h2.footer--contents--content--head FURIMAをみる
         %ul
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               カテゴリー一覧
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               ブランド一覧
-      %li.footer-contents_content
-        %h2.footer-contents_content--head ヘルプ＆ガイド
+      %li.footer--contents--content
+        %h2.footer--contents--content--head ヘルプ＆ガイド
         %ul
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               FURIMAガイド
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               FURIMAロゴ利用ガイドライン
           %li
-            = link_to ("#"),{class:"footer-contents_content--link"} do
+            = link_to ("#"),{class:"footer--contents--content--link"} do
               お知らせ
-    .footer-logo
+    .footer--logo
       = link_to ("#") do
-        = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "footer-logo_image"
+        = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "image"
     .footer-logo_c © FURIMA
   = link_to ("#") ,{class: "sellicon"}do
-    %span.sellicon-text 出品する
-    = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon-image"
+    %span.sellicon--text 出品する
+    = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon--image"
