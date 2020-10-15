@@ -14,18 +14,26 @@
       .nav
         %ul.nav--lisleft
           %li.nav--lisleft--item
-            = link_to ("#") ,{class:"loginlink"} do
-              カテゴリー
-            .treedisplay
+            %a{:href =>"#",id:"btn"} カテゴリー
+            .display.tree
+              %ul.tree--catetree
+                %li.tree--catetree-item
+                  %a{:href =>"#"} レディース
+                %li.tree--catetree-item
+                  %a{:href =>"#"} メンズ
+              %ul.tree--catetree
+                %li.tree--catetree-item
+                  %a{:href =>"#"} トップス
+                %li.tree--catetree-item
+                  %a{:href =>"#"} パンツ
           %li.nav--lisleft--item--second
-            = link_to ("#") ,{class:"loginlink"} do
-              ブランド
+            %a{:href =>"#",id:"btn"} ブランド
         %ul.nav--lisright
-          %li.nav--lisright--item
-            = link_to ("#") ,{class:"loginlink"} do
+          .nav--lisright--item
+            = link_to ("#"),{id:"btnc"}  do
               ログイン
-          %li.nav--lisright--item
-            = link_to ("#") ,{class:"loginlink"} do
+          .nav--lisright--item
+            = link_to ("#"),{id:"btnc"}  do
               新規会員登録
   .main
     .firstinfo
