@@ -6,28 +6,19 @@
           = link_to ("#") ,{class:"top--inner--main--icon--a"} do
             = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
         .top--inner--main--searchbox
-          %form.top--inner--main--searchbox--form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-            %input#searchInput.top--inner--main--searchbox--form--input{:name => "key", :placeholder => "キーワードから探す"}/
-            %button.top--inner--main--searchbox--form--button{:type => "submit"}
+          %form{ action: "#", method: "get" , class:"top--inner--main--searchbox--form"}
+            %input#searchInput.top--inner--main--searchbox--form--input{name: "key", placeholder:"キーワードから探す"}/
+            %button.top--inner--main--searchbox--form--button{type: "submit"}
               .top--inner--main--searchbox--form--button--icon
                 = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "image"
       .nav
         %ul.nav--lisleft
           %li.nav--lisleft--item
-            %a{:href =>"#",id:"btn"} カテゴリー
-            .display.tree
-              %ul.tree--catetree
-                %li.tree--catetree-item
-                  %a{:href =>"#"} レディース
-                %li.tree--catetree-item
-                  %a{:href =>"#"} メンズ
-              %ul.tree--catetree
-                %li.tree--catetree-item
-                  %a{:href =>"#"} トップス
-                %li.tree--catetree-item
-                  %a{:href =>"#"} パンツ
+            = link_to ("#"),{id:"btn"} do
+              カテゴリー
           %li.nav--lisleft--item--second
-            %a{:href =>"#",id:"btn"} ブランド
+            = link_to ("#"),{id:"btn"} do
+              ブランド
         %ul.nav--lisright
           .nav--lisright--item
             = link_to ("#"),{id:"btnc"}  do
@@ -268,6 +259,6 @@
       = link_to ("#") do
         = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "image"
     .footer-logo_c © FURIMA
-  = link_to ("#") ,{class: "sellicon"}do
+  = link_to ("#") ,{class: "sellicon"} do
     %span.sellicon--text 出品する
     = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon--image"
