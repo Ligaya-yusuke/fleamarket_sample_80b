@@ -334,3 +334,6 @@ others_8 = others.children.create(category_name: "事務/店舗用品")
 others_8.children.create([{category_name: "オフィス用品一般"},{category_name: "オフィス家具"},{category_name: "店舗用品"},{category_name: "OA機器"},{category_name: "ラッピング/包装"},{category_name: "その他"}])
 others_9 = others.children.create(category_name: "その他")
 others_9.children.create([{category_name: "すべて"}])
+
+# カテゴリー一覧
+categories = Category.create(category_name: "カテゴリー一覧")
