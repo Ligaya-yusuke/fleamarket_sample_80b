@@ -16,10 +16,17 @@
   color: #333;
 }
 
-li.nav--lisleft--item > .display{
+li.nav--lisleft--item > .displayparent{
   opacity: 0;
 }
-li.nav--lisleft--item > .tree:hover{
+li.nav--lisleft--item > .displayparent:hover{
+  opacity: 1;
+}
+
+li.nav--lisleft--item > .displayparent >.displaychild{
+  opacity: 0;
+}
+li.nav--lisleft--item > .tree.displaychild:hover{
   opacity: 1;
 }
 
@@ -30,7 +37,11 @@ li.nav--lisleft--item > .tree:hover{
   top: 40px;
   display: flex;
   &--catetree{
-    flex-direction: column;
     width: 240px;
+    
+    flex-direction: column;
+    &--item{
+      
+    }
   }
 }

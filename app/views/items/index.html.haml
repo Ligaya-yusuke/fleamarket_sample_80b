@@ -16,21 +16,21 @@
           %li.nav--lisleft--item
             = link_to ("#"),{id:"btn"} do
               カテゴリー
-            .display.tree
-              %ul.tree--catetree
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    レディース
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    メンズ
-              %ul.tree--catetree
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    トップス
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    パンツ
+            %ul.displayparent.tree
+              -Category.all.where(ancestry: nil).order("id ASC").limit(13).each do |parent|
+                %li.tree--catetree
+                  = link_to ("#") ,{id:"btn"} do
+                    = parent.category_name
+                  %ul.displaychild.tree--catetree
+                    - parent.children.each do |child|
+                      %li.tree--catetree-item
+                        = link_to ("#") ,{id:"btn"} do
+                          = child.category_name
+                        %ul.displaygranchild.tree--catetree
+                          - child.children.each do |grandchild|
+                            %li.tree--catetree-item
+                              = link_to ("#") ,{id:"btn"} do
+                                = grandchild.category_name
           %li.nav--lisleft--item--second
             = link_to ("#"),{id:"btn"} do
               ブランド
