@@ -158,4 +158,4 @@ Things you may want to cover:
 - belongs_to :product
 
 # README
-<img width="831" alt="最終課題ER図修正4" src="https://user-images.githubusercontent.com/62795565/96328460-5309b180-107e-11eb-8256-874dfe97abe8.png">
+<img width="849" alt="最終課題ER図修正5" src="https://user-images.githubusercontent.com/62795565/96346712-3bf7ad80-10d8-11eb-90ae-10cfe95b8bdc.png">
