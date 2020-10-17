@@ -33,7 +33,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :adress, dependent: :destroy
+- has_one :address, dependent: :destroy
 - has_one :profile, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 - has_many :order_histories, dependent: :destroy
@@ -45,10 +45,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -75,27 +73,17 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|post_code|integer|null: false|
+|post_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |block_number|string|null: false|
 |building_number|string||
-|phone_number|integer|null: false|
+|phone_number|string|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-
-## prefecturesテーブル(active_hash)
-
-|Column|Type|Options|
-|------|----|-------|
-|prefecture|string||
-
-### Association
-
-- belongs_to :adress
 
 ### productsテーブル
 
@@ -110,8 +98,6 @@ Things you may want to cover:
 |prefecture_id|string|null: false|
 |shipping_day|string|null: false|
 |category_id|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -135,22 +121,12 @@ Things you may want to cover:
 
 - belongs_to :product
 
-## categoriesテーブル(active_hash)
-
-|Column|Type|Options|
-|------|----|-------|
-|category_name|string|null: false|
-
-### Association
-
-- has_many :products
-
 ## order_historiesテーブル(中間テーブル)
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|products_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -163,7 +139,7 @@ Things you may want to cover:
 |------|----|-------|
 |comment|text||
 |user_id|references|null: false, foreign_key: true|
-|products_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -175,7 +151,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|products_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -183,5 +159,4 @@ Things you may want to cover:
 - belongs_to :product
 
 # README
-<img width="806" alt="最終課題ER図修正2" src="https://user-images.githubusercontent.com/62795565/96211144-7b29df80-0fae-11eb-8d94-b308c14cafaf.png">
-
+<img width="795" alt="最終課題ER図修正3" src="https://user-images.githubusercontent.com/62795565/96328091-5438df80-107a-11eb-8e52-cb681d1610cb.png">
