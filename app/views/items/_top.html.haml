@@ -1,0 +1,42 @@
+.top
+  .top--inner
+    .top--inner--main
+      %h1.top--inner--main--icon
+        = link_to ("#") ,{class:"top--inner--main--icon--a"} do
+          = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
+      .top--inner--main--searchbox
+        %form{ action: "#", method: "get" , class:"top--inner--main--searchbox--form"}
+          %input#searchInput.top--inner--main--searchbox--form--input{name: "key", placeholder:"キーワードから探す"}/
+          %button.top--inner--main--searchbox--form--button{type: "submit"}
+            .top--inner--main--searchbox--form--button--icon
+              = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "image"
+    .nav
+      %ul.nav--lisleft
+        %li.nav--lisleft--item
+          = link_to ("#"),{id:"btn"} do
+            カテゴリー
+          %ul.nav--lisleft--item--display--parent.tree
+            -Category.where(ancestry: nil).order("id ASC").limit(13).each do |parent|
+              %li
+                = link_to ("#") ,{class:"nav--lisleft--item--display--parent--name",id:"btn"} do
+                  = parent.category_name
+                %ul.nav--lisleft--item--display--child.tree
+                  - parent.children.each do |child|
+                    %li
+                      = link_to ("#") ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do
+                        = child.category_name
+                      %ul.nav--lisleft--item--display--granchild.tree
+                        - child.children.each do |grandchild|
+                          %li
+                            = link_to ("#") ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do
+                              = grandchild.category_name
+        %li.nav--lisleft--item--second
+          = link_to ("#"),{id:"btn"} do
+            ブランド
+      %ul.nav--lisright
+        .nav--lisright--item
+          = link_to ("#"),{id:"btnc"}  do
+            ログイン
+        .nav--lisright--item
+          = link_to ("#"),{id:"btnc"}  do
+            新規会員登録
