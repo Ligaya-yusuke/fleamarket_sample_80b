@@ -1,0 +1,107 @@
+.Sell {
+  background-color: #dbedf0;
+  width: 100vw;
+  height: 100vh;
+  
+  .Header {
+    &__logo {
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px 0;
+    }   
+  }
+  
+  .Products {
+    background-color: #ffffff;
+    margin: 0 50px;
+    padding: 20px;
+    
+    &__image {
+      margin-top: 20px;
+      b {
+        padding: 20px 0;
+      }
+      h2 {
+        margin-top:20px;
+      }
+      &--save {
+        background-color: #dbedf0;
+        text-align: center;
+        display: block;
+        padding: 50px 0;
+        border-style: dotted;
+        border-color: #dddddd;
+      }
+      p {
+        text-align: center;  
+      }
+    } 
+    
+    &__name {
+      margin-top: 20px;
+      &--input {
+        margin-top: 20px;
+          &--box {
+            @include clearfix;
+            width: 100%;
+            height: 3vh;
+            line-height: 1.2;
+          
+        }
+      }
+    }
+
+    &__info {
+      padding: 20px 0;  
+      .Input {
+        padding: 20px 0;
+        &__box{
+          width: 100%;
+          height: 10vh;
+          line-height: 1.2;
+        }
+      }
+    }
+    &__category {
+      &--input {
+        flex-direction: column;
+        width: 100vh;
+        
+
+      } 
+    }
+    &__brand {
+      padding: 20px 0;
+      &--input{
+        margin: 20px 0;
+        &--box{
+          // @include clearfix();
+          width: 100%;
+          height: 3vh;
+          line-height: 1.2;
+        }
+      }
+    }
+    &__conditions{
+      &--input{
+        padding: 20px 0;
+        &--box{
+          // @include clearfix();
+          width: 100%;
+          height: 3vh;
+          line-height: 1.2;
+        }
+      }
+    }
+    &__deliveryCharge {
+      font: bold;  
+    }
+    &__deliveryLocation {
+      padding: 20px 0;
+    }
+  }
+
+  .Footer {
+    
+  }
+}
