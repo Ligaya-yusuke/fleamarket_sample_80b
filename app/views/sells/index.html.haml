@@ -5,73 +5,92 @@
     .Header__logo
       =link_to image_tag "logo.png", width: '20%', alt: "FURIMA"
   
+  -# メイン
   .Products
-  
-    .Products__image 
-    
-      %b出品画像
-
-      %h2最大2枚までアップロードできます
+    -# 画像保存
+    %h2.Products__image 
+      %b出品画像     
+      %span 必須
+      %br 最大2枚までアップロードできます
       
       -# 画像保存機能実装
-      =link_to "#", class: "Products__image--save" do
+      =link_to "#", class: "Products__image__save" do
         =icon('fas', 'camera')
-        %p画像を保存
+        %br ファイルをアップロード
 
-    .Products__name      
-      %b商品名
-      = form_with model: @user, class: "Products__name--input", local: true do |form|
-        =form.text_field :content, class: 'Products__name--input--box', placeholder: '40文字まで'
-    
-    .Products__info
-      %b商品の説明
-      = form_with model:@user, class: "Input", local: true do |form|
-        =form.text_field :content, class: "Input__box", placeholder: '300文字以内'
+    %h2.Products__name 
+      %b 商品名
+      %span 必須
+      = form_with model: @product, class: "Products__name__input", local: true do |form|
+        =form.text_field :content, class: 'Products__name__input__box', placeholder: '40文字まで'
 
-    .Products__category 
-      -# %bカテゴリー
+    %h2.Products__info
+      %b 商品の説明
+      %span 必須
+      = form_with model:@product, class: "Input", local: true do |form|
+        =form.text_field :content, class: "Products__info__input", placeholder: '300文字以内'
+
+    %h2.Products__category 
+      %b カテゴリー
+      %span 必須
       -# セレクタ実装
-      = form_with model:@user, class:"Products__category--input", local: true do |form|
-        = form.label :category, 'カテゴリー'
-        =form.select :category, {'メンズ':1, 'レディース':2}, {include_blank: '選択してください'}, { class:'categoryList', required: true}
+      = form_with model:@product, class:"Products__category__input", local: true do |form|
+        =form.select :category, {'メンズ':1, 'レディース':2}, {include_blank: '選択してください'}, { class:'Products__category__input__select', required: true}
 
-    .Products__brand  
-      %bブランド
-      = form_with model:@user, class: "Products__brand--input", local: true do |form|
-        =form.text_field :content, class: "Products__brand--input--box", placeholder: ' 例)シャネル'
+    %h2.Products__brand  
+      %b ブランド
+      -# 任意
+      = form_with model:@product, class: "Products__brand--input", local: true do |form|
+        =form.text_field :content, class: "Products__brand__input__box", placeholder: ' 例)シャネル'
 
 
-    .Products__conditions  
-      %b商品の状態
-      = form_with model:@user, class: "Products__conditions--input", local: true do |form|
-        =form.text_field :content, class: "Products__conditions--input--box", placeholder: '40文字以内'
+    %h2.Products__conditions  
+      %b 商品の状態
+      %span 必須
+      = form_with model:@user, class: "Products__conditions__input", local: true do |form|
+        =form.text_field :content, class: "Products__conditions__input__box", placeholder: '40文字以内'
 
-    .Products__deliveryCharge
+    %h2.Products__deliveryCharge
+      %b 配送料の負担
+      %span 必須
+      = form_with model:@product, class:"Products__deliveryCharge__select", local: true do |form|
+        =form.select :deliveryCharge, {'送料込み(出品者負担)':1, '着払い(購入者負担)':2}, {include_blank: '選択してください'}, { class:'Products__deliveryCharge__select__box', required: true}
 
-      = form_with model:@user, class:"Products__deliveryCharge--select", local: true do |form|
-        = form.label :deliveryChrge, '配送料の負担'
-        =form.select :deliveryCharge, {'送料込み(出品者負担)':1, '着払い(購入者負担)':2}, {include_blank: '選択してください'}, { class:'deliveryCharge', required: true}
+    %h2.Products__deliveryLocation
+      %b 発送元の地域
+      %span 必須
+      =form_with model:@user, class: "Products__deliveryLocation__select", local: true do |form|
+        = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {class: 'Products__deliveryLocation__select__box'}
 
-    .Products__deliveryLocation
-      %b発送元の地域
-      =form_with model:@user, class: "Products__deliveryLocation--select", local: true do |form|
-        = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+    %h2.Products__shippingDay
+      %b 発送までの日数
+      %span 必須
+      = form_with model:@user, class:"Products__shippingDay--select", local: true do |form|
+        =form.select :deliveryCharge, {'1~2日で発送':1, '2~3日で発送':2, '4~7日で発送':3}, {include_blank: '選択してください'}, { class:'Products__shippingDay__select__box', required: true}
 
-    .Shipping__day
-  
-    .Price__sales
+    %h2.Products__price
+      %b 販売価格
+      %span 必須
 
-    .Prices__charges  販売手数料 (10%)
+      
 
-    .Price__profits   販売利益
+    .Products__charges 
+      販売手数料 (10%)
+      -# = price x 10%
+
+    .Products__profits
+      販売利益
       
     -# ボタン
-    .Button
-      .Button_sell  出品する
+    .Products__button
+      .Products__button__sell  出品する
 
-      .Button__save  下書きに保存
+      .Products__button__save  下書きに保存
 
-    .Return  もどる
+      .Products__button__return
+        =link_to "もどる", "#"
     
 
-  .Footer  ロゴ
+  .Footer 
+    .Footer__logo
+      =link_to image_tag "logo-white.png", width: '20%', alt: "FURIMA"
