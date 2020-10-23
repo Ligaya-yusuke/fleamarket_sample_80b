@@ -54,12 +54,18 @@ span{
       }
     }
     &__info {
+      padding: 20px 0;
+      border-bottom: 1px;
+      border-bottom-color: #efefef;
+      border-bottom-style: solid;
       &__input {
+        &__box{
           width: 100%;
           height: 10vh;
           line-height: 1.2;
         }
       }
+    }
     &__category {
       &__input {
         &__select{
@@ -81,6 +87,10 @@ span{
       }
     }
     &__conditions{
+      padding: 20px 0;
+      border-bottom: 1px;
+      border-bottom-color: #efefef;
+      border-bottom-style: solid;
       &__input{
         &__box{
           // @include clearfix();
@@ -112,6 +122,10 @@ span{
     }
     &__shippingDay{
       padding: 20px 0;
+      border-bottom: 1px;
+      border-bottom-color: #efefef;
+      border-bottom-style: solid;
+      
       &__select {
         &__box{
           // @include clearfix();
@@ -122,10 +136,86 @@ span{
       }
     }
     &__price {
+      &__title{
+      }
+      .Sub-title {      
+        &__included {
+          // &__yen{
+          // }
+          &__input {
+            float: right;
+            text-align: right;
+          }
+        }
+      }
+      .Yen {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 5px;
+        font-size: 20px;
+      }
+    }
+    &__fees{
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px;
+      border-bottom-color: #efefef;
+      border-bottom-style: solid;
+      &__title {
 
-      
+        &__hyphen{
+        }
+      }
+    }
+      &__profits{
+        padding: 20px 0;   
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+      &__title {
+        &__hyphen {
+
+        }
+      }
     }
   }
+  .Button {
+    &__sell {
+      padding: 20px 0;
+      align-items: center;
+      &__button {
+        color: #ffffff;
+        background-color: red;
+        width: 100%;
+        line-height: 200%;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+      
+      }
+    }
+    &__save {
+      &__button{
+        margin: 20px 0;
+        color: #ffffff;
+        background-color: grey;
+        width: 100%;
+        line-height: 200%;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+      }
+    }
+    &__return {
+      text-align: center;
+    }
+  }
+
 
   .Footer {
     &__logo {
