@@ -1,17 +1,17 @@
-// 繰り返し使用コード
+//以下繰り返し使用コード
 
 h2 {
   margin-top:20px;
   // font-weight: bold;
 }
 
-span{
+span {
   color: white;
   background-color: red;
   font-size: small;
 }
 
-// 本文
+// 以下本文
 
 .Sell {
   background-color: #dbedf0;
@@ -45,93 +45,64 @@ span{
     }
     &__name {
       &__input {
-          &__box {
-            // @include clearfix;
-            width: 100%;
-            height: 3vh;
-            line-height: 1.2;          
+        &__box {
+          @include box;
         }
       }
     }
     &__info {
       padding: 20px 0;
-      border-bottom: 1px;
-      border-bottom-color: #efefef;
-      border-bottom-style: solid;
+      @include line;
       &__input {
         &__box{
-          width: 100%;
-          height: 10vh;
-          line-height: 1.2;
+          @include box(10vh)
         }
       }
     }
     &__category {
       &__input {
         &__select{
-          width: 100%;
-          height: 3vh;
-          line-height: 1.2;
+          @include box;
         }
       } 
     }
 
     &__brand {
-      &__input{
-        &__box{
-          // @include clearfix();
-          width: 100%;
-          height: 3vh;
-          line-height: 1.2;
+      &__input {
+        &__box {
+          @include box;
         }
       }
     }
     &__conditions{
       padding: 20px 0;
-      border-bottom: 1px;
-      border-bottom-color: #efefef;
-      border-bottom-style: solid;
+      @include line;
       &__input{
         &__box{
-          // @include clearfix();
-          width: 100%;
-          height: 3vh;
-          line-height: 1.2;
+          @include box;
         }
       }
     }
     &__deliveryCharge {
       &__select {
         &__box{
-          // @include clearfix();
-          width: 100%;
-          height: 3vh;
-          line-height: 1.2;
+          @include box;
         }
       }
     }
     &__deliveryLocation {
       &__select {
         &__box {
-          // @include clearfix();
-          width: 100%;
-          height: 3vh;
-          line-height: 1.2;
+          @include box;
         }
       }
     }
     &__shippingDay{
       padding: 20px 0;
-      border-bottom: 1px;
-      border-bottom-color: #efefef;
-      border-bottom-style: solid;
-      
+      @include line;
       &__select {
         &__box{
-          // @include clearfix();
-          width: 100%;
-          height: 3vh;
-          line-height: 1.2;
+          @include box;
         }
       }
     }
@@ -160,11 +131,8 @@ span{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px;
-      border-bottom-color: #efefef;
-      border-bottom-style: solid;
+      @include line;
       &__title {
-
         &__hyphen{
         }
       }
@@ -187,35 +155,19 @@ span{
       padding: 20px 0;
       align-items: center;
       &__button {
-        color: #ffffff;
-        background-color: red;
-        width: 100%;
-        line-height: 200%;
-        font-weight: bold;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-      
+        @include button;
       }
     }
     &__save {
       &__button{
         margin: 20px 0;
-        color: #ffffff;
-        background-color: grey;
-        width: 100%;
-        line-height: 200%;
-        font-weight: bold;
-        border: none;
-        outline: none;
-        border-radius: 10px;
+        @include button(grey)
       }
     }
     &__return {
       text-align: center;
     }
   }
-
 
   .Footer {
     &__logo {
