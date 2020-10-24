@@ -1,0 +1,47 @@
+%h2 お届け先情報入力
+= form_for @address do |f|
+  = render "devise/shared/error_messages", resource: @address
+  .field
+    = f.label :氏名
+    %br/
+    = f.text_field :ship_first_name, autofocus: true
+  .field
+    = f.label :名前
+    %br/
+    = f.text_field :ship_family_name, autofocus: true
+  .field
+    = f.label :氏名（かな）
+    %br/
+    = f.text_field :ship_first_name_kana, autofocus: true
+  .field
+    = f.label :名前（かな）
+    %br/
+    = f.text_field :ship_family_name_kana, autofocus: true
+  .field
+    = f.label :郵便番号
+    %br/
+    = f.text_field :post_code, autofocus: true
+  .field
+    = f.label :都道府県
+    %br/
+    = f.text_field :prefecture, autofocus: true
+  .field
+    = f.label :市町村
+    %br/
+    = f.text_field :city, autofocus: true
+  .field
+    = f.label :番地
+    %br/
+    = f.text_field :block_number, autofocus: true
+  .field
+    = f.label :建物名
+    %br/
+    = f.text_field :building_number, autofocus: true
+  .field
+    = f.label :電話番号
+    %br/
+    = f.text_field :phone_number, autofocus: true
+  .actions
+    = f.submit "新規登録"
+
+= render "devise/shared/links"
