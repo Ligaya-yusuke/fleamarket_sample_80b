@@ -58,4 +58,22 @@ ActiveRecord::Schema.define(version: 2020_10_20_034848) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "profiles", "users"
+  
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "information", null: false
+    t.string "price", null: false
+    t.string "brand"
+    t.string "condition", null: false
+    t.string "delivery_change", null: false
+    t.string "shipping_day", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 end
