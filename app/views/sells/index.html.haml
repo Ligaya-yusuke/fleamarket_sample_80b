@@ -77,7 +77,6 @@
         %b 販売価格
         %span 必須
         =form_with model:@product, class: "Sub-title__included", local: true do |form|
-          -# =form.label :yen, "¥", class: "Sub-title__included__yen"
           =form.number_field :price, class: "Sub-title__included__input", placeholder: '0'
       .Yen
         ¥

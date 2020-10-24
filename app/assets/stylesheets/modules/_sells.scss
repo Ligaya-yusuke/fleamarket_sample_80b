@@ -2,7 +2,6 @@
 
 h2 {
   margin-top:20px;
-  // font-weight: bold;
 }
 
 span {
@@ -12,7 +11,6 @@ span {
 }
 
 // 以下本文
-
 .Sell {
   background-color: #dbedf0;
   width: 100%;
@@ -111,8 +109,6 @@ span {
       }
       .Sub-title {      
         &__included {
-          // &__yen{
-          // }
           &__input {
             float: right;
             text-align: right;
