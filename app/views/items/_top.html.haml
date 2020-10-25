@@ -2,7 +2,7 @@
   .top--inner
     .top--inner--main
       %h1.top--inner--main--icon
-        = link_to ("#") ,{class:"top--inner--main--icon--a"} do
+        = link_to root_path ,{class:"top--inner--main--icon--a"} do
           = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
       .top--inner--main--searchbox
         %form{ action: "#", method: "get" , class:"top--inner--main--searchbox--form"}
@@ -13,22 +13,22 @@
     .nav
       %ul.nav--lisleft
         %li.nav--lisleft--item
-          = link_to ("#"),{id:"btn"} do
+          = link_to category_index_path,{id:"btn"} do
             カテゴリー
           %ul.nav--lisleft--item--display--parent.tree
             -Category.where(ancestry: nil).order("id ASC").limit(13).each do |parent|
               %li
-                = link_to ("#") ,{class:"nav--lisleft--item--display--parent--name",id:"btn"} do
+                = link_to category_path(parent) ,{class:"nav--lisleft--item--display--parent--name",id:"btn"} do
                   = parent.category_name
                 %ul.nav--lisleft--item--display--child.tree
                   - parent.children.each do |child|
                     %li
-                      = link_to ("#") ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do
+                      = link_to category_path(child) ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do
                         = child.category_name
                       %ul.nav--lisleft--item--display--granchild.tree
                         - child.children.each do |grandchild|
                           %li
-                            = link_to ("#") ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do
+                            = link_to category_path(grandchild) ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do
                               = grandchild.category_name
         %li.nav--lisleft--item--second
           = link_to ("#"),{id:"btn"} do

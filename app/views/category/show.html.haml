@@ -1,0 +1,63 @@
+= render "items/top"
+%nav.root
+  %ul.root--category
+    %li.root--category--name
+      = link_to root_path,{class:"root--category--name--link"} do
+        FURIMA
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to category_index_path,{class:"root--category--name--link"} do
+        カテゴリー一覧
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to category_path(@category.id),{class:"root--category--name--link"} do
+        = @category.category_name
+.main
+  .showmain
+    .showmain--right
+      .titletoparea
+        .titlebox
+          .titlebox--title
+            = link_to category_path(@category.id),{class:"root--category--name--linksec"} do
+              = @category.category_name
+          - @category.children.each do |child|
+            .titlebox--subtitle
+              = link_to category_path(child) ,{class:"titlebox--subtitle--link"} do
+                = child.category_name
+            - child.children.each do |grandchild|
+              .titlebox--subsubtitle
+                .titlebox--subsubtitle--items
+                  = link_to category_path(grandchild) ,{class:"titlebox--subsubtitle--items--link"} do
+                    = grandchild.category_name
+  .products
+    .products--view
+      = @category.category_name
+      の商品一覧
+    .category--prodboxs--lis
+      = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+        .category--prodboxs--lis--product--image
+          = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+        .category--prodboxs--lis--product--body
+          .category--prodboxs--lis--product--body--name テスト1
+          .category--prodboxs--lis--product--body--detail
+            %ul.detaillist
+              %li 1000円
+              %li
+                = icon('fas', 'fa-star', class: "staricon")
+                1
+            %p (税込)
+      = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+        .category--prodboxs--lis--product--image
+          = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+        .category--prodboxs--lis--product--body
+          .category--prodboxs--lis--product--body--name テスト2
+          .category--prodboxs--lis--product--body--detail
+            %ul.detaillist
+              %li 1000円
+              %li
+                = icon('fas', 'fa-star', class: "staricon")
+                1
+            %p (税込)
+= render "items/thirdinfo"
+= render "items/footer"
+= render "items/seller_icon"
