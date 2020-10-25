@@ -78,3 +78,10 @@ gem 'devise-i18n-views'
 gem 'jp_prefecture'
 
 gem 'jquery-rails' 
+
+gem "font-awesome-sass"
+
+gem 'active_hash'
+
+gem 'carrierwave'
+gem 'mini_magick'
