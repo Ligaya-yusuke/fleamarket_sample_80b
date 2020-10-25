@@ -28,7 +28,7 @@
       %b 商品の説明
       %span 必須
       = form_with model:@product, class: "Products__info__input", local: true do |form|
-        =form.text_field :content, class: "Products__info__input__box", placeholder: '300文字以内'
+        =form.text_field :content, class: "Products__info__input__box", placeholder: '商品の説明（必須 300文字以内)（色、素材、重さ、定価、注意点など）'
 
     %h2.Products__category 
       %b カテゴリー
@@ -39,7 +39,7 @@
 
     %h2.Products__brand  
       %b ブランド
-      -# 任意
+      %span 任意
       = form_with model:@product, class: "Products__brand--input", local: true do |form|
         =form.text_field :content, class: "Products__brand__input__box", placeholder: ' 例)シャネル'
 

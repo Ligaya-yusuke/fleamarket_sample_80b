@@ -24,3 +24,9 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+@mixin must {
+  color: white;
+  background-color: red;
+  font-size: small;
+}
