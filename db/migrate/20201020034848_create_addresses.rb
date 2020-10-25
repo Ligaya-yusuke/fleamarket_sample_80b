@@ -6,7 +6,7 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
       t.string :ship_first_name_kana,  null: false
       t.string :ship_family_name_kana, null: false
       t.string :post_code,       null: false
-      t.string :prefecture,       null: false
+      # t.string :prefecture,       null: false
       t.string :city,            null: false
       t.string :block_number,    null: false
       t.string :building_number
