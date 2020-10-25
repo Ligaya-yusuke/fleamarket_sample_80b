@@ -3,6 +3,10 @@ class SellsController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @product = Product.new
+  end
+
+  def create
+    
   end
 end
