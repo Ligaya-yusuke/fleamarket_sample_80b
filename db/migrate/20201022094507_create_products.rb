@@ -11,7 +11,6 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :shipping_day, null:false 
       # t.references :category_id, null:false, foreign_key:true
       # t.references :user_id, null: false, foreign_key:true
-
       t.timestamps
     end
   end
