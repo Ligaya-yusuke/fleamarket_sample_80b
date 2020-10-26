@@ -3,8 +3,8 @@
   .Header
 
     .Header__logo
-      =link_to image_tag "logo.png", width: '20%', alt: "FURIMA"
-  
+      =link_to items_path do
+        =image_tag "logo.png", width: '20%', alt: "FURIMA"
   -# メイン
   .Products
     -# 画像保存
@@ -108,4 +108,5 @@
 
   .Footer 
     .Footer__logo
-      =link_to image_tag "logo-white.png", width: '20%', alt: "FURIMA"
+      =link_to items_path do
+        =image_tag "logo-white.png", width: '20%', alt: "FURIMA"
