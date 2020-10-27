@@ -1,0 +1,31 @@
+= render "items/top"
+%nav.root
+  %ul.root--category
+    %li.root--category--name
+      = link_to root_path,{class:"root--category--name--link"} do
+        FURIMA
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to category_index_path,{class:"root--category--name--link"} do
+        カテゴリー一覧
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to category_path(@category.id),{class:"root--category--name--link"} do
+        = @category.category_name
+.main
+  .showmain
+    .showmain--right
+      .titletoparea
+        .titlebox
+          .titlebox--title
+            = link_to category_path(@category.id),{class:"root--category--name--linksec"} do
+              = @category.category_name
+          - @category.children.each do |child|
+            -# .titlebox--subtitle
+            .titlebox--subsubtitle
+              .titlebox--subsubtitle--items
+                = link_to subcategory_path(child) ,{class:"titlebox--subsubtitle--items--link"} do
+                  = child.category_name
+= render "items/thirdinfo"
+= render "items/footer"
+= render "items/seller_icon"
