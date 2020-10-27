@@ -15,12 +15,12 @@
                 = parent.category_name
             - parent.children.each do |child|
               .titlebox--subtitle
-                = link_to subcategory_path(child) ,{class:"titlebox--subtitle--link"} do
+                = link_to category_path(child) ,{class:"titlebox--subtitle--link"} do
                   = child.category_name
               - child.children.each do |grandchild|
                 .titlebox--subsubtitle
                   .titlebox--subsubtitle--items
-                    = link_to subcategory_path(grandchild) ,{class:"titlebox--subsubtitle--items--link"} do
+                    = link_to category_path(grandchild) ,{class:"titlebox--subsubtitle--items--link"} do
                       = grandchild.category_name
 = render "items/thirdinfo"
 = render "items/footer"
