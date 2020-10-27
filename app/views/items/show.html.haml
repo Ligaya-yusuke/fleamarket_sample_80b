@@ -1,0 +1,195 @@
+%body
+  .top
+    .top--inner
+      .top--inner--main
+        %h1.top--inner--main--icon
+          = link_to ("#") ,{class:"top--inner--main--icon--a"} do
+            = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
+        .top--inner--main--searchbox
+          %form{ action: "#", method: "get" , class:"top--inner--main--searchbox--form"}
+            %input#searchInput.top--inner--main--searchbox--form--input{name: "key", placeholder:"キーワードから探す"}/
+            %button.top--inner--main--searchbox--form--button{type: "submit"}
+              .top--inner--main--searchbox--form--button--icon
+                = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "image"
+      .nav
+        %ul.nav--lisleft
+          %li.nav--lisleft--item
+            = link_to ("#"),{id:"btn"} do
+              カテゴリー
+            .display.tree
+              %ul.tree--catetree
+                %li.tree--catetree-item
+                  = link_to ("#") do
+                    レディース
+                %li.tree--catetree-item
+                  = link_to ("#") do
+                    メンズ
+              %ul.tree--catetree
+                %li.tree--catetree-item
+                  = link_to ("#") do
+                    トップス
+                %li.tree--catetree-item
+                  = link_to ("#") do
+                    パンツ
+          %li.nav--lisleft--item--second
+            = link_to ("#"),{id:"btn"} do
+              ブランド
+        %ul.nav--lisright
+          .nav--lisright--item
+            = link_to ("#"),{id:"btnc"}  do
+              ログイン
+          .nav--lisright--item
+            = link_to ("#"),{id:"btnc"}  do
+              新規会員登録
+      .breadcrumb
+        = render "breadcrumbs"
+
+  .main
+    .mainbox
+      .mainbox__top
+        .mainbox__top__title
+          カンガルー
+        .mainbox__top__image
+          = link_to image_tag "kangaroo.jpeg", alt: "kangaroo", class: "kangaroo"
+          .mainbox__top__image__sub
+            = link_to ("#"),{ class: "pics"} do
+              = image_tag "kangaroo.jpeg", alt: "kangaroo", class: "kangarooo"
+            = link_to ("#"),{ class: "pics"} do
+              = image_tag "kangaroo1.jpeg", alt: "kangaroo1", class: "kangarooo"
+            = link_to ("#"),{ class: "pics"} do
+              = image_tag "kangaroo2.jpeg", alt: "kangaroo2", class: "kangarooo"
+        .mainbox__top__price
+          ¥1,000,000
+          .mainbox__top__price__tax
+            (税込)送料込み
+        .product-description
+          %label{for: "description"} 商品説明
+          %textarea{cols: "40", name: "description", rows: "4", placeholder: "商品の説明を記入して下さい"}
+        .product-information
+          %table
+            %tr
+              %th 出品者
+              %td マスター
+            %tr
+              %th カテゴリー
+              %td
+                %ul
+                  %li
+                    = link_to "レディース"
+                  %li
+                    = link_to "トップス"
+                  %li
+                    = link_to "Tシャツ/カットソー(半袖/袖なし)"
+            %tr
+              %th ブランド
+              %td 
+            %tr
+              %th 商品のサイズ
+              %td 
+            %tr
+              %th 商品の状態
+              %td 新品/未使用
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 配送元の地域
+              %td 
+                = link_to "海外"
+            %tr
+              %th 発送日の目安
+              %td 1-2日で発送
+        .extrainfo
+          %ul
+            %li.favorite
+              = icon('fas', 'heart', class: "likes")
+              = link_to "お気に入り"
+              %span
+              3150
+          %ul
+            %li.reports
+              = icon('fas', 'exclamation-triangle', class: "report")
+              = link_to "不適切な商品の通報"
+      .mainbox__middle
+        .commentbox
+          %label{for: "comment"} コメント
+          %textarea{cols: "40", name: "comment", rows: "4", placeholder: "コメントを記入する"}
+        .commentbox-alert
+          .commentbox-alert__content
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .commentform
+          %ul
+            %li.submitbutton
+              = icon('fas', 'comment', class: "submit")
+              %button{type: "submit", class: "submit"}コメントする
+      .links
+        %ul
+          %li
+            = link_to "< 前の商品"
+        %ul
+          %li
+            = link_to "後ろの商品 >"
+      .mainbox__bottom
+        .more-products
+        = link_to "レディースをもっと見る"
+        .related-products
+          = link_to ("#"),{ class: "pics"} do
+            = image_tag "turtle1.jpeg", alt: "turtle1", class: "pic"
+          = link_to ("#"),{ class: "pics"} do
+            = image_tag "koala.jpeg", alt: "koala", class: "pic"
+          = link_to ("#"),{ class: "pics"} do
+            = image_tag "monkey", alt: "monkey", class: "pic"
+
+  .thirdinfo
+    .thirdinfo--inside
+      .thirdinfo--inside--title だれでもかんたん、人生を変えるフリマアプリ
+      .thirdinfo--inside--text 今すぐ無料ダウンロード
+      .thirdinfo--inside--icon
+        = link_to ("#"),{ class:"apple"} do
+          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple--aimage"
+        = link_to ("#"),{ class:"google"} do
+          = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google--gimage"
+  .footer
+    %ul.footer--contents
+      %li.footer--contents--content
+        %h2.footer--contents--content--head FURIMAについて
+        %ul
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              会社概要（運営会社）
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              プライバシーポリシー
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              FURIMA利用規約
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              ポイントに関する特約
+      %li.footer--contents--content
+        %h2.footer--contents--content--head FURIMAをみる
+        %ul
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              カテゴリー一覧
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              ブランド一覧
+      %li.footer--contents--content
+        %h2.footer--contents--content--head ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              FURIMAガイド
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              FURIMAロゴ利用ガイドライン
+          %li
+            = link_to ("#"),{class:"footer--contents--content--link"} do
+              お知らせ
+    .footer--logo
+      = link_to ("#") do
+        = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "image"
+    .footer-logo_c © FURIMA
