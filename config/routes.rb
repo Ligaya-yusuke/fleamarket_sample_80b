@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   root 'items#index'
   resources :category, only: [:index, :show]
-  resources :product, only: [:index, :new, :create]
+  resources :products, only: [:index, :new, :create] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
