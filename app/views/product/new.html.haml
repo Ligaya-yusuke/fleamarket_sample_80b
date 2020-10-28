@@ -1,0 +1,111 @@
+.Sell
+  
+  .Header
+
+    .Header__logo
+      =link_to image_tag "logo.png", width: '20%', alt: "FURIMA"
+  
+  -# メイン
+  .Products
+    -# 画像保存
+    %h2.Products__image 
+      %b出品画像     
+      %span 必須
+      %br 最大2枚までアップロードできます
+      
+      -# 画像保存機能実装
+      =link_to "#", class: "Products__image__save" do
+        =icon('fas', 'camera')
+        %br ファイルをアップロード
+
+    %h2.Products__name 
+      %b 商品名
+      %span 必須
+      = form_with model: @product, class: "Products__name__input", local: true do |form|
+        =form.text_field :content, class: "Products__name__input__box", placeholder: '40文字まで'
+
+    %h2.Products__info
+      %b 商品の説明
+      %span 必須
+      = form_with model:@product, class: "Products__info__input", local: true do |form|
+        =form.text_field :content, class: "Products__info__input__box", placeholder: '300文字以内'
+
+    %h2.Products__category 
+      %b カテゴリー
+      %span 必須
+      -# セレクタ実装
+      = form_with model:@product, class:"Products__category__input", local: true do |form|
+        =form.select :category, {'メンズ':1, 'レディース':2}, {include_blank: '選択してください'}, { class:'Products__category__input__select', required: true}
+
+    %h2.Products__brand  
+      %b ブランド
+      -# 任意
+      = form_with model:@product, class: "Products__brand--input", local: true do |form|
+        =form.text_field :content, class: "Products__brand__input__box", placeholder: ' 例)シャネル'
+
+
+    %h2.Products__conditions  
+      %b 商品の状態
+      %span 必須
+      = form_with model:@user, class: "Products__conditions__input", local: true do |form|
+        =form.select :condition, {'新品、未使用':1, '未使用に近い':2, '目立った傷や汚れなし':3, 'やや傷や汚れあり':4, '傷や汚れあり':5, '全体的に状態が悪い':6}, {include_blank: '選択してください'}, { class:'Products__category__input__select', required: true}
+
+    %h2.Products__deliveryCharge
+      %b 配送料の負担
+      %span 必須
+      = form_with model:@product, class:"Products__deliveryCharge__select", local: true do |form|
+        =form.select :deliveryCharge, {'送料込み(出品者負担)':1, '着払い(購入者負担)':2}, {include_blank: '選択してください'}, { class:'Products__deliveryCharge__select__box', required: true}
+
+    %h2.Products__deliveryLocation
+      %b 発送元の地域
+      %span 必須
+      =form_with model:@product, class: "Products__deliveryLocation__select", local: true do |form|
+        = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {class: 'Products__deliveryLocation__select__box'}
+
+    %h2.Products__shippingDay
+      %b 発送までの日数
+      %span 必須
+      = form_with model:@product, class:"Products__shippingDay__select", local: true do |form|
+        =form.select :shippindgDay, {'1~2日で発送':1, '2~3日で発送':2, '4~7日で発送':3}, {include_blank: '選択してください'}, { class:'Products__shippingDay__select__box', required: true}
+
+    %h2.Products__price
+      .Products__price__title
+        価格(300~9,999,999)
+        =link_to "#", class: "Products__price__title__question" do
+          =icon('far', 'question-circle')
+      .Sub-title 
+        %b 販売価格
+        %span 必須
+        =form_with model:@product, class: "Sub-title__included", local: true do |form|
+          =form.number_field :price, class: "Sub-title__included__input", placeholder: '0'
+      .Yen
+        ¥
+
+    .Products__fees 
+      .Products__fees__title
+        販売手数料 (10%)
+      .Products__fees__hyphen
+        ➖
+    .Products__profits
+      .Products__profits__title 
+        販売利益
+      .Products__profits__hyphen
+        ➖
+
+    -# ボタン
+    .Button
+      .Button__sell
+        =form_with model: @product do |form|
+          =form.submit "出品する", class: "Button__sell__button"
+
+      .Button__save
+        =form_with model: @product do |form|
+          =form.submit "下書きに保存", class: "Button__save__button"
+      
+      .Button__return
+        =link_to "もどる", "#"
+    
+
+  .Footer 
+    .Footer__logo
+      =link_to image_tag "logo-white.png", width: '20%', alt: "FURIMA"
