@@ -13,7 +13,7 @@
     .nav
       %ul.nav--lisleft
         %li.nav--lisleft--item
-          = link_to category_index_path,{id:"btn"} do
+          = link_to categories_path,{id:"btn"} do
             カテゴリー
           %ul.nav--lisleft--item--display--parent.tree
             -Category.where(ancestry: nil).order("id ASC").limit(13).each do |parent|

@@ -7,17 +7,16 @@ class ProductsController < ApplicationController
   end
 
   def new
-    # #セレクトボックスの初期値設定
-    # @category_parent_array = ["---"]
-    # #データベースから、親カテゴリーのみ抽出し、配列化
-    # Category.where(ancestry: nil).each do |parent|
-    #     @category_parent_array << parent.category_name
-    # end
     @product = Product.new
   end
 
   def create
-    Product.create(product_params)
+    @product = Product.create(product_params)
+    if @product.save
+      redirect_to root_path, notice: '商品を出品しました。'
+    else
+      render :new, alert: "商品登録に失敗しました"
+    end
   end
 
   #jsonで親の名前で検索し、紐づく小カテゴリーの配列を取得
@@ -33,7 +32,8 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:products).permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand, :category)
+    params.permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand,:category_id)
+    # require(:products).
   end
   
   def set_category  
@@ -41,6 +41,6 @@ class ProductsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:category_id )
+    params.require(:products).permit(:category_id )
   end
 end
