@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   # トップページへのリンク
-  root 'items#index'
-  # root to: 'sells#index'
+  root to: 'items#index'
+
+  #出品機能へのリンク
+  get 'sells', to:'sells#new'
+  post'sells/posts', to:'sells#create'
+
   resources :items, only: [:index]
-  resources :sells, only: [:new, :create]
+  resources :sells, only: [:index, :new, :create]
+
 end

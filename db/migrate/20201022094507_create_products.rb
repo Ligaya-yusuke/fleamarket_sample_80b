@@ -6,9 +6,10 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :price, null:false
       t.string :brand
       t.string :condition, null:false
-      t.string :delivery_change, null: false
-      # t.string :prefecture_id, null false  models/prefecture.rbに保存
-      t.string :shipping_day, null:false 
+      t.string :delivery_charge, null: false
+      t.string :prefecture_id, null: false
+      t.string :shipping_day, null:false
+      t.string :image
       # t.references :category_id, null:false, foreign_key:true
       # t.references :user_id, null: false, foreign_key:true
       t.timestamps

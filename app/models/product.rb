@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to :user, foreign_key:user_id
+  belongs_to :user, optional: true
   has_many :comments
   has_many :order_histories, dependent: :destroy
   has_many :likes
@@ -8,5 +8,6 @@ class Product < ApplicationRecord
 
   # 空のデータ登録できない
   validates :name, presence:true
-
+  #Image_uploaderをマウント
+  # mount_uploader :image, ImageUploader
 end
