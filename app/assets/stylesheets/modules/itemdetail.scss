@@ -30,7 +30,6 @@
         justify-content: space-around;
         .pics{
           width: 33%;
-          background-color: #eee;
           .kangarooo{
             width: 100%;
             margin-top: 10px;
@@ -94,9 +93,6 @@
         font-size: 14px;
         a{
           color: #3CCACE;
-        }
-        .likes{
-          
         }
       }
       .reports{
@@ -166,30 +162,18 @@
       color: #3CCACE;
     }
   }
-  &__bottom{
-    width: 700px;
-    background-color: cornflowerblue;
-    a{
-      color: #3CCACE;
+  .products{
+    &--view{
       font-size: 20px;
       font-weight: bold;
-    }
-    .related-products{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      .pics{
-        width: 230px;
-        height: 270px;
-        background-color: #eee;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .pic{
-          width: 100%;
-          margin-top: 10px;
-        }
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      a{
+        color: #3CCACE;
       }
     }
+  }
+  .products:last-child{
+    padding-bottom: 80px;
   }
 }

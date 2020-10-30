@@ -41,8 +41,7 @@
           .nav--lisright--item
             = link_to ("#"),{id:"btnc"}  do
               新規会員登録
-      .breadcrumb
-        = render "breadcrumbs"
+
 
   .main
     .mainbox
@@ -131,16 +130,34 @@
         %ul
           %li
             = link_to "後ろの商品 >"
-      .mainbox__bottom
-        .more-products
-        = link_to "レディースをもっと見る"
-        .related-products
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "turtle1.jpeg", alt: "turtle1", class: "pic"
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "koala.jpeg", alt: "koala", class: "pic"
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "monkey", alt: "monkey", class: "pic"
+      .products
+        .products--view
+          = link_to "レディースをもっと見る"
+        .category--prodboxs--lis
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト1
+              .category--prodboxs--lis--product--body--detail
+                %ul.detaillist
+                  %li 1000円
+                  %li
+                    = icon('fas', 'fa-star', class: "staricon")
+                    1
+                %p (税込)
+          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
+            .category--prodboxs--lis--product--image
+              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+            .category--prodboxs--lis--product--body
+              .category--prodboxs--lis--product--body--name テスト2
+              .category--prodboxs--lis--product--body--detail
+                %ul.detaillist
+                  %li 1000円
+                  %li
+                    = icon('fas', 'fa-star', class: "staricon")
+                    1
+                %p (税込)
 
   .thirdinfo
     .thirdinfo--inside
@@ -193,3 +210,7 @@
       = link_to ("#") do
         = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "image"
     .footer-logo_c © FURIMA
+
+    = link_to ("#") ,{class: "sellicon"} do
+      %span.sellicon--text 出品する
+      = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon--image"
