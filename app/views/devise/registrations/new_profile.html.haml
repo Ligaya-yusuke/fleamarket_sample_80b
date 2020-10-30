@@ -1,0 +1,31 @@
+%h2 本人確認情報
+= form_for @profile do |f|
+  = render "devise/shared/error_messages", resource: @profile
+  .field
+    = f.label :氏名（必須）
+    %br/
+    = f.text_field :family_name, autofocus: true
+  .field
+    = f.label :名前（必須）
+    %br/
+    = f.text_field :first_name, autofocus: true
+  .field
+    = f.label :氏名（かな）（必須）
+    %br/
+    = f.text_field :family_name_kana, autofocus: true
+  .field
+    = f.label :名前（かな）（必須）
+    %br/
+    = f.text_field :first_name_kana, autofocus: true
+  .field
+    = f.label :生年月日（必須）
+    %br/
+    = f.date_field :birthday, autofocus: true
+  .field
+    -# = f.label :introduction
+    -# %br/
+    -# = f.text_field :introduction, autofocus: true
+  .actions
+    = f.submit "次へ"
+
+= render "devise/shared/links"
