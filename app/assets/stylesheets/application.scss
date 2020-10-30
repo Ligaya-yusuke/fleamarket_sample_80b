@@ -1,8 +1,12 @@
 @import "reset";
+@import "modules/mixins";
 @import "modules/items";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/haction";
+
 @import "modules/itemdetail";
-// @import "modules/";
+
+@import "modules/sells";
+
 // @import "modules/";
