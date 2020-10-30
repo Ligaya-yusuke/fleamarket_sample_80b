@@ -1,10 +1,10 @@
-- if user_signed_in?
-  %h2 ログインしています
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-- else
-  %h2 ログインしていません
-  = link_to "新規登録", new_user_registration_path
-  = link_to "ログイン", new_user_session_path
+-# - if user_signed_in?
+-#   %h2 ログインしています
+-#   = link_to "ログアウト", destroy_user_session_path, method: :delete
+-# - else
+-#   %h2 ログインしていません
+-#   = link_to "新規登録", new_user_registration_path
+-#   = link_to "ログイン", new_user_session_path
   
 %body
   .top
@@ -44,11 +44,13 @@
               ブランド
         %ul.nav--lisright
           .nav--lisright--item
-            = link_to ("#"),{id:"btnc"}  do
-              ログイン
+            = link_to "ログイン", new_user_session_path ,{id:"btnc"}
+            -# = link_to ("#"),{id:"btnc"}  do
+            -#   ログイン
           .nav--lisright--item
-            = link_to ("#"),{id:"btnc"}  do
-              新規会員登録
+            = link_to "新規会員登録", new_user_registration_path ,{id:"btnc"} 
+            -# = link_to ("user_registration_path"),{id:"btnc"}  do
+            -#   新規会員登録
   .main
     .firstinfo
       .firstinfo--content
