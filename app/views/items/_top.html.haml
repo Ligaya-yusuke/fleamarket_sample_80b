@@ -15,17 +15,17 @@
         %li.nav--lisleft--item
           = link_to categories_path,{id:"btn"} do
             カテゴリー
-          %ul.nav--lisleft--item--display--parent.tree
+          %ul.nav--lisleft--item--display--parent.tree1
             -Category.where(ancestry: nil).order("id ASC").limit(13).each do |parent|
               %li
                 = link_to category_path(parent) ,{class:"nav--lisleft--item--display--parent--name",id:"btn"} do
                   = parent.category_name
-                %ul.nav--lisleft--item--display--child.tree
+                %ul.nav--lisleft--item--display--child.tree2
                   - parent.children.each do |child|
                     %li
                       = link_to category_path(child) ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do
                         = child.category_name
-                      %ul.nav--lisleft--item--display--granchild.tree
+                      %ul.nav--lisleft--item--display--granchild.tree3
                         - child.children.each do |grandchild|
                           %li
                             = link_to category_path(grandchild) ,{class:"nav--lisleft--item--display--child--name",id:"btn"} do

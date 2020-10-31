@@ -24,11 +24,23 @@ $lightgray:lightgray;
 }
 
 
-.tree{
+.tree1{
   position: absolute;
   background-color: white;
   z-index: 2;
-  // height: 700px;
+  height: 600px;
+}
+.tree2{
+  position: absolute;
+  background-color: white;
+  z-index: 2;
+  height: 750px;
+}
+.tree3{
+  position: absolute;
+  background-color: white;
+  z-index: 2;
+  height: 1150px;
 }
 
 .nav--lisleft--item--display--child--name{
