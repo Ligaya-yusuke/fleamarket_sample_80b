@@ -1,7 +1,15 @@
-scss_fleamarket
+//以下共通コード
+h2 {
+  margin-top:20px;
+}
 
+span {
+  color: white;
+  background-color: red;
+  font-size: small;
+}
 
-
+// 以下本文
 .Sell {
   background-color: #dbedf0;
   width: 100%;
@@ -21,9 +29,6 @@ scss_fleamarket
     padding: 20px;
     &__image {
       margin-top: 20px;
-      span {
-        @include must;
-      }
       &__save {
         background-color: #dbedf0;
         text-align: center;
@@ -35,120 +40,130 @@ scss_fleamarket
         font-size: small;
       }
     }
-    &__form {
-      padding: 20px 0;
-      &__name {
-        font-weight: bold;
-        span {
-          @include must;
+    &__name {
+      &__input {
+        &__box {
+          @include box;
         }
-      }
-      &__entry{
-        @include box;
-      }
-    
-      &__info {
-      padding: 20px 0;
-      font-weight: bold;
-        span {
-          @include must;
-        }
-      }
-      &__infoInput{
-        padding-bottom: 20px;
-        @include box(10vh);
-        @include line;
-
-      }
-      &__category {
-        span {
-          @include must;
-        }
-      }
-      &__categorySelect{
-        @include box;
-      }
-      
-      &__brand {
-        padding-top: 20px;
-        span {
-          color: white;
-          background-color: grey;
-          font-size: small;
-        }
-      }
-      &__brandSelect {
-        @include box;
-      }
-      
-      &__condition {
-        padding: 20px 0;
-        font-weight: bold;
-        span {
-          @include must;
-        }
-      }
-      &__conditionSelect{
-        @include box;
-      }
-
-      &__deliveryCharge {
-        padding: 20px 0;
-        font-weight: bold;
-        span {
-          @include must;
-        }
-      }
-      &__deliveryChargeSelect{
-        @include box;
-      }
-
-      &__deliveryFrom {
-        padding: 20px 0;
-        font-weight: bold;
-        span {
-          @include must;
-        }
-      }
-      &__deliveryFromSelect {
-        @include box;         
-      }
-
-      &__shippingDay {
-        padding: 20px 0;
-        font-weight: bold;
-        @include line;
-        span {
-          @include must;
-        }
-      }
-      &__shippingDaySelect {
-        @include box;
-      }
-      &__price {
-      }
-      &__sales {
-        span {
-          @include must;
-        } 
-      }
-      &__yen {
-        display: flex;
-        justify-content: flex-end;
-        align-items: right;
-        font-size: 20px;
-        padding: 0 5px;
       }
     }
-  } 
-  .Submit {
-      margin-top: 10px;
+    &__info {
+      padding: 20px 0;
+      @include line;
+      &__input {
+        &__box{
+          @include box(10vh)
+        }
+      }
+    }
+    &__category {
+      &__input {
+        &__select{
+          @include box;
+        }
+      } 
+    }
+
+    &__brand {
+      &__input {
+        &__box {
+          @include box;
+        }
+      }
+    }
+    &__conditions{
+      padding: 20px 0;
+      @include line;
+      &__input{
+        &__box{
+          @include box;
+        }
+      }
+    }
+    &__deliveryCharge {
+      &__select {
+        &__box{
+          @include box;
+        }
+      }
+    }
+    &__deliveryLocation {
+      &__select {
+        &__box {
+          @include box;
+        }
+      }
+    }
+    &__shippingDay{
+      padding: 20px 0;
+      @include line;
+      &__select {
+        &__box{
+          @include box;
+        }
+      }
+    }
+    &__price {
+      &__title{
+      }
+      .Sub-title {      
+        &__included {
+          &__input {
+            float: right;
+            text-align: right;
+          }
+        }
+      }
+      .Yen {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 5px;
+        font-size: 20px;
+      }
+    }
+    &__fees{
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      @include button;
+      @include line;
+      &__title {
+        &__hyphen{
+        }
+      }
+    }
+      &__profits{
+        padding: 20px 0;   
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+      &__title {
+        &__hyphen {
+
+        }
+      }
+    }
   }
-  .Return {
-    text-align: center;
+  .Button {
+    &__sell {
+      padding: 20px 0;
+      align-items: center;
+      &__button {
+        @include button;
+      }
+    }
+    &__save {
+      &__button{
+        margin: 20px 0;
+        @include button(grey)
+      }
+    }
+    &__return {
+      text-align: center;
+    }
   }
+
   .Footer {
     &__logo {
       margin: 0 auto;
