@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @products = Product.all
     @product = Product.find(params[:id])
     @category = Category.find(@product.category_id)
   end
