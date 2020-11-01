@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
     # @category = @item.set_items
     # @category = @category.where(buyer_id: nil).order("created_at DESC")
     @category = Category.find(params[:id])
+    @product = Product.all
   end
 
   # def child_window

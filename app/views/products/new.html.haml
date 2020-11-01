@@ -25,7 +25,7 @@
         .Products__form__info 
           =form.label :"商品の説明"
           %span 必須
-          =form.text_field :information, class: "Products__form__infoInput",placeholder: "商品の説明（必須 300文字以内)（色、素材、重さ、定価、注意点など）"
+          =form.text_field :infomation, class: "Products__form__infoInput",placeholder: "商品の説明（必須 300文字以内)（色、素材、重さ、定価、注意点など）"
             
         .Products__form__category
           -# セレクタ実装
@@ -35,7 +35,7 @@
             .item_input__body__category#category_box
               .pulldown#partent_box
                 = form.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
-                -# = icon('fa', 'chevron-down')
+                = icon('fa', 'chevron-down')
                 .pulldown.item_input__body__category__children#children_box
                   -#親カテゴリー選択によって子カテゴリー表示
                 .pulldown.item_input__body__category__grandchildren#grandchildren_box
@@ -75,7 +75,7 @@
           %span 必須
         .Products__form__yen
           ¥
-          =number_field_tag :price, ''
+          =form.number_field :price
         =form.submit "出品する", class: "Submit"
 
         -# 余裕があれば実装（手数料計算、下書き保存）

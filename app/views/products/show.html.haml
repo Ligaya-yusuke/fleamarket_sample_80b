@@ -1,0 +1,29 @@
+= render "items/top"
+%nav.root
+  %ul.root--category
+    %li.root--category--name
+      = link_to root_path,{class:"root--category--name--link"} do
+        FURIMA
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to categories_path,{class:"root--category--name--link"} do
+        カテゴリー一覧
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to category_path(@category.parent.parent.id),{class:"root--category--name--link"} do
+        = @category.parent.parent.category_name
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to category_path(@category.parent.id),{class:"root--category--name--link"} do
+        = @category.parent.category_name
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to category_path(@category.id),{class:"root--category--name--link"} do
+        = @category.category_name
+    %li.root--category--logo >
+    %li.root--category--name
+      = @product.name
+
+= render "items/thirdinfo"
+= render "items/footer"
+= render "items/seller_icon"

@@ -12,12 +12,17 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
-    binding.pry
+    # binding.pry
     if @product.save
       redirect_to root_path, notice: '商品を出品しました。'
     else
-      render :new, alert: "商品登録に失敗しました"
+      redirect_to new_product_path, alert: "商品登録に失敗しました"
     end
+  end
+
+  def show
+    @product = Product.find(params[:id])
+    @category = Category.find(@product.category_id)
   end
 
   #jsonで親の名前で検索し、紐づく小カテゴリーの配列を取得
@@ -33,7 +38,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand,:category_id)
+    params.require(:product).permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand,:category_id)
     # require(:products).
   end
   
@@ -42,6 +47,6 @@ class ProductsController < ApplicationController
   end
 
   def item_params
-    params.require(:products).permit(:category_id )
+    params.permit(:category_id )
   end
 end
