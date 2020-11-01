@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
+    # binding.pry
     if @product.save
       redirect_to root_path, notice: '商品を出品しました。'
     else
