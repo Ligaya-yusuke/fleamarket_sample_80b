@@ -38,7 +38,9 @@
           = f.label :都道府県
           %span1.form-require 必須
           %br/
-        = f.text_field :prefecture_id, autofocus: true, class: 'input-default', placeholder: "例）東京都"
+        .input-default-active
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+        -# = f.text_field :prefecture_id, autofocus: true, class: 'input-default', placeholder: "例）東京都"
         -# = d.collection_select :prefecture, Prefecture.all, :id, :name
       .field
         .contents

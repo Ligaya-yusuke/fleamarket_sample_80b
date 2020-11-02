@@ -74,6 +74,7 @@
 
 .field {
   margin-top: 20px;
+  float: left;
 }
 
 .contents {
@@ -97,6 +98,22 @@ span1 {
   border: 1px solid black;
   border-radius: 4px;
   font-family: "ヒラギノ丸ゴ pro w4", "hiragino maru gothic pro", "hg丸ｺﾞｼｯｸm-pro","verdana","osaka",sans-serif;
+}
+
+#address_prefecture_id {
+  height: 48px;
+  width: 300px;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  // color: rgb(94, 91, 91);
+  font-family: "ヒラギノ丸ゴ pro w4", "hiragino maru gothic pro", "hg丸ｺﾞｼｯｸm-pro","verdana","osaka",sans-serif;
+}
+
+.color {
+  color: rgb(94, 91, 91);
 }
 
 .submit {
