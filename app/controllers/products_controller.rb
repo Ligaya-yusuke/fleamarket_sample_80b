@@ -40,7 +40,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand,:category_id)
-    # require(:products).
   end
   
   def set_category  
