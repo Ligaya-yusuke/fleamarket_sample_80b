@@ -40,8 +40,6 @@
           %br/
         .input-default-active
           = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-        -# = f.text_field :prefecture_id, autofocus: true, class: 'input-default', placeholder: "例）東京都"
-        -# = d.collection_select :prefecture, Prefecture.all, :id, :name
       .field
         .contents
           = f.label :市町村
@@ -68,4 +66,3 @@
       .actions
         = f.submit "新規登録", class: 'submit'
 
-  -# = render "devise/shared/links"
