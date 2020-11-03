@@ -73,6 +73,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|ship_first_name|string|null: false|
+|ship_family_name|string|null: false|
+|ship_first_name_kana|string|null: false|
+|ship_family_name_kana|string|null: false|
 |post_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
@@ -158,4 +162,4 @@ Things you may want to cover:
 - belongs_to :product
 
 # README
-<img width="849" alt="最終課題ER図修正5" src="https://user-images.githubusercontent.com/62795565/96346712-3bf7ad80-10d8-11eb-90ae-10cfe95b8bdc.png">
+<img width="1198" alt="最終課題ER図修正7" src="https://user-images.githubusercontent.com/62795565/96593406-6dfd4f80-1324-11eb-83ef-304fd2a2735f.png">
