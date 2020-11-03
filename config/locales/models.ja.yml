@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      user: 
+        nickname: ニックネーム 
+      profile:
+        first_name: "名前"
+        family_name: "氏名"
+        first_name_kana: "名前(ひらがな)"
+        family_name_kana: "氏名(ひらがな)"
+        birthday: "誕生日"
+    models:
+      user: ユーザー情報
+      profile: 本人確認情報

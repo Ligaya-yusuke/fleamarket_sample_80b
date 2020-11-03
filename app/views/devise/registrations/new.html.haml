@@ -1,0 +1,25 @@
+%h2 ユーザー情報
+= form_for(@user, url: user_registration_path) do |f|
+  = render "devise/shared/error_messages", resource: @user
+  .field
+    = f.label :ニックネーム（必須）
+    %br/
+    = f.text_field :nickname, autofocus: true
+  .field
+    = f.label :メールアドレス（必須）
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :パスワード（必須）
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} 文字以上)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :パスワード（確認）（必須）
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "次へ"
+= render "devise/shared/links"
