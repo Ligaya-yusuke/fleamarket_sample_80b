@@ -34,9 +34,13 @@
           = link_to ("#"),{id:"btn"} do
             ブランド
       %ul.nav--lisright
-        .nav--lisright--item
-          = link_to ("#"),{id:"btnc"}  do
-            ログイン
-        .nav--lisright--item
-          = link_to ("#"),{id:"btnc"}  do
-            新規会員登録
+          - if user_signed_in?
+            .nav--lisright--item
+              = link_to "マイページ", '#', {id:"btnc"}
+            .nav--lisright--item
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, id: "btnc"
+          - else
+            .nav--lisright--item
+              = link_to "ログイン", new_user_session_path, {id:"btnc"}
+            .nav--lisright--item
+              = link_to "新規会員登録", new_user_registration_path, {id:"btnc"}
