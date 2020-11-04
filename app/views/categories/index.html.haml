@@ -4,11 +4,11 @@
   .showmain
     .showmain--right
       .inputbox
-        -@category.each do |parent|
+        -@categories.each do |parent|
           = link_to category_path(parent) ,{class:"inputbtn",id:"btn"} do
             = parent.category_name
       .titletoparea
-        -@category.each do |parent|
+        -@categories.each do |parent|
           .titlebox
             .titlebox--title
               = link_to category_path(parent),{class:"root--category--name--linksec"} do

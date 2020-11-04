@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :create]
-  # before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
-  # before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase, :buy]
+  
   
   def index
   end
@@ -11,8 +10,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(product_params)
-    # binding.pry
+    @product = Product.new(product_params)
+    
     if @product.save
       redirect_to root_path, notice: '商品を出品しました。'
     else
