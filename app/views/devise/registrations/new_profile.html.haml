@@ -1,31 +1,40 @@
-%h2 本人確認情報
-= form_for @profile do |f|
-  = render "devise/shared/error_messages", resource: @profile
-  .field
-    = f.label :氏名（必須）
-    %br/
-    = f.text_field :family_name, autofocus: true
-  .field
-    = f.label :名前（必須）
-    %br/
-    = f.text_field :first_name, autofocus: true
-  .field
-    = f.label :氏名（かな）（必須）
-    %br/
-    = f.text_field :family_name_kana, autofocus: true
-  .field
-    = f.label :名前（かな）（必須）
-    %br/
-    = f.text_field :first_name_kana, autofocus: true
-  .field
-    = f.label :生年月日（必須）
-    %br/
-    = f.date_field :birthday, autofocus: true
-  .field
-    -# = f.label :introduction
-    -# %br/
-    -# = f.text_field :introduction, autofocus: true
-  .actions
-    = f.submit "次へ"
+.container-new
+  %h2.head-registration 本人確認情報
+  = form_for @profile do |f|
+    = render "devise/shared/error_messages", resource: @profile
+    .main-registration
+      .field
+        .contents
+          = f.label :氏名 
+          %span1.form-require 必須
+          %br/
+        = f.text_field :family_name, autofocus: true, class: 'input-default', placeholder: "例）鈴木"
+      .field
+        .contents
+          = f.label :名前
+          %span1.form-require 必須
+          %br/
+        = f.text_field :first_name, autofocus: true, class: 'input-default', placeholder: "例）太郎"
+      .field
+        .contents
+          = f.label :氏名（かな）
+          %span1.form-require 必須
+          %br/
+        = f.text_field :family_name_kana, autofocus: true, class: 'input-default', placeholder: "例）すずき"
+      .field
+        .contents
+          = f.label :名前（かな）
+          %span1.form-require 必須
+          %br/
+        = f.text_field :first_name_kana, autofocus: true, class: 'input-default', placeholder: "例）たろう"
+      .field
+        .contents
+          = f.label :生年月日
+          %span1.form-require 必須
+          %br/
+        = f.date_field :birthday, autofocus: true, value: "1990-01-01", class: 'input-default'
+      
+      .actions
+        = f.submit "次へ", class: 'devise_submit'
 
-= render "devise/shared/links"
+  -# = render "devise/shared/links"

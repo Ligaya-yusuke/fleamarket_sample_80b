@@ -1,47 +1,68 @@
-%h2 お届け先情報入力
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :氏名
-    %br/
-    = f.text_field :ship_first_name, autofocus: true
-  .field
-    = f.label :名前
-    %br/
-    = f.text_field :ship_family_name, autofocus: true
-  .field
-    = f.label :氏名（かな）
-    %br/
-    = f.text_field :ship_first_name_kana, autofocus: true
-  .field
-    = f.label :名前（かな）
-    %br/
-    = f.text_field :ship_family_name_kana, autofocus: true
-  .field
-    = f.label :郵便番号
-    %br/
-    = f.text_field :post_code, autofocus: true
-  .field
-    = f.label :都道府県
-    %br/
-    = f.text_field :prefecture_id, autofocus: true
-  .field
-    = f.label :市町村
-    %br/
-    = f.text_field :city, autofocus: true
-  .field
-    = f.label :番地
-    %br/
-    = f.text_field :block_number, autofocus: true
-  .field
-    = f.label :建物名
-    %br/
-    = f.text_field :building_number, autofocus: true
-  .field
-    = f.label :電話番号
-    %br/
-    = f.text_field :phone_number, autofocus: true
-  .actions
-    = f.submit "新規登録"
+.container-new
+  %h2.head-registration お届け先情報入力
+  = form_for @address do |f|
+    = render "devise/shared/error_messages", resource: @address
+    .main-registration 
+      .field
+        .contents
+          = f.label :氏名
+          %span1.form-require 必須
+          %br/
+        = f.text_field :ship_first_name, autofocus: true, class: 'input-default', placeholder: "例）鈴木"
+      .field
+        .contents
+          = f.label :名前
+          %span1.form-require 必須
+          %br/
+        = f.text_field :ship_family_name, autofocus: true, class: 'input-default', placeholder: "例）太朗"
+      .field
+        .contents
+          = f.label :氏名（かな）
+          %span1.form-require 必須
+          %br/
+        = f.text_field :ship_first_name_kana, autofocus: true, class: 'input-default', placeholder: "例）すずき"
+      .field
+        .contents
+          = f.label :名前（かな）
+          %span1.form-require 必須
+          %br/
+        = f.text_field :ship_family_name_kana, autofocus: true, class: 'input-default', placeholder: "例）たろう"
+      .field
+        .contents
+          = f.label :郵便番号
+          %span1.form-require 必須
+          %br/
+        = f.text_field :post_code, autofocus: true, class: 'input-default', placeholder: "例）111-1111"
+      .field
+        .contents
+          = f.label :都道府県
+          %span1.form-require 必須
+          %br/
+        .input-default-active
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+      .field
+        .contents
+          = f.label :市町村
+          %span1.form-require 必須
+          %br/
+        = f.text_field :city, autofocus: true, class: 'input-default', placeholder: "例）墨田区押上"
+      .field
+        .contents
+          = f.label :番地
+          %span1.form-require 必須
+          %br/
+        = f.text_field :block_number, autofocus: true, class: 'input-default', placeholder: "例）１丁目１−２"
+      .field
+        .contents
+          = f.label :建物名
+          %br/
+        = f.text_field :building_number, autofocus: true, class: 'input-default', placeholder: "例）○○ビル"
+      .field
+        .contents
+          = f.label :電話番号
+          %span1.form-require 必須
+          %br/
+        = f.text_field :phone_number, autofocus: true, class: 'input-default', placeholder: "例）1111-11-1111"
+      .actions
+        = f.submit "新規登録", class: 'devise_submit'
 
-= render "devise/shared/links"

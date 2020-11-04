@@ -1,25 +1,35 @@
-%h2 ユーザー情報
-= form_for(@user, url: user_registration_path) do |f|
-  = render "devise/shared/error_messages", resource: @user
-  .field
-    = f.label :ニックネーム（必須）
-    %br/
-    = f.text_field :nickname, autofocus: true
-  .field
-    = f.label :メールアドレス（必須）
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :パスワード（必須）
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} 文字以上)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :パスワード（確認）（必須）
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "次へ"
-= render "devise/shared/links"
+.container-new
+  %h2.head-registration ユーザー情報
+  = form_for(@user, url: user_registration_path) do |f|
+    = render "devise/shared/error_messages", resource: @user
+    .main-registration 
+      .field
+        .contents
+          = f.label :ニックネーム
+          %span1.form-require 必須
+          %br/
+        = f.text_field :nickname, autofocus: true, class: 'input-default', placeholder: "例）ニックネーム"
+      .field
+        .contents
+          = f.label :メールアドレス
+          %span1.form-require 必須
+          %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input-default', placeholder: "PC・携帯どちらでも可"
+      .field
+        .contents
+          = f.label :パスワード
+          %span1.form-require 必須
+          - if @minimum_password_length
+            -# %em
+            -#   (#{@minimum_password_length} 文字以上)
+          %br/
+        = f.password_field :password, autocomplete: "new-password", class: 'input-default', placeholder: "7文字以上の半角英数字"
+      .field
+        .contents
+          = f.label :パスワード（確認）
+          %span1.form-require 必須
+          %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input-default'
+      .actions
+        = f.submit "次へ進む", class: 'devise_submit'
+  -# = render "devise/shared/links"

@@ -1,0 +1,139 @@
+.container {
+  background-color: rgba(240, 239, 239, 0.863);
+  width: 100vw;
+  height: 100%;
+}
+
+.Header {
+  width: 100vw;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  &__logo {
+    width: 100%;
+    height: 60px;
+    padding: 10px 0;
+    &__tag {
+      width: 20%;
+    }
+    .image {
+      width: 200px;
+    }
+  }
+}
+
+.Footer {
+  width: 100%;
+  padding: 80px;
+  align-items: center;
+  text-align: center;
+  &__logo {
+    width: 100%;
+    height: 60px;
+    padding: 10px 0;
+    .image {
+      width: 200px;
+    }
+  }
+  &__c {
+    color: white;
+    opacity: 0.9;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+  }
+}
+
+
+
+// ユーザー情報
+.container-new {
+  // height: calc(100% - 60px);
+  width: 600px;
+  background-color: white;
+  text-align: center;
+  margin: auto;
+}
+
+.head-registration {
+  font-weight: bold;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 26px;
+  padding: 26px;
+  border-bottom: whitesmoke 2px solid;
+}
+
+// 入力フォーム
+.main-registration {
+  margin: auto;
+  width: 300px;
+  
+}
+
+.field {
+  margin-top: 20px;
+  float: left;
+}
+
+.contents {
+  float: left;
+}
+
+span1 {
+  color: white;
+  background-color: red;
+  font-size: small;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.input-default {
+  height: 48px;
+  width: 300px;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-family: "ヒラギノ丸ゴ pro w4", "hiragino maru gothic pro", "hg丸ｺﾞｼｯｸm-pro","verdana","osaka",sans-serif;
+}
+
+#address_prefecture_id {
+  height: 48px;
+  width: 300px;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  // color: rgb(94, 91, 91);
+  font-family: "ヒラギノ丸ゴ pro w4", "hiragino maru gothic pro", "hg丸ｺﾞｼｯｸm-pro","verdana","osaka",sans-serif;
+}
+
+.color {
+  color: rgb(94, 91, 91);
+}
+
+.devise_submit {
+  margin: 30px 0 80px ;
+  padding: 10px 30px;
+  width: 300px;
+  background-color:#3CCACE;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+
+// ログイン
+
+.checkbox {
+  margin-bottom: 20px;
+}
+
+// 登録完了ページ
+
