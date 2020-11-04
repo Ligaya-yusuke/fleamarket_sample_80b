@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-
-ActiveRecord::Schema.define(version: 2020_10_25_082038) do
-
-
+ActiveRecord::Schema.define(version: 2020_11_04_122600) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ship_first_name", null: false
@@ -31,7 +26,6 @@ ActiveRecord::Schema.define(version: 2020_10_25_082038) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "prefecture_id"
-    t.string "prefecture"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -61,7 +55,10 @@ ActiveRecord::Schema.define(version: 2020_10_25_082038) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "buyer_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,5 +90,6 @@ ActiveRecord::Schema.define(version: 2020_10_25_082038) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
 end
