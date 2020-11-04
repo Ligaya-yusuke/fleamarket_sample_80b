@@ -81,8 +81,11 @@ gem 'jquery-rails'
 
 gem "font-awesome-sass"
 
-
+gem 'ancestry'
 gem 'active_hash'
+gem 'jquery-rails'
+gem 'pry-rails'
+
 
 gem 'carrierwave'
 gem 'mini_magick'
