@@ -27,7 +27,7 @@
   .mainbox
     .mainbox__top
       .mainbox__top__title
-        カンガルー
+        = @product.name
       .mainbox__top__image
         = link_to image_tag "icon-01.png", alt: "kangaroo", class: "kangaroo"
         .mainbox__top__image__sub
@@ -38,7 +38,8 @@
           = link_to ("#"),{ class: "pics"} do
             = image_tag "icon-01.png", alt: "kangaroo2", class: "kangarooo"
       .mainbox__top__price
-        ¥1,000,000
+        ¥
+        = @product.price
         .mainbox__top__price__tax
           (税込)送料込み
       .product-description
@@ -48,7 +49,8 @@
         %table
           %tr
             %th 出品者
-            %td マスター
+            %td
+              = @user.nickname
           %tr
             %th カテゴリー
             %td
