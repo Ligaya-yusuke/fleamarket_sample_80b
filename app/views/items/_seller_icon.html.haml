@@ -1,8 +1,3 @@
-- if user_signed_in?
-  = link_to new_product_path,{class: "sellicon"} do
-    %span.sellicon--text 出品する
-    = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon--image"    
--else
-  = link_to new_user_session_path,{class: "sellicon"} do
-    %span.sellicon--text 出品する
-    = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon--image"
+= link_to new_product_path,{class: "sellicon"} do
+  %span.sellicon--text 出品する
+  = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon--image"    

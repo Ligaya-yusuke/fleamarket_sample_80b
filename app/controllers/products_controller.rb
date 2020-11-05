@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :create]
-  
+  before_action :move_to_signed_in, except: [:index, :show]
   
   def index
   end
@@ -48,5 +48,12 @@ class ProductsController < ApplicationController
 
   def item_params
     params.permit(:category_id )
+  end
+
+  def move_to_signed_in
+    unless user_signed_in?
+      #サインインしていないユーザーはログインページが表示される
+      redirect_to  new_user_session_path
+    end
   end
 end
