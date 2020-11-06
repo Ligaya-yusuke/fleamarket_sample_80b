@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Product.all
+    @products = Product.page(params[:page]).reverse_order.per(5)
     @product = Product.find(params[:id])
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)

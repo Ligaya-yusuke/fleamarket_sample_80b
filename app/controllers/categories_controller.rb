@@ -6,6 +6,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @products = Product.all
+    @products = Product.page(params[:page]).reverse_order.per(5)
   end
 end

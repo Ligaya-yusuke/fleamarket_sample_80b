@@ -89,18 +89,7 @@
                 %p (税込)
                 -# -# 一時的な表示です
                 -# = Category.find(item.category_id).category_name
-      = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-        .category--prodboxs--lis--product--image
-          = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
-        .category--prodboxs--lis--product--body
-          .category--prodboxs--lis--product--body--name テスト(どこでも表示されるよ)
-          .category--prodboxs--lis--product--body--detail
-            %ul.detaillist
-              %li 1000円
-              %li
-                = icon('fas', 'fa-star', class: "staricon")
-                1
-            %p (税込)
+    = paginate @products
 = render "items/thirdinfo"
 = render "items/footer"
 = render "items/seller_icon"
