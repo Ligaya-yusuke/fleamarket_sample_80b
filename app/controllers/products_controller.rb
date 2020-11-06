@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :create]
-  
+  before_action :move_to_signed_in, except: [:index, :show]
   
   def index
   end
@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    
+
     if @product.save
       redirect_to root_path, notice: '商品を出品しました。'
     else
@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
     @products = Product.all
     @product = Product.find(params[:id])
     @category = Category.find(@product.category_id)
+    @user = User.find(@product.user_id)
   end
 
   #jsonで親の名前で検索し、紐づく小カテゴリーの配列を取得
@@ -38,7 +39,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand,:category_id)
+    params.require(:product).permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand,:category_id).merge(user_id: current_user.id)
   end
   
   def set_category  
@@ -47,5 +48,12 @@ class ProductsController < ApplicationController
 
   def item_params
     params.permit(:category_id )
+  end
+
+  def move_to_signed_in
+    unless user_signed_in?
+      #サインインしていないユーザーはログインページが表示される
+      redirect_to  new_user_session_path
+    end
   end
 end

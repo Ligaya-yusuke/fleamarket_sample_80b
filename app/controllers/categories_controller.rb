@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   
   def index
-    @categories = Category.where(ancestry: nil).order("id ASC").limit(13)
+    @categories = Category.where(ancestry: nil).order("id ASC")
   end
 
   def show
