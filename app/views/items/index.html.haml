@@ -79,7 +79,7 @@
           = link_to ('#'), {class:"category--prodboxs--topper--link"} do
             .catgbratitle 新規投稿商品
         .category--prodboxs--lis
-          - @products.each do |item|
+          - @items.each do |item|
             = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
               .category--prodboxs--lis--product--image
                 = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"

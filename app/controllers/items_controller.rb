@@ -1,7 +1,14 @@
 class ItemsController < ApplicationController
 
   def index
-    @products = Product.page(params[:page]).reverse_order.per(5)
+    array = []
+    @products = Product.all.order(created_at: :desc)
+    @products.each do |item|
+      unless item.buyer_id.present?
+        array << item
+      end
+    end
+      @items = Kaminari.paginate_array(array).page(params[:page]).per(5)
   end
 
   def show
