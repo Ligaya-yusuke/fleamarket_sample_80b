@@ -43,8 +43,10 @@
         .mainbox__top__price__tax
           (税込)送料込み
       .product-description
-        %label{for: "description"} 商品説明
-        %textarea{cols: "40", name: "description", rows: "4", placeholder: "商品の説明を記入して下さい"}
+        .product-description__title
+          商品説明
+        .product-description__content
+          = @product.infomation
       .product-information
         %table
           %tr
@@ -72,17 +74,20 @@
             %td 
           %tr
             %th 商品の状態
-            %td 新品/未使用
+            %td
+              = @condition.name
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @delivery_charge.name
           %tr
             %th 配送元の地域
             %td 
-              = link_to "海外"
+              = @address.name
           %tr
             %th 発送日の目安
-            %td 1-2日で発送
+            %td
+              = @shipping_day.name
       .extrainfo
         %ul
           %li.favorite

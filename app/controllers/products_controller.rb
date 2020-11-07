@@ -24,6 +24,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
+    @address = Prefecture.find(@product.prefecture_id)
+    @condition = Condition.find(@product.condition)
+    @delivery_charge = DeliveryCharge.find(@product.delivery_charge)
+    @shipping_day = ShippingDay.find(@product.shipping_day)
   end
 
   #jsonで親の名前で検索し、紐づく小カテゴリーの配列を取得
