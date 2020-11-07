@@ -8,7 +8,12 @@ class ItemsController < ApplicationController
         array << item
       end
     end
-      @items = Kaminari.paginate_array(array).page(params[:page]).per(5)
+    @items = Kaminari.paginate_array(array).page(params[:page]).per(15)
+    @pickup_items = @items.per(5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
