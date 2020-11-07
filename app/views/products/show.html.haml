@@ -108,6 +108,15 @@
           %li.submitbutton
             = icon('fas', 'comment', class: "submit")
             %button{type: "submit", class: "submit"}コメントする
+          -# - if user_signed_in? && current_user.id == product.user_id
+            -#   %li
+            -#     = link_to '編集', edit_product_path(product.id) do
+            -#   %li
+            -#     = link_to '削除', product_path(product.id), method: :delete do
+            -#   出品者以外にしか購入が出来ない制限
+            -# - if user_signed_in? && current_user.id != product.user_id
+            -#   %li
+            -#     = link_to '購入', "#" do
     .links
       %ul
         %li
