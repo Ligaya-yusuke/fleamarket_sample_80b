@@ -115,29 +115,13 @@
       %ul
         %li
           = link_to "後ろの商品 >"
+    
     .products
       .products--view
         = @category.parent.parent.category_name
         をもっと見る
-      .category--prodboxs--lis
-        - @products.each do |item|
-          - if Category.find(item.category_id).parent.parent == @category.parent.parent
-            = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
-              .category--prodboxs--lis--product--image
-                = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
-              .category--prodboxs--lis--product--body
-                .category--prodboxs--lis--product--body--name
-                  = item.name
-                .category--prodboxs--lis--product--body--detail
-                  %ul.detaillist
-                    %li
-                      = item.price
-                      円
-                    %li
-                      = icon('fas', 'fa-star', class: "staricon")
-                      1
-                  %p (税込)
-      = paginate @products
+      #pagenate
+        = render "show_page"
 = render "items/thirdinfo"
 = render "items/footer"
 = render "items/seller_icon"
