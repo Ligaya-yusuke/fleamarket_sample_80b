@@ -48,14 +48,16 @@
     }
     .product-description{
       padding: 0 30px;
-      text-align: left;
-      label{
-        font-size: 18px;
+      &__title{
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        padding-top: 10px;
       }
-      textarea{
-        width: 100%;
+      &__content{
+        text-align: left;
+        font-size: 18px;
         padding: 10px;
-        resize: none;
       }
     }
     .product-information{
