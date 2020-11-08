@@ -1,46 +1,5 @@
 %body
-  .top
-    .top--inner
-      .top--inner--main
-        %h1.top--inner--main--icon
-          = link_to ("#") ,{class:"top--inner--main--icon--a"} do
-            = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
-        .top--inner--main--searchbox
-          %form{ action: "#", method: "get" , class:"top--inner--main--searchbox--form"}
-            %input#searchInput.top--inner--main--searchbox--form--input{name: "key", placeholder:"キーワードから探す"}/
-            %button.top--inner--main--searchbox--form--button{type: "submit"}
-              .top--inner--main--searchbox--form--button--icon
-                = image_tag "icon-search 1.png", alt: "#N/A", id: "assets", class: "image"
-      .nav
-        %ul.nav--lisleft
-          %li.nav--lisleft--item
-            = link_to ("#"),{id:"btn"} do
-              カテゴリー
-            .display.tree
-              %ul.tree--catetree
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    レディース
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    メンズ
-              %ul.tree--catetree
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    トップス
-                %li.tree--catetree-item
-                  = link_to ("#") do
-                    パンツ
-          %li.nav--lisleft--item--second
-            = link_to ("#"),{id:"btn"} do
-              ブランド
-        %ul.nav--lisright
-          .nav--lisright--item
-            = link_to ("#"),{id:"btnc"}  do
-              ログイン
-          .nav--lisright--item
-            = link_to ("#"),{id:"btnc"}  do
-              新規会員登録
+  = render "top"
   .main
     .firstinfo
       .firstinfo--content
@@ -120,54 +79,22 @@
           = link_to ('#'), {class:"category--prodboxs--topper--link"} do
             .catgbratitle 新規投稿商品
         .category--prodboxs--lis
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-02.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-03.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-04.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
+          - @pickup_items.each do |item|
+            = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
+              .category--prodboxs--lis--product--image
+                = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+              .category--prodboxs--lis--product--body
+                .category--prodboxs--lis--product--body--name
+                  = item.name
+                .category--prodboxs--lis--product--body--detail
+                  %ul.detaillist
+                    %li
+                      = item.price
+                      円
+                    %li
+                      = icon('fas', 'fa-star', class: "staricon")
+                      1
+                  %p (税込)
     .category
       .category--top ピックアップブランド
       .category--prodboxs
@@ -175,105 +102,27 @@
           = link_to ('#'), {class:"category--prodboxs--topper--link"} do
             .catgbratitle アーカイバ
         .category--prodboxs--lis
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-02.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-03.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
-          = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-            .category--prodboxs--lis--product--image
-              = image_tag "icon-04.png", alt: "#N/A", id: "assets", class: "image--pro"
-            .category--prodboxs--lis--product--body
-              .category--prodboxs--lis--product--body--name テスト1
-              .category--prodboxs--lis--product--body--detail
-                %ul.detaillist
-                  %li 1000円
-                  %li
-                    = icon('fas', 'fa-star', class: "staricon")
-                    1
-                %p (税込)
-  .thirdinfo
-    .thirdinfo--inside
-      .thirdinfo--inside--title だれでもかんたん、人生を変えるフリマアプリ
-      .thirdinfo--inside--text 今すぐ無料ダウンロード
-      .thirdinfo--inside--icon
-        = link_to ("#"),{ class:"apple"} do
-          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: "#N/A", id: "assets", class: "apple--aimage"
-        = link_to ("#"),{ class:"google"} do
-          = image_tag "google-play-badge.png", alt: "#N/A", id: "assets", class: "google--gimage"
-  .footer
-    %ul.footer--contents
-      %li.footer--contents--content
-        %h2.footer--contents--content--head FURIMAについて
-        %ul
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              会社概要（運営会社）
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              プライバシーポリシー
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              FURIMA利用規約
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              ポイントに関する特約
-      %li.footer--contents--content
-        %h2.footer--contents--content--head FURIMAをみる
-        %ul
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              カテゴリー一覧
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              ブランド一覧
-      %li.footer--contents--content
-        %h2.footer--contents--content--head ヘルプ＆ガイド
-        %ul
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              FURIMAガイド
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              FURIMAロゴ利用ガイドライン
-          %li
-            = link_to ("#"),{class:"footer--contents--content--link"} do
-              お知らせ
-    .footer--logo
-      = link_to ("#") do
-        = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "image"
-    .footer-logo_c © FURIMA
-  = link_to sells_path ,{class: "sellicon"} do
-    %span.sellicon--text 出品する
-    = image_tag "icon_camera.png", alt: "#N/A", id: "assets", class: "sellicon--image"
+          - @pickup_items.each do |item|
+            = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
+              .category--prodboxs--lis--product--image
+                = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+              .category--prodboxs--lis--product--body
+                .category--prodboxs--lis--product--body--name
+                  = item.name
+                .category--prodboxs--lis--product--body--detail
+                  %ul.detaillist
+                    %li
+                      = item.price
+                      円
+                    %li
+                      = icon('fas', 'fa-star', class: "staricon")
+                      1
+                  %p (税込)
+    .category
+      .category--topall 全商品一覧
+      .category--prodboxs
+      #pagenate
+        = render "index_page"
+  = render "thirdinfo"
+  = render "footer"
+  = render "seller_icon"

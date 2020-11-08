@@ -97,6 +97,7 @@ p{
       text-decoration: none;
       line-height: 38px;
       padding: 0 16px 0 0;
+      
       &--second{
         padding: 0 0 0 16px;
         line-height: 38px;
@@ -332,6 +333,13 @@ p{
     line-height: 1.4;
     font-weight: bold;
   }
+  &--topall{
+    text-align: center;
+    font-size: 40px;
+    line-height: 1.4;
+    font-weight: bold;
+    color: #3CCACE;
+  }
   &--prodboxs{
     &--topper{
       text-align: center;
@@ -340,6 +348,13 @@ p{
         text-decoration: none;
         color: #3CCACE;
       }
+    }
+    &--lisall{
+      width: 1150px;
+      margin: 26px auto;
+      display: flex;
+      justify-content: start;
+      flex-wrap: wrap;
     }
     &--lis{
     width: 700px;
@@ -352,6 +367,7 @@ p{
       float: left;
       background-color: #fff;
       text-decoration: none;
+      margin: 1px;
       &--image{
         width: 220px;
         height: 150px;

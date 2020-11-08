@@ -1,12 +1,28 @@
 Rails.application.routes.draw do
-  # トップページへのリンク
-  root to: 'items#index'
 
-  #出品機能へのリンク
-  get 'sells', to:'sells#new'
+  root 'items#index'
   post'sells/posts', to:'sells#create'
-
-  resources :items, only: [:index]
-  resources :sells, only: [:index, :new, :create]
-
+  get 'sells', to:'sells#new'
+  resources :items, only: [:index, :show]
+  resources :categories, only: [:index, :show]
+  resources :products, only: [:new, :create, :show] do
+    resources :sells, only: [:index, :new, :create]
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+  devise_scope :user do
+    get 'profiles', to: 'users/registrations#new_profile'
+    post 'profiles', to: 'users/registrations#create_profile'
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
 end

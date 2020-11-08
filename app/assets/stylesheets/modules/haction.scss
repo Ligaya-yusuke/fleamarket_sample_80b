@@ -1,3 +1,5 @@
+$lightgray:lightgray;
+
 #btn{
   color: #333;
   text-decoration: none;
@@ -5,32 +7,84 @@
   background-position: center right;
   background-repeat: no-repeat;
   background-size: 18px;
-  padding-right: 30px;
+  padding-right: 35px;
 }
 
-#btn:hover{
+#btnc:hover,#btn:hover{
   color: #ffb340;
 }
+
 
 #btnc{
   color: #333;
 }
 
-li.nav--lisleft--item > .display{
-  opacity: 0;
-}
-li.nav--lisleft--item > .tree:hover{
-  opacity: 1;
+.nav--lisleft--item--display--parent,.nav--lisleft--item--display--child,.nav--lisleft--item--display--granchild{
+  display: none;
 }
 
-.tree{
-  z-index:2;
+
+.tree1{
   position: absolute;
-  background-color: #fff;
-  top: 40px;
-  display: flex;
-  &--catetree{
-    flex-direction: column;
-    width: 240px;
+  background-color: white;
+  z-index: 2;
+  height: 600px;
+}
+.tree2{
+  position: absolute;
+  background-color: white;
+  z-index: 2;
+  height: 750px;
+}
+.tree3{
+  position: absolute;
+  background-color: white;
+  z-index: 2;
+  height: 1150px;
+}
+
+.nav--lisleft--item--display--child--name{
+  width: 100%;
+  color: black;
+  display: inline-block;
+  padding: 3px 15px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.nav--lisleft--item{
+  padding-bottom: 10px;
+  &:hover{
+    .nav--lisleft--item--display--parent{
+      display: block;
+      &--name{
+        width: 100%;
+        color: black;
+        display: inline-block;
+        padding: 5px 20px;
+        font-size: 13px;
+        letter-spacing: 4px;
+      }
+      li {
+        &:hover{
+          .nav--lisleft--item--display--child{
+            width: 100%;
+            display: block;
+            top: 0;
+            left: 221px;
+            li {
+              &:hover{
+                .nav--lisleft--item--display--granchild{
+                  width: 300px;
+                  display: block;
+                  top: 0;
+                  left: 220px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
