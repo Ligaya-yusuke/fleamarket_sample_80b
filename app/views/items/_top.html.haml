@@ -36,7 +36,7 @@
       %ul.nav--lisright
         - if user_signed_in?
           .nav--lisright--item
-            = link_to "マイページ", '#', {id:"btnc"}
+            = link_to "マイページ", "/users/#{current_user.id}", {id:"btnc"}
           .nav--lisright--item
             = link_to "ログアウト", destroy_user_session_path, method: :delete, id: "btnc"
         - else

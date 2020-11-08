@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'users/show'
   root 'items#index'
-  resources :users, only: [:show]
   resources :categories, only: [:index, :show]
   resources :products, only: [:new, :create, :show] do
     collection do
@@ -28,5 +27,5 @@ Rails.application.routes.draw do
   
 
   resources :items, only: [:index, :show]
-
+  resources :users, only: [:show]
 end

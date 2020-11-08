@@ -1,7 +1,21 @@
-%h1 マイページ
+%body
+  = render "items/top"
+  = render "breadcrumbtrail"
 
+  .mypage-main
+    .mypage-main__header
+      = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "mypage-main__header__image" 
+      %h1.mypage-main__header__nickname
+        = @user.nickname
+      %p.mypage-main__header__count
+        出品数100
+    .mypage-main__items
+      %h2.mypage-main__items__name
+        = "#{@user.nickname}の商品一覧"
+      .mypage-main__items__lists
+        %section.mypage-main__items__lists__list
+          = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "mypage-main__items__lists__list__image" 
 
-%h1
-  = @user.nickname
-%h1
-  = @user.email
+  = render "items/thirdinfo"
+  = render "items/footer"
+  = render "items/seller_icon"

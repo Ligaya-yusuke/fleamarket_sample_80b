@@ -1,0 +1,9 @@
+%nav.root
+  %ul.root--category
+    %li.root--category--name
+      = link_to root_path,{class:"root--category--name--link"} do
+        FURIMA
+    %li.root--category--logo >
+    %li.root--category--name
+      = link_to "/users/#{current_user.id}",{class:"root--category--name--link"} do
+        マイページ
