@@ -31,6 +31,7 @@
 
     }
   }
+
   &__items {
     margin: 30px auto ;
     text-align: center;
@@ -42,12 +43,29 @@
     }
     &__lists {
       display: flex;
+      width: 1040px;
+      padding: 10px;
+      justify-content: space-evenly;
+      // background-color: khaki;
       &__list {
         &__image {
           height: 200px;
           width: 200px;
-          border: 1px solid black ;
         }
+        &__body {
+          height: 100px;
+          &__name {
+            font-size: 20px;
+            padding: 5px;
+          }
+          &__text {
+            display: flex;
+            justify-content: space-between;
+            width: 200px;
+            padding:10px 10px;
+          }
+        }
+        
       }
     }
   }
