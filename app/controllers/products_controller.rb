@@ -24,13 +24,13 @@ class ProductsController < ApplicationController
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)
-    @condition = Condition.find(@product.condition)
-    @delivery_charge = DeliveryCharge.find(@product.delivery_charge)
-    @shipping_day = ShippingDay.find(@product.shipping_day)
+    @condition = Condition.find(@product.condition_id)
+    @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
+    @shipping_day = ShippingDay.find(@product.shipping_day_id)
     array = []
     @products = Product.all.order(created_at: :desc)
     @products.each do |item|
-      if Category.find(item.category_id) == @category || Category.find(item.category_id).parent == @category.parent || Category.find(item.category_id).parent.parent == @category.parent.parent
+      if Category.find(item.category_id).parent.parent == @category.parent.parent
         unless item.buyer_id.present?
         array << item
         end
@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name,:infomation,:price,:condition,:delivery_charge,:prefecture_id,:shipping_day,:brand,:category_id).merge(user_id: current_user.id)
+    params.require(:product).permit(:name,:infomation,:price,:condition_id,:delivery_charge_id,:prefecture_id,:shipping_day_id,:brand,:category_id).merge(user_id: current_user.id)
   end
   
   def set_category  
