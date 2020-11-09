@@ -49,12 +49,12 @@
         .Products__form__condition
           =form.label "商品の状態"
           %span 必須
-          =form.select :condition, {'新品、未使用':1, '未使用に近い':2, '目立った傷や汚れなし':3, 'やや傷や汚れあり':4, '傷や汚れあり':5, '全体的に状態が悪い':6}, {include_blank: '選択してください'}, { class:"Products__form__conditionSelect", required: true}
+          =form.collection_select :condition_id, Condition.all, :id, :name, { class:"Products__form__conditionSelect"}
 
         .Products__form__deliveryCharge
           =form.label "送料の負担"
           %span 必須
-          =form.select :delivery_charge, {'送料込み(出品者負担)':1, '着払い(購入者負担)':2}, {include_blank: '選択してください'}, {class:"Products__form__ deliveryChargeSelect", required: true}
+          =form.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :name, {class:"Products__form__ deliveryChargeSelect"}
 
         .Products__form__deliveryFrom
           =form.label "発送元地域"
@@ -64,7 +64,7 @@
         .Products__form__shippingDay
           =form.label "発送日数"
           %span 必須
-          =form.select :shipping_day, {'1~2日で発送':1, '2~3日で発送':2, '4~7日で発送':3}, {include_blank: '選択してください'}, {class:"Products__form__shippingDaySelect", required: true}
+          =form.collection_select :shipping_day_id ,ShippingDay.all, :id, :name, {class:"Products__form__shippingDaySelect"}
 
         .Products__form__price
           価格(300~9,999,999)

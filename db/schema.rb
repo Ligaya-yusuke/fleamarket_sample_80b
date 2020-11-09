@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2020_11_04_122600) do
     t.text "infomation", null: false
     t.string "price", null: false
     t.string "brand"
-    t.string "condition", null: false
-    t.string "delivery_charge", null: false
+    t.string "condition_id", null: false
+    t.string "delivery_charge_id", null: false
     t.string "prefecture_id", null: false
-    t.string "shipping_day", null: false
+    t.string "shipping_day_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id", null: false
