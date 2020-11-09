@@ -43,6 +43,18 @@ class ProductsController < ApplicationController
       end
   end
 
+  def edit
+    
+  end
+
+  def update
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+  end
+
   #jsonで親の名前で検索し、紐づく小カテゴリーの配列を取得
   def get_category_children
     @category_children = Category.find(params[:parent_name]).children
