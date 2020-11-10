@@ -1,0 +1,48 @@
+.Sell
+  .Header
+    .Header__logo
+      =link_to root_path do
+        =image_tag "logo.png", width: '20%', alt: "FURIMA"
+
+  .purchase
+    .purchase--top 購入内容の確認
+    .purchase--fourinfo
+      = image_tag "icon-01.png", alt: "kangaroo", class: "purchase--fourinfo--image"
+      .purchase--fourinfo--threeinfo
+        .purchase--fourinfo--threeinfo--productname
+          = @product.name
+        .purchase--fourinfo--threeinfo--productprice
+          = @product.price
+          円(税込)
+        .purchase--fourinfo--threeinfo--productdel
+          = @delivery_charge.name
+    .purchase--priceinfo
+      %label.purchase--priceinfo--title 支払い金額
+      %label.purchase--priceinfo--price
+        ¥
+        = @product.price
+    .purchase--priceinfo
+      %label.purchase--priceinfo--title 支払い方法
+      %label.purchase--priceinfo--select
+        = link_to "登録してください",("#")
+    .purchase--priceinfo
+      %label.purchase--priceinfo--title  配送先
+      %label.purchase--priceinfos
+        .purchase--priceinfos--user
+          = @username
+          様
+        .purchase--priceinfos--post
+          〒
+          = @post_code
+        .purchase--priceinfos--address
+          = @address1
+        - unless @address2.empty?
+          .purchase--priceinfos--address
+            = @address2
+    .purchaseform
+      .purchaseform--button
+        %button{type: "submit", class: "purchaseform--button--submit"}購入する
+  .Footer 
+    .Footer__logo
+      =link_to root_path do
+        =image_tag "logo-white.png", width: '20%', alt: "FURIMA"
