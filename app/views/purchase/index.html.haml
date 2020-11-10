@@ -26,7 +26,11 @@
       %label.purchase--priceinfo--select
         = link_to "登録してください",("#")
     .purchase--priceinfo
-      %label.purchase--priceinfo--title  配送先
+      %label.purchase--priceinfo--title 
+        .purchase--priceinfo--title--main 配送先
+        .purchase--priceinfo--title--aux
+          = link_to "#",{class:"auxlink"} do
+            変更する場合はこちらをクリック
       %label.purchase--priceinfos
         .purchase--priceinfos--user
           = @username
