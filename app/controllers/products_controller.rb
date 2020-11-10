@@ -3,10 +3,14 @@ class ProductsController < ApplicationController
   before_action :move_to_signed_in, except: [:index, :show]
   
   def index
+    # Productテーブルとimagesデータを事前に読み込む
+    @products = Product.includes(:images).order('created_at DESC')
+
   end
 
   def new
     @product = Product.new
+    # @products.images.new
   end
 
   def create
