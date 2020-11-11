@@ -8,14 +8,11 @@ class PurchaseController < ApplicationController
   def products_infomation
     @product = Product.find(params[:product_id])
     @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
-    user = User.find(current_user.id)
-    address = Address.find(user.id)
+    address = current_user.address
     prefcture = Prefecture.find(address.prefecture_id).name
-    family = address.ship_family_name
-    first = address.ship_first_name
     @post_code = address.post_code
-    @address1 = prefcture + address.city + address.block_number
-    @address2 = address.building_number
-    @username = family + first
+    @address = prefcture + address.city + address.block_number
+    @buiding_number = address.building_number
+    @user_name = address.ship_family_name + address.ship_first_name
   end
 end

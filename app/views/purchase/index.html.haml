@@ -33,16 +33,16 @@
             変更する場合はこちらをクリック
       %label.purchase--priceinfos
         .purchase--priceinfos--user
-          = @username
+          = @user_name
           様
         .purchase--priceinfos--post
           〒
           = @post_code
         .purchase--priceinfos--address
-          = @address1
-        - unless @address2.empty?
+          = @address
+        - unless @buiding_number.empty?
           .purchase--priceinfos--address
-            = @address2
+            = @buiding_number
     .purchaseform
       .purchaseform--button
         %button{type: "submit", class: "purchaseform--button--submit"}購入する
