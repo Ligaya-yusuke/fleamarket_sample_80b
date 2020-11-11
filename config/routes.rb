@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'credit_card/new'
+  get 'credit_card/show'
   get 'users/show'
   root 'items#index'
   resources :categories, only: [:index, :show]
