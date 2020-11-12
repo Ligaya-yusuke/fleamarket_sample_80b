@@ -19,24 +19,28 @@
     background-color: #ffffff;
     margin: 0 50px;
     padding: 20px;
-    &__image {
-      margin-top: 20px;
-      span {
-        @include must;
-      }
-      &__save {
-        background-color: #dbedf0;
-        text-align: center;
-        display: block;
-        padding: 50px 0;
-        border-style: dotted;
-        border-color: #dddddd;
-        color: black;
-        font-size: small;
-      }
-    }
     &__form {
       padding: 20px 0;
+      font-weight: bold;
+      &__images {
+        margin-top: 20px;
+        span {
+          @include must;
+        }
+        &__save {
+          background-color: #dbedf0;
+          text-align: center;
+          display: block;
+          padding: 50px 0;
+          border-style: dotted;
+          border-color: #dddddd;
+          color: black;
+          font-size: small;
+          .file-icon {
+            display: none;
+          }
+        }
+      }
       &__name {
         font-weight: bold;
         span {
