@@ -129,7 +129,7 @@
             = link_to edit_product_path(@product.id),{class:"seller-show__button"} do
               編集
             %ol
-            = link_to product_path(@product.id),{class:"seller-show__button"}, method: :destroy do
+            = link_to product_path(@product.id), method: :delete ,class:"seller-show__button" do
               削除
         -# 出品者以外にしか購入が出来ない制限
         .buyer-show
