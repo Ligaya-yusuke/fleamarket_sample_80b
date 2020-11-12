@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
   root 'items#index'
-  # get 'sells', to:'sells#new'
-  # post'sells/posts', to:'sells#create'
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :products do
