@@ -52,7 +52,9 @@ class ProductsController < ApplicationController
 
   def destroy
     product = Product.find(params[:id])
-    product.destroy
+    if current_user.id == product.user_id
+      product.destroy
+    end
   end
 
   #jsonで親の名前で検索し、紐づく小カテゴリーの配列を取得
