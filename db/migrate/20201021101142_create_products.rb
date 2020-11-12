@@ -12,6 +12,10 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :condition_id, null: false
       t.integer :delivery_charge_id, null: false
       t.integer :shipping_day_id, null: false
+      t.string :condition_id, null: false
+      t.string :delivery_charge_id, null: false
+      t.string :prefecture_id, null: false
+      t.string :shipping_day_id, null: false
       t.timestamps
     end
   end
