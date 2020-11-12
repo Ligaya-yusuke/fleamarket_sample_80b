@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
   root 'items#index'
-  post'sells/posts', to:'sells#create'
-  get 'sells', to:'sells#new'
+  # get 'sells', to:'sells#new'
+  # post'sells/posts', to:'sells#create'
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :products, only: [:new, :create, :show] do
-    resources :sells, only: [:index, :new, :create]
+  resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }

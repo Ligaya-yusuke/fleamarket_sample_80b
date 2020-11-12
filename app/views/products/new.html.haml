@@ -5,23 +5,17 @@
         =image_tag "logo.png", width: '20%', alt: "FURIMA"
 
   .Products
-    .Products__images
-      =form_with model: @product, local:true do |f|
-        =f.label :"商品名"
-        =f.text_field :name
-        =f.label :"価格"
-        =f.number_field :price
-        =f.fields_for :images do |i|
-          = i.file.field :src
-        =f.submit
-
-      -#   =icon('fas', 'camera')
-      -#   %br ファイルをアップロード
-      -# %b出品画像     
-      -# %span 必須
-      -# %br 最大2枚までアップロードできます
     .Products__form  
       =form_with model: @product, local:true do |form|
+        .Products__form__images
+          =form.label :"商品画像"
+          %span 必須
+          %br 最大2枚までアップロードできます
+          %label{class: "Products__form__images__save"}
+            =icon('fas', 'camera')
+            =form.fields_for :images do |i|
+              = i.file_field :src,class: "file-icon"
+              %br ファイルをアップロード
         .Products__form__name
           =form.label :"商品名"
           %span 必須
@@ -53,12 +47,12 @@
         .Products__form__condition
           =form.label "商品の状態"
           %span 必須
-          =form.select :condition_id, {'新品、未使用':1, '未使用に近い':2, '目立った傷や汚れなし':3, 'やや傷や汚れあり':4, '傷や汚れあり':5, '全体的に状態が悪い':6}, {include_blank: '選択してください'}, { class:"Products__form__conditionSelect", required: true}
 
+          = form.collection_select :condition_id, Condition.all, :id, :name, class:"Products__form__conditionSelect", required: true
         .Products__form__deliveryCharge
           =form.label "送料の負担"
           %span 必須
-          =form.select :delivery_charge_id, {'送料込み(出品者負担)':1, '着払い(購入者負担)':2}, {include_blank: '選択してください'}, {class:"Products__form__ deliveryChargeSelect", required: true}
+          = form.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :name, class:"Products__form__ deliveryChargeSelect", required: true
 
         .Products__form__deliveryFrom
           =form.label "発送元地域"
@@ -68,7 +62,7 @@
         .Products__form__shippingDay
           =form.label "発送日数"
           %span 必須
-          =form.select :shipping_day_id, {'1~2日で発送':1, '2~3日で発送':2, '4~7日で発送':3}, {include_blank: '選択してください'}, {class:"Products__form__shippingDaySelect", required: true}
+          =form.collection_select :shipping_day_id, ShippingDay.all, :id, :name, class:"Products__form__shippingDaySelect", required: true
 
         .Products__form__price
           価格(300~9,999,999)
