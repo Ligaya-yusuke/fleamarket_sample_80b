@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
     array = []
     @products = Product.all.order(created_at: :desc)
     @products.each do |item|
-      if Category.find(item.category_id) == @category || Category.find(item.category_id).parent == @category.parent || Category.find(item.category_id).parent.parent == @category.parent.parent
+      if Category.find(item.category_id).parent.parent == @category.parent.parent
         unless item.buyer_id.present?
         array << item
         end
@@ -45,6 +45,18 @@ class ProductsController < ApplicationController
         format.html
         format.js
       end
+  end
+
+  def edit
+    
+  end
+
+  def update
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
   end
 
   #jsonで親の名前で検索し、紐づく小カテゴリーの配列を取得
