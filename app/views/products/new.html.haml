@@ -14,7 +14,7 @@
           %label{class: "Products__form__images__save"}
             =icon('fas', 'camera')
             =form.fields_for :images do |i|
-              = i.file_field :src,class: "file-icon"
+              = i.file_field :src, class: "file-icon"
               %br ファイルをアップロード
         .Products__form__name
           =form.label :"商品名"

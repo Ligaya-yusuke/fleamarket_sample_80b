@@ -28,9 +28,9 @@ class ProductsController < ApplicationController
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)
-    @condition = Condition.find(@product.condition)
-    @delivery_charge = DeliveryCharge.find(@product.delivery_charge)
-    @shipping_day = ShippingDay.find(@product.shipping_day)
+    @condition = Condition.find(@product.condition_id)
+    @delivery_charge = DeliveryCharge.find(@product.delivery_charge_id)
+    @shipping_day = ShippingDay.find(@product.shipping_day_id)
     array = []
     @products = Product.all.order(created_at: :desc)
     @products.each do |item|
