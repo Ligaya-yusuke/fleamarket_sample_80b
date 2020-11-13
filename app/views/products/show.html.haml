@@ -29,7 +29,7 @@
       .mainbox__top__title
         = @product.name
       .mainbox__top__image
-        = link_to image_tag {@image_first.url}, alt: "kangaroo", class: "kangaroo"
+        = image_tag @image_first, alt: "kangaroo", class: "kangaroo"
         .mainbox__top__image__sub
           = link_to ("#"),{ class: "pics"} do
             = image_tag "icon-01.png", alt: "kangaroo", class: "kangarooo"
@@ -138,7 +138,7 @@
             %ol
             商品の購入はこちら
             %ol
-            = link_to "#",{class:"buyer-show__button"} do
+            = link_to product_purchase_index_path(@product),{class:"buyer-show__button"} do
               購入
     .links
       %ul
@@ -161,7 +161,7 @@
           - if item.buyer_id.present?
             = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
               .category--prodboxs--lis--product--image
-                = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+                = image_tag @image_first, alt: "#N/A", id: "assets", class: "image--pro"
               .category--prodboxs--lis--product--body
                 .category--prodboxs--lis--product--body--name
                   = item.name

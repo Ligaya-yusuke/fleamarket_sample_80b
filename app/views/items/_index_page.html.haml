@@ -2,7 +2,7 @@
   - @items.each do |item|
     = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
       .category--prodboxs--lis--product--image
-        = image_tag "icon-01.png", alt: "#N/A", id: "assets", class: "image--pro"
+        = image_tag Image.where(product_id: item.id).first.src.url, alt: "#N/A", id: "assets", class: "image--pro"
       .category--prodboxs--lis--product--body
         .category--prodboxs--lis--product--body--name
           = item.name
