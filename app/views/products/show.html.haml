@@ -29,7 +29,7 @@
       .mainbox__top__title
         = @product.name
       .mainbox__top__image
-        = link_to image_tag "icon-01.png", alt: "kangaroo", class: "kangaroo"
+        = link_to image_tag {@image_first.url}, alt: "kangaroo", class: "kangaroo"
         .mainbox__top__image__sub
           = link_to ("#"),{ class: "pics"} do
             = image_tag "icon-01.png", alt: "kangaroo", class: "kangarooo"

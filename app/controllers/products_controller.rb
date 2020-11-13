@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @image_first = Image.where(product_id: params[:id]).first.src
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)

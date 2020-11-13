@@ -1,0 +1,32 @@
+.main-showdestroy{
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+
+}
+
+.mainboxdestroy{
+  padding: 40px;
+  &__top{
+    background-color: #fff;
+    width: 700px;
+    font-size: 40px;
+    color: #3CCACE;
+    text-align: center;
+  }
+  &__down{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+.destroybutton{
+  align-items: center;
+  font-size: 18px;
+  width: 200px;
+  background-color: #3CCACE;
+  color: #f8f8f8;
+  text-align: center;
+  border-radius: 40px;
+}
