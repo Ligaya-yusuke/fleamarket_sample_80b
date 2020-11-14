@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :create, :edit]
+  before_action :set_product, only: [:show, :edit]
   before_action :move_to_signed_in, except: [:index, :show]
   
   def index
@@ -20,7 +21,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)
@@ -44,8 +44,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
-
     # 以下カテゴリー(ancestry)機能を編集ページに初期値として表示する為の記述
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
@@ -81,6 +79,10 @@ class ProductsController < ApplicationController
   
   def set_category  
     @category_parent_array = Category.where(ancestry: nil).limit(13)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   def item_params
