@@ -1,9 +1,11 @@
 class Product < ApplicationRecord
-
   belongs_to :user
   belongs_to :category
+  
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
+
   #以下のコメントアウトはのちの作業時に使用する。
-  #出品と購入機能ができれば実装する。それまではコメントアウトのまま
   # belongs_to :seller, class_name: User, foreign_key: user_id
   # belongs_to :buyer, class_name: User, foreign_key: buyer_id, optional: true
  
@@ -15,9 +17,4 @@ class Product < ApplicationRecord
   belongs_to_active_hash :condition
   belongs_to_active_hash :delivery_charge
   belongs_to_active_hash :shipping_day
-
-  has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
-
-
 end
