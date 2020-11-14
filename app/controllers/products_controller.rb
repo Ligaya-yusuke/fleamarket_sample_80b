@@ -16,7 +16,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
     if @product.save
       redirect_to root_path, notice: '商品を出品しました。'
     else
@@ -25,6 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @image_first = Image.where(product_id: @product).first.src.url
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)
@@ -84,7 +84,7 @@ class ProductsController < ApplicationController
   end
   
   def set_category  
-    @category_parent_array = Category.where(ancestry: nil).limit(13)
+    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def set_product
