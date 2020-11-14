@@ -7,7 +7,7 @@
   .purchase
     .purchase--top 購入内容の確認
     .purchase--fourinfo
-      = image_tag "icon-01.png", alt: "kangaroo", class: "purchase--fourinfo--image"
+      = image_tag Image.where(product_id: @product).first.src.url, alt: "kangaroo", class: "purchase--fourinfo--image"
       .purchase--fourinfo--threeinfo
         .purchase--fourinfo--threeinfo--productname
           = @product.name
