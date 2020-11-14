@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_category, only: [:new, :create]
+  before_action :set_category, only: [:new, :create, :edit]
+  before_action :set_product, only: [:show, :edit]
   before_action :move_to_signed_in, except: [:index, :show]
   
   def index
@@ -23,7 +24,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @image_first = Image.where(product_id: @product).first.src.url
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
@@ -48,7 +48,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    
+    # 以下カテゴリー(ancestry)機能を編集ページに初期値として表示する為の記述
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.category_name
+    end
+    @category_children_array = @product.category.parent.parent.children
+    @category_grandchildren_array = @product.category.parent.children
   end
 
   def update
@@ -79,6 +85,10 @@ class ProductsController < ApplicationController
   
   def set_category  
     @category_parent_array = Category.where(ancestry: nil)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   def item_params
