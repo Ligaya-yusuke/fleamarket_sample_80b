@@ -1,1 +1,94 @@
-編集ページ
+.Sell
+  .Header
+    .Header__logo
+      =link_to root_path do
+        =image_tag "logo.png", width: '20%', alt: "FURIMA"
+  -# メイン
+  .Products
+    -# 画像保存
+    .Products__image 
+      %b出品画像     
+      %span 必須
+      %br 最大2枚までアップロードできます
+      
+      -# 画像保存機能実装
+      =link_to "#", class: "Products__image__save" do
+        =icon('fas', 'camera')
+        %br ファイルをアップロード
+
+    .Products__form
+      = form_with model: @product, local:true do |form|
+        .Products__form__name  
+          =form.label :"商品名"
+          %span 必須
+          =form.text_field :name, class: "Products__form__entry", placeholder: "40文字まで"
+        .Products__form__info 
+          =form.label :"商品の説明"
+          %span 必須
+          =form.text_field :infomation, class: "Products__form__infoInput",placeholder: "商品の説明（必須 300文字以内)（色、素材、重さ、定価、注意点など）"
+            
+        .Products__form__category
+          -# セレクタ実装
+          =form.label :"カテゴリー"
+          %span 必須
+          .item_input__body
+            .item_input__body__category#category_box
+              .pulldown#partent_box
+                = form.select :category_id, options_for_select( @category_parent_array.map{|c|[c, {}]}, @product.category.parent.parent.category_name),{}, { class: "parent_category_box", id: "parent_category"}
+                = icon('fa', 'chevron-down')
+                .pulldown.item_input__body__category__children#children_box
+                  = form.select :category, options_for_select(@category_children_array.map{|c|[c[:category_name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.parent.id), {}, {class: "parent_category_box", id: "children_category"}
+                .pulldown.item_input__body__category__grandchildren#grandchildren_box
+                  = form.select :category, options_for_select(@category_grandchildren_array.map{|c| [c[:category_name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.id), {}, {class: "parent_category_box", id: "grandchildren_category"}
+
+        .Products__form__brand
+          =form.label "ブランド"
+          %span 任意
+          =form.text_field :brand, class:"Products__form__brandSelect", placeholder: '例)シャネル'
+
+        .Products__form__condition
+          =form.label "商品の状態"
+          %span 必須
+          =form.collection_select :condition_id, Condition.all, :id, :name, { class:"Products__form__conditionSelect"}
+
+        .Products__form__deliveryCharge
+          =form.label "送料の負担"
+          %span 必須
+          =form.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :name, {class:"Products__form__ deliveryChargeSelect"}
+
+        .Products__form__deliveryFrom
+          =form.label "発送元地域"
+          %span 必須
+          =form.collection_select :prefecture_id, Prefecture.all, :id, :name, {class: "Products__form__deliveryFromSelect"}
+
+        .Products__form__shippingDay
+          =form.label "発送日数"
+          %span 必須
+          =form.collection_select :shipping_day_id ,ShippingDay.all, :id, :name, {class:"Products__form__shippingDaySelect"}
+
+        .Products__form__price
+          価格(300~9,999,999)
+          =link_to "#" do
+            =icon('far', 'question-circle')
+        .Product__form__sales
+          =form.label "販売価格"
+          %span 必須
+        .Products__form__yen
+          ¥
+          =form.number_field :price
+        =form.submit "更新する", class: "Submit"
+
+        -# 余裕があれば実装（手数料計算、下書き保存）
+        -# .Products__form__fees 販売手数料(10%)
+        -# .Products__form__profits 販売利益
+
+        -# =form_with model: @sell do |form|
+        -#   =form.submit "下書きに保存"
+
+    .Return
+      =link_to "トップページに戻る", root_path 
+    
+  .Footer 
+    .Footer__logo
+      =link_to root_path do
+        =image_tag "logo-white.png", width: '20%', alt: "FURIMA"
