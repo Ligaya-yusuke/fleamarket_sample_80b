@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    
     if @product.save
       redirect_to root_path, notice: '商品を出品しました。'
     else
@@ -35,7 +34,7 @@ class ProductsController < ApplicationController
     array = []
     @products = Product.all.order(created_at: :desc)
     @products.each do |item|
-      if Category.find(item.category_id) == @category
+      if Category.find(item.category_id).parent.parent == @category.parent.parent
         unless item.buyer_id.present?
         array << item
         end
@@ -79,7 +78,7 @@ class ProductsController < ApplicationController
   end
   
   def set_category  
-    @category_parent_array = Category.where(ancestry: nil).limit(13)
+    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def item_params
