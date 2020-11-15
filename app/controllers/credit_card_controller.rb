@@ -4,7 +4,7 @@ class CreditCardController < ApplicationController
 
   def new
     # エラーが出たらマイグレーションファイルのuserのタイプをintegerにしてみる
-    card = Credit_card.where(user_id: current_user.id)
+    credit_card = CreditCard.where(user_id: current_user.id)
     redirect_to action: "show" if credit_card.exists?
   end
 
@@ -13,13 +13,12 @@ class CreditCardController < ApplicationController
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
-      customer = Payjp::customer.create(
+      customer = Payjp::Customer.create(
         description: '登録テスト',
-        email: current_user.email,
         card: params['payjp-token'],
         metadata: {user_id: current_user.id}
       )
-      @credit_card = Credit_card.new(user_id: current_user.id, customer_id: customer_id, credit_card_id: customer.default_card) 
+      @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card) 
       if @credit_card.save
         redirect_to action: "show"
       else
@@ -29,7 +28,7 @@ class CreditCardController < ApplicationController
   end
 
   def delete
-    credit_card = Credit_card.where(user_id: current_user.id).first
+    credit_card = CreditCard.where(user_id: current_user.id).first
     if credit_card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -37,17 +36,20 @@ class CreditCardController < ApplicationController
       customer.delete
       credit_card.delete
     end
-      redirect_to action: "new"
+      redirect_to action: "destroy"
   end
 
   def show
-    credit_card = Credit_card.where(user_id: current_user.id).first
+    credit_card = CreditCard.where(user_id: current_user.id).first
     if credit_card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(credit_card.customer_id)
-      @default_card_information = customer.credit_card.retrieve(credit_card.credit_card_id)
+      @default_card_information = customer.cards.retrieve(credit_card.card_id)
     end
+  end
+
+  def destroy
   end
 end

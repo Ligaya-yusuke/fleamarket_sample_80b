@@ -1,0 +1,194 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.input-data {
+  height: 48px;
+  width: 120px;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+  border: solid 1px black;
+  border-radius: 4px;
+  font-family: "ヒラギノ丸ゴ pro w4", "hiragino maru gothic pro", "hg丸ｺﾞｼｯｸm-pro","verdana","osaka","sans-serif";
+}
+
+.input-submit {
+  margin-top: 50px;
+  width: 300px;
+  background-color: #3CCACE;
+  border: 0;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  outline: 0;
+  line-height: 48px;
+  text-align: center;
+}
+.input-submit:hover {
+  background-color: rgb(0, 222, 230);
+  transition: 0.7s;
+}
+
+.credit {
+  padding: 50px 60px;
+  width: 100vw;
+  height: 700px;
+  display: flex;
+
+  // クレジット登録
+  &__new {
+    width: 800px;
+    max-width: 800px;
+    min-width: 300px;
+    margin: 0 auto;
+    height: 600px;
+    background-color: rgba(240, 239, 239, 0.863);
+    justify-content: center;
+
+    &__title {
+      text-align: center;
+      line-height: 80px;
+      font-size: 24px;
+      color: rgb(17, 17, 17);
+      font-weight: bold;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    }
+    &__main {
+      max-width: 400px;
+      min-width: 300px;
+      margin: 0 auto;
+      height: 520px;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      &__list {
+        width: 300px;
+        &__lists {
+          float: left;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  // クレジット情報・削除
+
+  .container-credit {
+    width: 400px;
+    padding: 20px;
+    border: #3CCACE 3px solid;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: white;
+    margin:50px auto 0;
+    
+  }
+
+  &__main {
+    width: 800px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    height: 550px;
+    background-color: rgba(240, 239, 239, 0.863);
+    justify-content: center;
+    &__title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #3CCACE;
+      
+      width: 400vw;
+      
+    }
+    &__border {
+      border: #3CCACE 2px solid;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    &__text {
+      justify-content: center;
+      display: flex;
+      &__title {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      &__number {
+        font-size: 26px;
+      }
+      &__date {
+        font-size: 22px; 
+      }
+      &__mypage {
+        margin-top: 20px;
+        line-height: 48px;
+        font-size: 20px;
+        color: white;
+        border-radius: 10px;
+        background-color: #3CCACE;
+        font-size: 18px;
+        font-weight: bold;
+        outline: 0;
+      }
+      &__mypage:hover {
+        background-color: rgb(0, 222, 230);
+        transition: 0.7s;
+      }
+    }
+    &__delete {
+      &__submit {
+        width: 360px;
+        line-height: 48px;
+        border-radius: 10px;
+        background-color: #3CCACE;
+        border: solid 1px #3CCACE;
+        outline: 0;
+        margin-top: 60px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+      }
+      &__submit:hover {
+        background-color: rgb(0, 222, 230);
+        transition: 0.7s;
+      }
+    }
+  }
+  
+}
+
+// クレジット削除ページ
+.credit-destroy {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  &__index {
+    width: 500px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 60px auto;
+    padding: 30px 40px;
+    &__text {
+      font-size: 24px;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      font-weight: bold;
+    }
+    &__mypage {
+      margin-top: 50px;
+      background-color: #3CCACE;
+      border: 0;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      outline: 0;
+      line-height: 48px;
+    }
+    &__mypage:hover {
+      background-color: rgb(0, 222, 230);
+      transition: 0.7s;
+    }
+  }
+}
