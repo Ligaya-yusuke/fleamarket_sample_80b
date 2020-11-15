@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :create, :edit]
-  before_action :set_product, only: [:show, :edit]
+  before_action :set_product, only: [:show, :edit, :update]
   before_action :move_to_signed_in, except: [:index, :show]
   
   def index
@@ -58,6 +58,11 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(product_params)
+      redirect_to product_path, notice: "商品情報が更新されました"
+    else
+      redirect_to product_path, alert: "商品情報の更新ができませんでした"
+    end
   end
 
   def destroy
