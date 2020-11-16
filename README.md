@@ -47,7 +47,7 @@ Things you may want to cover:
 |------|----|-------|
 |customer_id|string|null: false|
 |card_id|string|null: false|
-|user_id|references|null: false, foreign_key: true|
+|user_id|integer|null: false|
 
 ### Association
 
@@ -97,10 +97,10 @@ Things you may want to cover:
 |information|text|null: false|
 |price|string|null: false|
 |brand|string||
-|condition|string|null: false|
-|delivery_charge|string|null: false|
-|prefecture_id|string|null: false|
-|shipping_day|string|null: false|
+|condition_id|integer|null: false|
+|delivery_charge_id|integer|null: false|
+|prefecture_id|integer|null: false|
+|shipping_day_id|integer|null: false|
 |category_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 
@@ -149,7 +149,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
-## likesテーブル
+## likesテーブル(中間テーブル)
 
 |Column|Type|Options|
 |------|----|-------|
@@ -162,4 +162,4 @@ Things you may want to cover:
 - belongs_to :product
 
 # README
-<img width="921" alt="最終課題ER図修正8" src="https://user-images.githubusercontent.com/62795565/98684824-fb731300-23a9-11eb-90b8-639e52eaad76.png">
+<img width="1042" alt="最終課題ER図修正10" src="https://user-images.githubusercontent.com/62795565/99184809-fdade680-2788-11eb-84d8-f56bd339ac73.png">
