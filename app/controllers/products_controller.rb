@@ -17,9 +17,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path, notice: '商品を出品しました。'
+      redirect_to root_path
     else
-      redirect_to new_product_path, alert: "商品登録に失敗しました"
+      flash[:alert] = @product.errors.full_messages.join(',')
+      redirect_to new_product_path
     end
   end
 
@@ -101,4 +102,5 @@ class ProductsController < ApplicationController
       redirect_to  new_user_session_path
     end
   end
+
 end

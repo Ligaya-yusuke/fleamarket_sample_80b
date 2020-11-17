@@ -22,6 +22,10 @@
     &__form {
       padding: 20px 0;
       font-weight: bold;
+      &__notification{
+        color: red;
+        margin-bottom: 5px;
+      }
       &__images {
         margin-top: 20px;
         span {
@@ -164,3 +168,5 @@
     }
   }
 }
+
+
