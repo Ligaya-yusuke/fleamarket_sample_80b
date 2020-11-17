@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :create]
   before_action :move_to_signed_in, except: [:index, :show]
+  before_action :set_product, except: [:index, :new, :create]
   
   def index
     # Productテーブルとimagesデータを事前に読み込む
@@ -17,9 +18,9 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to root_path, notice: '商品を出品しました。'
+      redirect_to root_path, notice: "商品を出品しました。"
     else
-      redirect_to new_product_path, alert: "商品登録に失敗しました"
+      render new_product_path, alert: "商品登録に失敗しました"
     end
   end
 
@@ -52,6 +53,11 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @produc.update(product_params)
+        redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -74,7 +80,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name,:infomation,:price,:condition_id, :delivery_charge_id,:prefecture_id,:shipping_day_id,:brand,:category_id, images_attributes: [:src]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name,:infomation,:price,:condition_id, :delivery_charge_id,:prefecture_id,:shipping_day_id,:brand,:category_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
   def set_category  
@@ -90,5 +96,8 @@ class ProductsController < ApplicationController
       #サインインしていないユーザーはログインページが表示される
       redirect_to  new_user_session_path
     end
+  end
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
