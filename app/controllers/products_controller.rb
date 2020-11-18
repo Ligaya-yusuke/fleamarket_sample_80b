@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path, notice: "商品を出品しました。"
     else
-      render new_product_path, alert: "商品登録に失敗しました"
+      redirect_to new_product_path, alert: "商品登録に失敗しました"
     end
   end
 
