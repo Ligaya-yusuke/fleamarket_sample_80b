@@ -8,7 +8,7 @@
     .Products__form
       =form_with model: @product, local:true do |form|
         .Products__form__notification
-          - if flash
+          - if flash[:alert]
             - flash.each do |message_type, message|
               - message2 = message.gsub(",","<br>")
               = message2.html_safe
