@@ -136,6 +136,17 @@ a {
         background-color: rgb(0, 222, 230);
         transition: 0.7s;
       }
+      &__edit {
+        margin-top: 20px;
+        line-height: 48px;
+        font-size: 20px;
+        color: white;
+        border-radius: 10px;
+        background-color: #3CCACE;
+        font-size: 18px;
+        font-weight: bold;
+        outline: 0;
+      }
     }
     &__delete {
       &__submit {

@@ -38,7 +38,7 @@
           .nav--lisright--item
             = link_to "マイページ", "/users/#{current_user.id}", {id:"btnc"}
           .nav--lisright--item
-            = link_to "ログアウト", "users/destroy", method: :delete, id: "btnc"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, id: "btnc"
         - else
           .nav--lisright--item
             = link_to "ログイン", new_user_session_path, {id:"btnc"}
