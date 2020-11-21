@@ -1,25 +1,10 @@
 %body
   = render "items/top"
+  / パンくずに使用
   -# = render "breadcrumbtrail"
   
   .mypage-main
     = render "side-bar"
-    -# .mypage-main__side
-    -#   %ul.mypage-main__side__lists
-    -#     %li.mypage-main__side__lists__list
-    -#       = link_to "トップページ", "/", {id:"btnc"}
-    -#     %li.mypage-main__side__lists__list
-    -#       = link_to "お気に入り商品", "#", {id:"btnc"}
-    -#   %h3.mypage-main__side__text 各種設定
-    -#   %ul.mypage-main__side__lists
-    -#     %li.mypage-main__side__lists__list
-    -#       = link_to "会員情報の編集", "/", {id:"btnc"}
-    -#     %li.mypage-main__side__lists__list
-    -#       = link_to "住所の編集", "#", {id:"btnc"}
-    -#     %li.mypage-main__side__lists__list
-    -#       = link_to "お支払い情報", "/credit_card/new", {id:"btnc"}
-    -#     %li.mypage-main__side__lists__list
-    -#       = link_to "ログアウト", destroy_user_session_path, method: :delete, id: "btnc"
     .main
       .mypage-main__header
         = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "mypage-main__header__image" 
@@ -71,26 +56,6 @@
                 %li.mypage-main__items__lists__list__body__text__price
                   = icon('fas', 'fa-star', class: "staricon")
                   1
-        -# .category
-        -#   .category--top ピックアップカテゴリー
-        -#   .category--prodboxs
-        -#     .category--prodboxs--topper
-        -#       = link_to ('#'), {class:"category--prodboxs--topper--link"} do
-        -#         .catgbratitle 新規投稿商品
-        -#     .category--prodboxs--lis
-        -#       = link_to ('#'),{class:"category--prodboxs--lis--product"} do
-        -#         .category--prodboxs--lis--product--image
-        -#           = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "image--pro"
-        -#         .category--prodboxs--lis--product--body
-        -#           .category--prodboxs--lis--product--body--name テスト1
-        -#           .category--prodboxs--lis--product--body--detail
-        -#             %ul.detaillist
-        -#               %li 1000円
-        -#               %li
-        -#                 = icon('fas', 'fa-star', class: "staricon")
-        -#                 1
-        -#             %p (税込)
-      
       
   = render "items/thirdinfo"
   = render "items/footer"

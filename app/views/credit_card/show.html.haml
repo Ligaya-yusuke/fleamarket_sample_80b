@@ -10,7 +10,6 @@
         .credit__main__border
         %br
         .credit__main__text
-          -# %h2.credit__main__text__title カード番号
           .credit__main__text__number
             = "**** **** **** " + @default_card_information.last4
         %br
@@ -22,7 +21,6 @@
             = link_to "マイページに戻る", "/users/#{current_user.id}"
 
       .credit__main__delete
-        -# = link_to "マイページ", "delete_credit_card_index_path", {id:"btnc"}
       = form_tag(delete_credit_card_index_path, method: :post, id: 'charge-form',  name: "inputForm", class: "credit__delete") do
         %input{ type: "hidden", name: "card_id", value: "" }
         %button.credit__main__delete__submit クレジットカード情報を削除する
