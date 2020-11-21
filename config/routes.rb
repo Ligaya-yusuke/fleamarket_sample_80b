@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+
   get 'credit_card/new'
   get 'credit_card/show'
   get 'credit_card/destroy'
   get 'users/show'
+
+
+
   root 'items#index'
-  resources :categories, only: [:index, :show]
-  resources :products, only: [:new, :create, :show] do
+  resources :items, only: [:index, :show]
+  resources :categories, only: [:index, :show, :edit]
+  resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -14,10 +19,8 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    resources :purchase, only: [:index]
   end
-
-
-
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"
@@ -30,6 +33,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
     delete 'users/destroy', to: 'devise/sessions#destroy'
   end
+
   
 
   resources :items, only: [:index, :show]
@@ -41,4 +45,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_card#delete'
     end
   end
+
+
 end
