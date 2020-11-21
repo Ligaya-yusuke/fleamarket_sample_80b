@@ -162,4 +162,4 @@ Things you may want to cover:
 - belongs_to :product
 
 # README
-<img width="1198" alt="最終課題ER図修正7" src="https://user-images.githubusercontent.com/62795565/96593406-6dfd4f80-1324-11eb-83ef-304fd2a2735f.png">
+<img width="921" alt="最終課題ER図修正8" src="https://user-images.githubusercontent.com/62795565/98684824-fb731300-23a9-11eb-90b8-639e52eaad76.png">
