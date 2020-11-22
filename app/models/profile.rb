@@ -4,11 +4,11 @@ class Profile < ApplicationRecord
   validates :first_name, :family_name,
                         format: {
                           with: /\A[ぁ-んァ-ン一-龥]/,
-                          message: "全角文字で入力してください"
+                          message: "を全角文字で入力してください"
                         }
   validates :family_name_kana, :first_name_kana,
                         format: {
                           with: /\A[ぁ-んー－]+\z/,
-                          message: "全角で入力してください"
+                          message: "を全角で入力してください"
                         }
 end

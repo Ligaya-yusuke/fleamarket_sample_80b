@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
+
+
   private
 
   def basic_auth
@@ -22,4 +24,8 @@ class ApplicationController < ActionController::Base
   def production?
     Rails.env.production?
   end
+
+  # def after_sign_in_path_for(resource)
+  #   user_path(resource)
+  # end
 end
