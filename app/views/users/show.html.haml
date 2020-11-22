@@ -1,0 +1,62 @@
+%body
+  = render "items/top"
+  / パンくずに使用
+  -# = render "breadcrumbtrail"
+  
+  .mypage-main
+    = render "side-bar"
+    .main
+      .mypage-main__header
+        = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "mypage-main__header__image" 
+        %h1.mypage-main__header__nickname
+          = @user.nickname
+        %p.mypage-main__header__count
+          出品数100
+      .mypage-main__items
+        %h2.mypage-main__items__name
+          = "#{@user.nickname}の商品一覧"
+        .mypage-main__items__lists
+          %section.mypage-main__items__lists__list
+            = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "mypage-main__items__lists__list__image" 
+            .mypage-main__items__lists__list__body 
+              .mypage-main__items__lists__list__body__name ロゴ
+              %ul.mypage-main__items__lists__list__body__text
+                %li.mypage-main__items__lists__list__body__text__price
+                  1,500円
+                %li.mypage-main__items__lists__list__body__text__price
+                  = icon('fas', 'fa-star', class: "staricon")
+                  1
+          %section.mypage-main__items__lists__list
+            = image_tag "sand.jpg", alt: "#N/A", id: "assets", class: "mypage-main__items__lists__list__image" 
+            .mypage-main__items__lists__list__body 
+              .mypage-main__items__lists__list__body__name 砂
+              %ul.mypage-main__items__lists__list__body__text
+                %li.mypage-main__items__lists__list__body__text__price
+                  1,500円
+                %li.mypage-main__items__lists__list__body__text__price
+                  = icon('fas', 'fa-star', class: "staricon")
+                  1
+          %section.mypage-main__items__lists__list
+            = image_tag "monkey.jpeg", alt: "#N/A", id: "assets", class: "mypage-main__items__lists__list__image" 
+            .mypage-main__items__lists__list__body 
+              .mypage-main__items__lists__list__body__name モンキー
+              %ul.mypage-main__items__lists__list__body__text
+                %li.mypage-main__items__lists__list__body__text__price
+                  1,500円
+                %li.mypage-main__items__lists__list__body__text__price
+                  = icon('fas', 'fa-star', class: "staricon")
+                  1
+          %section.mypage-main__items__lists__list
+            = image_tag "turtle1.jpeg", alt: "#N/A", id: "assets", class: "mypage-main__items__lists__list__image" 
+            .mypage-main__items__lists__list__body 
+              .mypage-main__items__lists__list__body__name 海ガメ
+              %ul.mypage-main__items__lists__list__body__text
+                %li.mypage-main__items__lists__list__body__text__price
+                  1,500円
+                %li.mypage-main__items__lists__list__body__text__price
+                  = icon('fas', 'fa-star', class: "staricon")
+                  1
+      
+  = render "items/thirdinfo"
+  = render "items/footer"
+  = render "items/seller_icon"

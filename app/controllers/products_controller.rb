@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_category, only: [:new, :create]
+  before_action :set_category, only: [:new, :create, :edit]
+  before_action :set_product, only: [:show, :edit]
   before_action :move_to_signed_in, except: [:index, :show]
   # before_action :set_product, except: [:index, :new, :create]
   
@@ -16,16 +17,16 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
     if @product.save
-      redirect_to root_path, notice: "商品を出品しました。"
+      redirect_to root_path , notice: "商品を出品しました。"
     else
-      redirect_to new_product_path, alert: "商品登録に失敗しました"
+      flash[:alert] = @product.errors.full_messages.join(',')
+      redirect_to new_product_path
     end
   end
 
   def show
-    @product = Product.find(params[:id])
+    @image_first = Image.where(product_id: @product).first.src.url
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)
@@ -49,7 +50,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    
+    # 以下カテゴリー(ancestry)機能を編集ページに初期値として表示する為の記述
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.category_name
+    end
+    @category_children_array = @product.category.parent.parent.children
+    @category_grandchildren_array = @product.category.parent.children
   end
 
   def update
@@ -84,7 +91,11 @@ class ProductsController < ApplicationController
   end
   
   def set_category  
-    @category_parent_array = Category.where(ancestry: nil).limit(13)
+    @category_parent_array = Category.where(ancestry: nil)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   def item_params
@@ -97,7 +108,4 @@ class ProductsController < ApplicationController
       redirect_to  new_user_session_path
     end
   end
-  # def set_product
-  #   @product = Product.find(params[:id])
-  # end
 end

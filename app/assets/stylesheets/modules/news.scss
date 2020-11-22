@@ -20,6 +20,10 @@
     &__form {
       padding: 20px 0;
       font-weight: bold;
+      &__notification{
+        color: red;
+        margin-bottom: 5px;
+      }
       &__images {
         margin-top: 20px;
         span {
@@ -185,6 +189,9 @@
   }
   .Return {
     text-align: center;
+    a{
+      color: black;
+    }
   }
   .Footer {
     &__logo {
@@ -194,3 +201,5 @@
     }
   }
 }
+
+
