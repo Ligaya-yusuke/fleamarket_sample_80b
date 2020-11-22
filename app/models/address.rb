@@ -17,6 +17,11 @@ class Address < ApplicationRecord
                           with: /\A\d{3}[-]\d{4}\z/,
                           message: "(3桁-4桁)" 
                         }
+  validates :phone_number,
+                        format: {
+                          with: /\A\d{1,4}[-]\d{1,4}[-]\d{3,4}\z/,
+                          message: "を正確に入力してください"
+                        }
 
   # jp_prefecture :prefecture_code
 

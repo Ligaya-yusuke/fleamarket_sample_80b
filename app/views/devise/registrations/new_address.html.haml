@@ -32,8 +32,7 @@
           = f.label :郵便番号
           %span1.form-require 必須
           %br/
-        = f.text_field :post_code, autofocus: true, class: 'input-default', placeholder: "例）111-1111"
-        
+        = f.text_field :post_code, maxlength: 8, autofocus: true, class: 'input-default', placeholder: "例）111-1111"
       .field
         .contents
           = f.label :都道府県
@@ -63,7 +62,7 @@
           = f.label :電話番号
           %span1.form-require 必須
           %br/
-        = f.text_field :phone_number, autofocus: true, class: 'input-default', placeholder: "例）1111-11-1111"
+        = f.telephone_field :phone_number, autofocus: true, class: 'input-default', placeholder: "例）1111-11-1111"
       .actions
         = f.submit "新規登録", class: 'devise_submit'
 
