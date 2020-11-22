@@ -39,7 +39,7 @@
           %span1.form-require 必須
           %br/
         .input-default-active
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "選択してください" }, required: true
       .field
         .contents
           = f.label :市町村
