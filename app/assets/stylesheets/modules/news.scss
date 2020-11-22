@@ -25,7 +25,7 @@
         span {
           @include must;
         }
-        &__save {
+        &__box {
           // background-color: #dbedf0;
           // text-align: center;
           // display: flex;
@@ -34,10 +34,10 @@
           // border-color: #dddddd;
           color: black;
           font-size: small;
-          #Image-box{
+          #previews{
 
           }
-          .Js-file {
+            &__group {
             // display: none;
           }
         }

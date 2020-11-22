@@ -8,26 +8,26 @@
     .Products__form  
       =form_with model: @product, local:true do |form|
         .Products__form__images
-          =form.label :"商品画像（ファイルをアップロード)"
+          =form.label :"商品画像（ファイルのアップロード)"
           %span 必須
           -# %br 最大2枚までアップロードできます
           -# %label{class: "Products__form__images__save"}
           -# =icon('fas', 'camera')
-        #Image-box
-          #Previews
-            - if @product.persisted?
-              - @product.images.each_with_index do |image, i|
-                =image_tag "{image.src.url}", data: {index: i}, width: '100', height: '100'
-          =form.fields_for :images do |i|
-            .Js-file__group{ data: {index: 'image.index'}}
-              = i.file_field :src, class: '.Js-file'
-              .Js-remove 削除
-            - if @product.persisted?
-              = check_box :_destroy, data: { index: 'image.index'}, class: "hidden-destroy"
-            - if @product.persisted?
-              .Js-file__group{ data: {index: '@product.images.count'}}
-                = file_field_tag :src, name: "product[images_attrbutes][#{@product.images.count}][src]", class: '.Js-file__group'
-              .Js-remove 削除
+          #Image-box.Products__form__images__box
+            #Previews.Products__form__images__box__previews
+              - if @product.persisted?
+                - @product.images.each_with_index do |image, i|
+                  =image_tag "{image.src.url}", data: {index: i}, width: '100', height: '100'
+            =form.fields_for :images do |i|
+              .Products__form__images__box__previews__group{ data: {index: 'image.index'}}
+                = i.file_field :src, class: 'Products__form__images__box__previews__group__jsFile'
+                %span.Products__form__images__box__previews__group__jsRemove 削除
+              - if @product.persisted?
+                = check_box :_destroy, data: { index: 'image.index'}, class: "hidden-destroy"
+              - if @product.persisted?
+                .Products__form__images__box__previews__group{ data: {index: '@product.images.count'}}
+                  = file_field_tag :src, name: "product[images_attrbutes][#{@product.images.count}][src]", class: 'Products__form__images__box__previews__group__jsFile'
+                .Products__form__images__box__previews__group__jsRemove 削除
 
         .Products__form__name
           =form.label :"商品名"

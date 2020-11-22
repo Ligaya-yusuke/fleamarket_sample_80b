@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用インプットを生成する関数
-  const buildFileField = (num)=> {
-    const html = `<div class="Products__form__images__js__file" data-index="${num}">
-                    <input class="Js-file" type="file" name="product[images_attributes][${num}][src]" id="product_images_attributes_${num}_src" kl_vkbd_parsed="true">
-                    <div class="Products__form__images__js__remove">削除</div>
-                  </div>`;
+  const buildFileField = (index)=> {
+    const html =`<div class="Products__form__images__box__previews__group" data-index="${index}">
+                  <input class="Products__form__images__box__previews__group__jsFile" type="file" name="product[images_attributes][${index}][src]" id="product_images_attributes_${index}_src" kl_vkbd_parsed="true">
+                <div class="Products__form__images__box__previews__group__jsRemove">削除</div>
+              </div>`;
     return html;
   }
     // プレビュー用のimgタグ生成
@@ -15,12 +15,12 @@ $(document).on('turbolinks:load', ()=> {
     // file_fieldのnameに動的なindexをつけるための配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
-  lastIndex = $('.Products__form__images__js__file').data('index');
+  lastIndex = $('.Products__form__images__box__previews__group:last').data('index');
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
 
-  $('#Image-box').on('change', '.Js-file', function(e){
+  $('#Image-box').on('change', '.Products__form__images__box__previews__group__jsFile', function(e){
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', ()=> {
     }
   });
 
-  $('#Image-box').on('click', '.Products__form__images__js__remove', function() {
+  $('#Image-box').on('click', '.Products__form__images__box__previews__group__jsRemove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexをふられているチェックボックスを取得
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
@@ -50,6 +50,6 @@ $(document).on('turbolinks:load', ()=> {
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画面入力欄が0個にならないように設定
-    if ($('.Products__form__images__js__file').length == 0) $('#Image-box').append(buildFileField(fileIndex[0]));
+    if ($('.Products__form__images__box__previews__group__jsFile').length == 0) $('#Image-box').append(buildFileField(fileIndex[0]));
   })
 });
