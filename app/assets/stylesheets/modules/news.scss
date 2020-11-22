@@ -1,7 +1,5 @@
 // scss_fleamarket
 
-
-
 .Sell {
   background-color: #dbedf0;
   width: 100%;
@@ -31,27 +29,62 @@
         span {
           @include must;
         }
-        &__save {
-          background-color: #dbedf0;
-          text-align: center;
-          display: block;
-          padding: 50px 0;
-          border-style: dotted;
-          border-color: #dddddd;
-          color: black;
-          font-size: small;
-          .file-icon {
-            display: none;
+        &__box{
+          &__previews{
+          // 写真背景装飾あとで
+          // background-color: #dbedf0;
+          // text-align: center;
+          // display: block;
+          // padding: 50px 0;
+          // border-style: dotted;
+          // border-color: #dddddd;
+          // color: black;
+          // font-size: small;
+            &__group {
+              &__jsFile{
+                // 選択ボタン消す（あとで）
+                // width:100px;
+                // font-size:12px;
+                // color:#FFFFFF;
+                // text-align:center;
+                // display:block;
+                // padding:10px 0 10px;
+                // background:#6BCBF6;
+                // border-radius: 20px;
+                // display: none;
+              }
+              // 削除ボタンあとで
+              &__jsRemove{
+              width:50px;
+              font-size:12px;
+              color: black;
+              text-align:center;
+              display:block;
+              // padding:10px 0 10px;
+              background:#6BCBF6;
+              // border-radius: 20px;   
+              background-color: #dbedf0;
+              }
+            } 
           }
         }
       }
+      .Image__input__button{
+        display: block;
+        background-color: #dbedf0;
+        width: 180px;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+
       &__name {
         font-weight: bold;
         span {
           @include must;
         }
       }
-      &__entry{
+      &__entry {
         @include box;
       }
     
@@ -73,7 +106,7 @@
           @include must;
         }
       }
-      &__categorySelect{
+      &__categorySelect {
         @include box;
       }
       
@@ -96,7 +129,7 @@
           @include must;
         }
       }
-      &__conditionSelect{
+      &__conditionSelect {
         @include box;
       }
 
@@ -107,7 +140,7 @@
           @include must;
         }
       }
-      &__deliveryChargeSelect{
+      &__deliveryChargeSelect {
         @include box;
       }
 
