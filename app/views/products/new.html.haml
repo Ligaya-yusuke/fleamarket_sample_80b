@@ -8,20 +8,21 @@
     .Products__form  
       =form_with model: @product, local:true do |form|
         .Products__form__images
-          =form.label :"商品画像（ファイルのアップロード)"
+          =form.label :"商品画像"
           %span 必須
-          -# %br 最大2枚までアップロードできます
-          -# %label{class: "Products__form__images__save"}
-          -# =icon('fas', 'camera')
+          %br
           #Image-box.Products__form__images__box
+            -# カメラクリック保存実装あとで
+            -# = icon('fas','camera') 
+            -# -# %br ファイルのアップロード
             #Previews.Products__form__images__box__previews
               - if @product.persisted?
                 - @product.images.each_with_index do |image, i|
                   =image_tag "{image.src.url}", data: {index: i}, width: '100', height: '100'
             =form.fields_for :images do |i|
               .Products__form__images__box__previews__group{ data: {index: 'image.index'}}
-                = i.file_field :src, class: 'Products__form__images__box__previews__group__jsFile'
-                %span.Products__form__images__box__previews__group__jsRemove 削除
+                = i.file_field :src, class:'Products__form__images__box__previews__group__jsFile'
+                .Products__form__images__box__previews__group__jsRemove 削除
               - if @product.persisted?
                 = check_box :_destroy, data: { index: 'image.index'}, class: "hidden-destroy"
               - if @product.persisted?
@@ -42,15 +43,15 @@
         .Products__form__category
           =form.label :"カテゴリー"
           %span 必須
-        .item_input__body
-          .item_input__body__category#category_box
-          .pulldown#partent_box
-            = form.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
-            = icon('fa', 'chevron-down')
-            .pulldown.item_input__body__category__children#children_box
-              -#親カテゴリー選択によって子カテゴリー表示
-            .pulldown.item_input__body__category__grandchildren#grandchildren_box
-              -#子カテゴリー選択によって孫カテゴリー表示
+          .item_input__body
+            .item_input__body__category#category_box
+            .pulldown#partent_box
+              = form.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
+              = icon('fa', 'chevron-down')
+              .pulldown.item_input__body__category__children#children_box
+                -#親カテゴリー選択によって子カテゴリー表示
+              .pulldown.item_input__body__category__grandchildren#grandchildren_box
+                -#子カテゴリー選択によって孫カテゴリー表示
 
         .Products__form__brand
           =form.label "ブランド"

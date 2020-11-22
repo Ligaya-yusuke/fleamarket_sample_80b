@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :create]
   before_action :move_to_signed_in, except: [:index, :show]
-  before_action :set_product, except: [:index, :new, :create]
+  # before_action :set_product, except: [:index, :new, :create]
   
   def index
     # Productテーブルとimagesデータを事前に読み込む
@@ -97,7 +97,7 @@ class ProductsController < ApplicationController
       redirect_to  new_user_session_path
     end
   end
-  def set_product
-    @product = Product.find(params[:id])
-  end
+  # def set_product
+  #   @product = Product.find(params[:id])
+  # end
 end

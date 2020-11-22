@@ -1,8 +1,8 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用インプットを生成する関数
-  const buildFileField = (index)=> {
-    const html =`<div class="Products__form__images__box__previews__group" data-index="${index}">
-                  <input class="Products__form__images__box__previews__group__jsFile" type="file" name="product[images_attributes][${index}][src]" id="product_images_attributes_${index}_src" kl_vkbd_parsed="true">
+  const buildFileField = (num)=> {
+    const html =`<div class="Products__form__images__box__previews__group" data-index="${num}">
+                  <input class="Products__form__images__box__previews__group__jsFile" type="file" name="product[images_attributes][${num}][src]" id="product_images_attributes_${num}_src" kl_vkbd_parsed="true">
                 <div class="Products__form__images__box__previews__group__jsRemove">削除</div>
               </div>`;
     return html;
