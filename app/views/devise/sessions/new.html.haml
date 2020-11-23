@@ -1,6 +1,8 @@
 .container-new
   %h2.head-registration ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .login-flash-message
+      = flash[:alert]
     .main-registration 
       .field
         = f.label :email, class: 'contents'

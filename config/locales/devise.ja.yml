@@ -44,9 +44,9 @@ ja:
       profile:
         first_name: "名前"
         family_name: "氏名"
-        first_name_kana: "名前(ひらがな)"
-        family_name_kana: "氏名(ひらがな)"
-        birthday: "誕生日"
+        first_name_kana: "名前(かな)"
+        family_name_kana: "氏名(かな)"
+        birthday: "生年月日"
 
     models:
       profile: "本人確認情報"
@@ -55,8 +55,8 @@ ja:
       address:
         ship_first_name: "氏名"
         ship_family_name: "名前"
-        ship_first_name_kana: "氏名(ひらがな)"
-        ship_family_name_kana: "名前(ひらがな)"
+        ship_first_name_kana: "氏名(かな)"
+        ship_family_name_kana: "名前(かな)"
         post_code: "郵便番号"
         prefecture_id: "都道府県"
         city: "市町村"
