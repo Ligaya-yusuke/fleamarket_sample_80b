@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_category, only: [:new, :create, :edit]
-  before_action :set_product, only: [:show, :edit]
+  before_action :set_category, only: [:new, :create, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update]
   before_action :move_to_signed_in, except: [:index, :show]
   # before_action :set_product, except: [:index, :new, :create]
   
@@ -60,10 +60,15 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @produc.update(product_params)
-        redirect_to root_path
+    if @product.update(product_params)
+      # flash[:notice] = "商品情報が更新されました"
+      # redirect_to product_path(@product)
+      # 上2行を簡略化したコードが下の1行
+      redirect_to product_path(@product), notice: "商品情報が更新されました"
     else
+      flash.now[:alert] = "商品情報の更新ができませんでした"
       render :edit
+      # redirect_toの時はflash,renderの時はflash.now
     end
   end
 
