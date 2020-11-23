@@ -23,46 +23,59 @@ describe User do
     end
 
     # 4. imagesが空では登録できないこと
-    it "is invalid without a images" do
+    it "is invalid without images" do
       product = build(:product, images: nil)
       product.valid?
       expect(product.errors[:images]).to include("が選択されていません。")
     end
 
-    # 5. priceが空では登録できないこと
+    # 5. priceが空では登録できないこと、半角数字のみ入力できる
     it "is invalid without a price" do
       product = build(:product, price: nil)
       product.valid?
-      expect(product.errors[:price]).to include("が入力されていません。")
+      expect(product.errors[:price]).to include("が入力されていません。", "半角数字で入力してください")
     end
 
-    # # 6. 重複したemailが存在する場合登録できないこと
-    # it "is invalid with a duplicate email address" do
-    #   user = create(:user)
-    #   another_user = build(:user, email: user.email)
-    #   another_user.valid?
-    #   expect(another_user.errors[:email]).to include("は既に使用されています。")
-    # end
+    # 5. priceが300円以上なら登録できること
+    it "is a price <= 300" do
+      product = build(:product, price: 299)
+      product.valid?
+      expect(product.errors[:price]).to include("は300円以上にしてください")
+    end
 
-    # # 7. passwordが7文字以上であれば登録できること
-    # it "is valid with a password that has more than 7 characters " do
-    #   user = build(:user, encrypted_password: "0000000")
-    #   expect(user).to be_valid
-    # end
+    # 6. prefecture_idが空では登録できないこと
+    it "is invalid without a prefecture_id" do
+      product = build(:product, prefecture_id: nil)
+      product.valid?
+      expect(product.errors[:prefecture_id]).to include("が選択されていません。")
+    end
 
-    # # 8. passwordが6文字以下であれば登録できないこと
-    # it "is invalid with a password that has less than 5 characters " do
-    #   user = build(:user, password: "000000")
-    #   user.valid?
-    #   expect(user.errors[:password]).to include("は7文字以上に設定して下さい。")
-    # end
+    # 7. conditionが空では登録できないこと
+    it "is invalid without a condition" do
+      product = build(:product, condition: nil)
+      product.valid?
+      expect(product.errors[:condition]).to include("が選択されていません。")
+    end
 
-    # # 9. 重複したnicknameが存在する場合登録できないこと
-    # it "is invalid with a duplicate nickname" do
-    #   user = create(:user)
-    #   another_user = build(:user, nickname: user.nickname)
-    #   another_user.valid?
-    #   expect(another_user.errors[:nickname]).to include("は既に使用されています。")
-    # end
+    # 8. delivery_charge_idが空では登録できないこと
+    it "is invalid without a delivery_charge_id" do
+      product = build(:product, delivery_charge_id: nil)
+      product.valid?
+      expect(product.errors[:delivery_charge_id]).to include("が選択されていません。")
+    end
+
+    # 9. shipping_day_idが空では登録できないこと
+    it "is invalid without a shipping_day_id" do
+      product = build(:product, shipping_day_id: nil)
+      product.valid?
+      expect(product.errors[:shipping_day_id]).to include("が選択されていません。")
+    end
+
+    # 10. category_idが空では登録できないこと
+    it "is invalid without a category_id" do
+      product = build(:product, category_id: nil)
+      product.valid?
+      expect(product.errors[:category_id]).to include("が選択されていません。")
+    end
   end
 end
