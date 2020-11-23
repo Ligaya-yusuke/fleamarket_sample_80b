@@ -23,6 +23,14 @@
         = @product.price
     .purchase--priceinfo
       %label.purchase--priceinfo--title 支払い方法
+      - if @default_card_information.blank?
+        %br /
+      - else
+        -#以下カード情報を表示
+        = "**** **** **** " + @default_card_information.last4
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
       %label.purchase--priceinfo--select
         = link_to "登録してください",("#")
     .purchase--priceinfo
@@ -45,7 +53,8 @@
             = @buiding_number
     .purchaseform
       .purchaseform--button
-        %button{type: "submit", class: "purchaseform--button--submit"}購入する
+        = form_tag(action: :pay, method: :post) do
+          %button{type: "submit", class: "purchaseform--button--submit"}購入する
   .Footer 
     .Footer__logo
       =link_to root_path do

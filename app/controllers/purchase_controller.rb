@@ -1,6 +1,32 @@
 class PurchaseController < ApplicationController
-  before_action :products_infomation, only:[:index]
+  before_action :products_infomation, only:[:index, :pay]
+
+  require 'payjp'
   def index
+    #クレジットカードテーブルから顧客IDを検索
+    credit_card = CreditCard.where(user_id: current_user.id).first
+    if credit_card.blank?
+      #登録された情報がない場合に登録画面に移動
+      redirect_to controller: "credit_card", action: "new"
+    else
+      #保管した顧客IDでpayjpから情報取得
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      customer = Payjp::Customer.retrieve(credit_card.customer_id)
+      @default_card_information = customer.cards.retrieve(credit_card.card_id)
+    end
+  end
+
+  def pay
+    # @product = Product.find(params[:id]).first
+    credit_card = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      :amount => @product.price,
+      :customer => credit_card.customer_id,
+      :currency => 'jpy', 
+    )
+    redirect_to action: 'done'
   end
 
   private
