@@ -75,7 +75,7 @@ describe Product do
       expect(product.errors.full_messages).to include("Delivery chargeを入力してください")
     end
 
-    # 1 . shipping_day_idが空では登録できないこと
+    # 11 . shipping_day_idが空では登録できないこと
     it "is invalid without a shipping_day_id" do
       product = build(:product, shipping_day_id: nil)
       product.valid?
