@@ -1,5 +1,5 @@
 class PurchaseController < ApplicationController
-  before_action :products_infomation, only:[:index, :pay]
+  before_action :products_infomation, only:[:index, :pay, :done]
 
   require 'payjp'
   def index
@@ -29,6 +29,9 @@ class PurchaseController < ApplicationController
     redirect_to action: 'done'
   end
 
+  def done
+    credit_card = CreditCard.where(user_id: current_user.id).first
+  end
   private
 
   def products_infomation

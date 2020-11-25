@@ -146,6 +146,7 @@
       border-style: none;
       color: #f8f8f8;
       font-size: 18px;
+      outline: none;
     }
     &--submit:hover {
       background-color: rgb(0, 222, 230);
@@ -163,4 +164,47 @@
 .address-container {
   width: 380px;
   height: 100%;
+}
+
+// done
+
+.purchase-done{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  &--index {
+    width: 500px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 60px auto;
+    padding: 30px 40px;
+    &--text {
+      font-size: 24px;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      font-weight: bold;
+    }
+    &--lists {
+      margin: 30px 0;
+      width: 420px;
+      &--list {
+        font-size: 16px;
+        color: rgb(44, 44, 44);
+      }
+    }
+    &__mypage {
+      margin-top: 10px;
+      background-color: #3CCACE;
+      border: 0;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      outline: 0;
+      line-height: 48px;
+    }
+    &__mypage:hover {
+      background-color: rgb(0, 222, 230);
+      transition: 0.7s;
+    }
+  }
 }
