@@ -10,10 +10,6 @@ class Product < ApplicationRecord
             numericality: {
               greater_than_or_equal_to: 300,
               message: "は300円以上にしてください"
-            },
-            format: {
-              with: /\A[0-9]+\z/,
-              message: "（半角）で入力してください"
             }
   #以下のコメントアウトはのちの作業時に使用する。
   # belongs_to :seller, class_name: User, foreign_key: user_id
@@ -26,8 +22,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
 
 
-  has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
+
 
 
 
