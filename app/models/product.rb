@@ -5,7 +5,12 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   validates :name, :images, :infomation, :price, :prefecture_id, :condition_id, :delivery_charge_id, :shipping_day_id, :category_id, presence: true
-
+  validates :infomation, length: { maximum: 300 }
+  validates :price,
+            numericality: {
+              greater_than_or_equal_to: 300,
+              message: "は300円以上にしてください"
+            }
   #以下のコメントアウトはのちの作業時に使用する。
   # belongs_to :seller, class_name: User, foreign_key: user_id
   # belongs_to :buyer, class_name: User, foreign_key: buyer_id, optional: true
@@ -17,8 +22,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
 
 
-  has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
+
 
 
 

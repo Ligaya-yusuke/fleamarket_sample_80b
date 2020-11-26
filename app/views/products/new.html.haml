@@ -79,8 +79,7 @@
         .Products__form__deliveryFrom
           =form.label "発送元地域"
           %span 必須
-          =form.collection_select :prefecture_id, Prefecture.all, :id, :name, class:"Products__form__deliveryFromSelect", required: true
-
+          =form.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "選択してください" }, class: "Products__form__conditionSelect", required: true
         .Products__form__shippingDay
           =form.label "発送日数"
           %span 必須
