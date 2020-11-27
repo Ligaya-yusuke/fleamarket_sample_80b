@@ -56,7 +56,7 @@
             -# 下記コード(= form.collection_select〜)はコネクトで教えてもらった簡単な方法のため、残しておく。
             -# = form.collection_select :category_id, Category.roots, :id, :category_name, {include_blank: "選択してください", selected: 1},  class: "parent_category_box", id: "parent_category"
             -# 親カテゴリーのみで登録されては困るため、「select :category_id」を「「select :category」とする。
-            = form.select :category, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"},  class: "parent_category_box", id: "parent_category", required: true
+            = form.select :category, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"},  class: "parent_category_box", id: "parent_category"
             = icon('fa', 'chevron-down')
             .pulldown.item_input__body__category__children#children_box
               -#親カテゴリー選択によって子カテゴリー表示
@@ -99,8 +99,7 @@
           ¥
           =form.number_field :price
         =form.button "出品する" ,type: 'button' ,onclick: 'submit();' , class: "Submit"
--# ,value:"送信"
--# ,onclick: 'submit();'
+
         -# 余裕があれば実装（手数料計算、下書き保存）
         -# .Products__form__fees 販売手数料(10%)
         -# .Products__form__profits 販売利益
