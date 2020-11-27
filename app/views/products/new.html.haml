@@ -2,7 +2,7 @@
   .Header
     .Header__logo
       =link_to root_path do
-        =image_tag "logo.png", width: '20%', height: '200%', alt: "FURIMA"
+        =image_tag "logo.png", width: '200px', alt: "FURIMA"
 
   .Products
     .Products__form
@@ -56,7 +56,7 @@
             -# 親カテゴリーのみで登録されては困るため、「select :category_id」を「「select :category」とする。
             = form.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"},  class: "parent_category_box", id: "parent_category", required: true
             = icon('fa', 'chevron-down')
-            .pulldown.item_input__body__category__children#children_box
+            .item_input__body__category__children#children_box
               -#親カテゴリー選択によって子カテゴリー表示
             .pulldown.item_input__body__category__grandchildren#grandchildren_box
               -#子カテゴリー選択によって孫カテゴリー表示
@@ -80,7 +80,6 @@
           =form.label "発送元地域"
           %span 必須
           =form.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "選択してください" }, class: "Products__form__conditionSelect", required: true
-
         .Products__form__shippingDay
           =form.label "発送日数"
           %span 必須
@@ -95,7 +94,7 @@
           %span 必須
         .Products__form__yen
           ¥
-          =form.number_field :price
+          =form.number_field :price, class: "Products__form__yen__box"
         =form.submit "出品する", class: "Submit"
 
         -# 余裕があれば実装（手数料計算、下書き保存）
@@ -110,4 +109,4 @@
   .Footer 
     .Footer__logo
       =link_to root_path do
-        =image_tag "logo-white.png", width: '20%', alt: "FURIMA"
+        =image_tag "logo-white.png", width: '200px', alt: "FURIMA"
