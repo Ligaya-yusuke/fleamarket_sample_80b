@@ -14,6 +14,8 @@
 
   %body
     .notifications
-      - flash.each do |key, value|
-        = content_tag(:div, value, class: key)
+      - if flash[:alert]
+      - else
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: key)
     = yield

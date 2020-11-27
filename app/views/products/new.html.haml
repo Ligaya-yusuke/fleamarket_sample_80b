@@ -7,12 +7,11 @@
   .Products
     .Products__form
       =form_with model: @product, local:true do |form|
-        -# 動作確認のため、下記フラッシュメッセージは残しておく
-        -# .Products__form__notification
-        -#   - if flash[:alert]
-        -#     - flash.each do |message_type, message|
-        -#       - message2 = message.gsub(",","<br>")
-        -#       = message2.html_safe
+        .Products__form__notification
+          - if flash[:alert]
+            - flash.each do |message_type, message|
+              - message2 = message.gsub(",","<br>")
+              = message2.html_safe
         .Products__form__images
           =form.label :"商品画像"
           %span 必須
@@ -54,6 +53,8 @@
         .item_input__body
           .item_input__body__category#category_box
           .pulldown#partent_box
+            -# 下記コード(= form.collection_select〜)はコネクトで教えてもらった簡単な方法のため、残しておく。
+            -# = form.collection_select :category_id, Category.roots, :id, :category_name, {include_blank: "選択してください", selected: 1},  class: "parent_category_box", id: "parent_category"
             -# 親カテゴリーのみで登録されては困るため、「select :category_id」を「「select :category」とする。
             = form.select :category, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"},  class: "parent_category_box", id: "parent_category", required: true
             = icon('fa', 'chevron-down')

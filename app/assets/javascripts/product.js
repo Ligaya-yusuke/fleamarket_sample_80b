@@ -30,7 +30,8 @@ $(document).on("change","#parent_category", function() {
   if (parentCategory != "") {
     $.ajax( {
       type: 'GET',
-      url: 'get_category_children',
+      // urlは絶対パスで表示させる（こうしないとrenderで返された時に、選択できなくなるため）
+      url: '/products/get_category_children',
       data: { parent_name: parentCategory },
       dataType: 'json'
     })
@@ -59,7 +60,8 @@ $(document).on('change', '#children_box', function() {
   //子カテゴリーが初期値でない場合
   if (childId != ""){
     $.ajax({
-      url: 'get_category_grandchildren',
+      // urlは絶対パスで表示させる（こうしないとrenderで返された時に、選択できなくなるため）
+      url: '/products/get_category_grandchildren',
       type: 'GET',
       data: { child_id: childId },
       datatype: 'json'
