@@ -18,6 +18,11 @@
 
     .Products__form
       = form_with model: @product, local:true do |form|
+        .Products__form__notification
+          - if flash[:alert]
+            - flash.each do |message_type, message|
+              - message2 = message.gsub(",","<br>")
+              = message2.html_safe
         .Products__form__name  
           =form.label :"商品名"
           %span 必須
@@ -36,12 +41,12 @@
               .pulldown#partent_box
                 -# 以下new.html.hamlとの元々の親子孫のコード比較のため、それぞれコメントアウトしておく
                 -# = form.select :category, options_for_select( @category_parent_array.map{|c| [c[:category_name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
-                = form.collection_select :category_id, Category.roots, :id, :category_name, {include_blank: "---", selected: @product.category.root.id}, { class: "parent_category_box", id: "parent_category"}
+                = form.collection_select :category_id, Category.roots, :id, :category_name, {include_blank: "---", selected: @product.category.root.id}, class: "parent_category_box", id: "parent_category", required: true
                 .pulldown.item_input__body__category__children#children_box
-                  = form.collection_select :category_id, @product.category.parent.siblings, :id, :category_name, {include_blank: "---", selected: @product.category.parent.id}, {class: "parent_category_box", id: "children_category"}
+                  = form.collection_select :category_id, @product.category.parent.siblings, :id, :category_name, {include_blank: "---", selected: @product.category.parent.id}, class: "parent_category_box", id: "children_category", required: true
                   -# = form.select :category_id, options_for_select(@category_children_array.map{|c|[c[:category_name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.parent.id), {}, {class: "parent_category_box", id: "children_category"}
                 .pulldown.item_input__body__category__grandchildren#grandchildren_box
-                  = form.collection_select :category_id, @product.category.siblings, :id, :category_name, {include_blank: "---", selected: @product.category.id}, {class: "parent_category_box", id: "grandchildren_category"}
+                  = form.collection_select :category_id, @product.category.siblings, :id, :category_name, {include_blank: "---", selected: @product.category.id}, class: "parent_category_box", id: "grandchildren_category", required: true
                   -# = form.select :category_id, options_for_select(@category_grandchildren_array.map{|c| [c[:category_name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.id), {}, {class: "parent_category_box", id: "grandchildren_category"}
 
         .Products__form__brand
@@ -52,22 +57,22 @@
         .Products__form__condition
           =form.label "商品の状態"
           %span 必須
-          =form.collection_select :condition_id, Condition.all, :id, :name, { class:"Products__form__conditionSelect"}
+          =form.collection_select :condition_id, Condition.all, :id, :name, { prompt: "選択してください" }, class:"Products__form__conditionSelect"
 
         .Products__form__deliveryCharge
           =form.label "送料の負担"
           %span 必須
-          =form.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :name, {class:"Products__form__ deliveryChargeSelect"}
+        =form.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :name, {prompt: "選択してください" }, class:"Products__form__ deliveryChargeSelect"
 
         .Products__form__deliveryFrom
           =form.label "発送元地域"
           %span 必須
-          =form.collection_select :prefecture_id, Prefecture.all, :id, :name, {class: "Products__form__deliveryFromSelect"}
+          =form.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "選択してください" }, class: "Products__form__deliveryFromSelect"
 
         .Products__form__shippingDay
           =form.label "発送日数"
           %span 必須
-          =form.collection_select :shipping_day_id ,ShippingDay.all, :id, :name, {class:"Products__form__shippingDaySelect"}
+          =form.collection_select :shipping_day_id ,ShippingDay.all, :id, :name, { prompt: "選択してください" }, class:"Products__form__shippingDaySelect"
 
         .Products__form__price
           価格(300~9,999,999)

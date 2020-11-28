@@ -7,16 +7,17 @@
   
   .Header {
     &__logo {
-      margin: 0 auto;
       text-align: center;
-      padding: 20px 0;
+      margin-top: 30px;
+      margin-bottom: 60px;
     }   
   }
   
   .Products {
     background-color: #ffffff;
-    margin: 0 50px;
-    padding: 20px;
+    width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
     &__form {
       padding: 20px 0;
       font-weight: bold;
@@ -183,12 +184,13 @@
     }
   } 
   .Submit {
-      margin-top: 10px;
+      margin-top: 20px;
       align-items: center;
       @include button;
   }
   .Return {
     text-align: center;
+    padding-bottom: 10px;
     a{
       color: black;
     }

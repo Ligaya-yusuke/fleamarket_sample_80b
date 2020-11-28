@@ -86,13 +86,15 @@
     .extrainfo{
       display: flex;
       justify-content: space-between;
-      padding: 0 30px 50px 30px;
+      padding: 0 30px 30px 30px;
       .favorite{
         color: #3CCACE;
         border: 1px solid #ffb340;
         border-radius: 40px;
         padding: 8px 10px;
         font-size: 14px;
+        display: flex;
+        align-items: center;
         a{
           color: #3CCACE;
         }
@@ -102,6 +104,8 @@
         border-radius: 5px;
         padding: 8px 10px;
         font-size: 14px;
+        display: flex;
+        align-items: center;
         a{
           color: black;
         }
