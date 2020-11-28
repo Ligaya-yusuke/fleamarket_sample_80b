@@ -9,8 +9,7 @@ function appendChildrenBox(insertHTML) {
   childSelectHtml = 
     `<select class="item_input__body__category__children--select" id="children_category">
        <option value="" data-category="" >選択してください</option>
-       ${insertHTML}</select>
-     <i class = "fa fa-chevron-down"></i>`;
+       ${insertHTML}</select>`;
   $('#children_box').append(childSelectHtml);
 }
 //孫カテゴリーのHTML

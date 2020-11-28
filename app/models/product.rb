@@ -8,8 +8,9 @@ class Product < ApplicationRecord
   validates :infomation, length: { maximum: 300 }
   validates :price,
             numericality: {
+              less_than_or_equal_to: 9999999,
               greater_than_or_equal_to: 300,
-              message: "は300円以上にしてください"
+              message: "は300円以上、9999999円以下にしてください"
             }
   #以下のコメントアウトはのちの作業時に使用する。
   # belongs_to :seller, class_name: User, foreign_key: user_id
