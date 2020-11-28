@@ -70,9 +70,6 @@
             %td
               = @product.brand
           %tr
-            %th 商品のサイズ
-            %td 
-          %tr
             %th 商品の状態
             %td 
               - unless @product.buyer_id.present?
@@ -92,7 +89,7 @@
             %td
               = @shipping_day.name
       .extrainfo
-        %ul
+        %ul.box
           %li.favorite
             = icon('fas', 'heart', class: "likes")
             = link_to "お気に入り"

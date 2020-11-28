@@ -75,8 +75,8 @@ class ProductsController < ApplicationController
       # 上2行を簡略化したコードが下の1行
       redirect_to product_path(@product), notice: "商品情報が更新されました"
     else
-      flash.now[:alert] = "商品情報の更新ができませんでした"
-      render :edit
+      flash[:alert] = @product.errors.full_messages.join(',')
+      redirect_to edit_product_path
       # redirect_toの時はflash,renderの時はflash.now
     end
   end
