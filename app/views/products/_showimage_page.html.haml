@@ -1,0 +1,5 @@
+-# 上の方が見やすいので上に遷移コマンドを置いときます。
+= paginate @kaminari_images ,remote: true
+.mainbox__top__image__sub
+  - @kaminari_images.each do |images|
+    = image_tag images.src.url, alt: "kangaroo", class: "pics"

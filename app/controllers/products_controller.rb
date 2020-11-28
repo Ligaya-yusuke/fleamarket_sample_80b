@@ -30,7 +30,17 @@ class ProductsController < ApplicationController
 
   def show
     @image_first = Image.where(product_id: @product).first.src.url
-    @images = Image.where(product_id: @product).limit(4)
+
+    array_image = []
+    @images = Image.where(product_id: @product).slice(1..-1)
+    @images.each do |image|
+      array_image << image
+    end
+    @kaminari_images = Kaminari.paginate_array(array_image).page(params[:page]).per(3)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)
