@@ -58,35 +58,35 @@ describe Product do
     it "is invalid without a prefecture_id" do
       product = build(:product, prefecture_id: nil)
       product.valid?
-      expect(product.errors.full_messages).to include("Prefectureを入力してください")
+      expect(product.errors.full_messages).to include("発送元地域を入力してください")
     end
 
     # 9. conditionが空では登録できないこと
     it "is invalid without a condition" do
       product = build(:product, condition_id: nil)
       product.valid?
-      expect(product.errors.full_messages).to include("Conditionを入力してください")
+      expect(product.errors.full_messages).to include("商品の状態を入力してください")
     end
 
     # 10. delivery_charge_idが空では登録できないこと
     it "is invalid without a delivery_charge_id" do
       product = build(:product, delivery_charge_id: nil)
       product.valid?
-      expect(product.errors.full_messages).to include("Delivery chargeを入力してください")
+      expect(product.errors.full_messages).to include("送料の負担を入力してください")
     end
 
-    # 11 . shipping_day_idが空では登録できないこと
+    # 11. shipping_day_idが空では登録できないこと
     it "is invalid without a shipping_day_id" do
       product = build(:product, shipping_day_id: nil)
       product.valid?
-      expect(product.errors.full_messages).to include("Shipping dayを入力してください")
+      expect(product.errors.full_messages).to include("発送日数を入力してください")
     end
 
     # 12. category_idが空では登録できないこと
     it "is invalid without a category_id" do
       product = build(:product, category_id: nil)
       product.valid?
-      expect(product.errors.full_messages).to include("Categoryを入力してください")
+      expect(product.errors.full_messages).to include("カテゴリーを入力してください")
     end
   end
 end

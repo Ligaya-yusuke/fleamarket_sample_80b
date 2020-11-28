@@ -21,7 +21,10 @@ class ProductsController < ApplicationController
       redirect_to root_path , notice: "商品を出品しました。"
     else
       flash[:alert] = @product.errors.full_messages.join(',')
-      redirect_to new_product_path
+      if @product.images.length == 0
+      end
+        @product.images.new
+      render :new
     end
   end
 
