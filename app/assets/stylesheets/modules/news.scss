@@ -201,8 +201,15 @@
 }
 
 .parent_category_box{
-  width: 95%;
+  width: 100%;
   height: 3vh;
   line-height: 1.2;
 } 
 
+.item_input__body__category{
+  &__children--select,&__grandchildren--select{
+  width: 100%;
+  height: 3vh;
+  line-height: 1.2;
+  }
+}

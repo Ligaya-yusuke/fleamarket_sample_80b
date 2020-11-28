@@ -44,45 +44,52 @@ describe Product do
     it "is invalid without a price" do
       product = build(:product, price: nil)
       product.valid?
-      expect(product.errors.full_messages).to include("商品価格を入力してください", "商品価格は300円以上にしてください")
+      expect(product.errors.full_messages).to include("商品価格を入力してください", "商品価格は300円以上、9999999円以下にしてください")
       end
 
     # 7. priceが300円未満は登録できない
     it "is a price < 300" do
       product = build(:product, price: 299)
       product.valid?
-      expect(product.errors.full_messages).to include("商品価格は300円以上にしてください")
+      expect(product.errors.full_messages).to include("商品価格は300円以上、9999999円以下にしてください")
     end
 
-    # 8. prefecture_idが空では登録できないこと
+    # 8. priceが300円未満は登録できない
+    it "is a price > 9999999" do
+      product = build(:product, price: 99999999)
+      product.valid?
+      expect(product.errors.full_messages).to include("商品価格は300円以上、9999999円以下にしてください")
+    end
+    
+    # 9. prefecture_idが空では登録できないこと
     it "is invalid without a prefecture_id" do
       product = build(:product, prefecture_id: nil)
       product.valid?
       expect(product.errors.full_messages).to include("発送元地域を入力してください")
     end
 
-    # 9. conditionが空では登録できないこと
+    # 10. conditionが空では登録できないこと
     it "is invalid without a condition" do
       product = build(:product, condition_id: nil)
       product.valid?
       expect(product.errors.full_messages).to include("商品の状態を入力してください")
     end
 
-    # 10. delivery_charge_idが空では登録できないこと
+    # 11. delivery_charge_idが空では登録できないこと
     it "is invalid without a delivery_charge_id" do
       product = build(:product, delivery_charge_id: nil)
       product.valid?
       expect(product.errors.full_messages).to include("送料の負担を入力してください")
     end
 
-    # 11. shipping_day_idが空では登録できないこと
+    # 12. shipping_day_idが空では登録できないこと
     it "is invalid without a shipping_day_id" do
       product = build(:product, shipping_day_id: nil)
       product.valid?
       expect(product.errors.full_messages).to include("発送日数を入力してください")
     end
 
-    # 12. category_idが空では登録できないこと
+    # 13. category_idが空では登録できないこと
     it "is invalid without a category_id" do
       product = build(:product, category_id: nil)
       product.valid?

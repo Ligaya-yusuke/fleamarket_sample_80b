@@ -30,13 +30,12 @@
         = @product.name
       .mainbox__top__image
         = image_tag @image_first, alt: "kangaroo", class: "kangaroo"
-        .mainbox__top__image__sub
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "icon-01.png", alt: "kangaroo", class: "kangarooo"
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "icon-01.png", alt: "kangaroo1", class: "kangarooo"
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "icon-01.png", alt: "kangaroo2", class: "kangarooo"
+        - unless @images.nil?
+          #pagenate_image
+            = render "showimage_page"
+          -# .mainbox__top__image__sub
+          -#   - @images.each do |images|
+          -#     = image_tag images.src.url, alt: "kangaroo", class: "pics"
       .mainbox__top__price
         ¥
         = @product.price
