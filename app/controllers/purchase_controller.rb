@@ -26,11 +26,15 @@ class PurchaseController < ApplicationController
       :customer => credit_card.customer_id,
       :currency => 'jpy', 
     )
+    # @image_buyer = Image.find(params[:image_id])
+    # @image_buyer.update!( buyer_id: current_user.id)
     redirect_to action: 'done'
   end
 
   def done
     credit_card = CreditCard.where(user_id: current_user.id).first
+    @product_purchaser= Product.find(params[:product_id])
+    @product_purchaser.update(buyer_id: current_user.id)
   end
   private
 

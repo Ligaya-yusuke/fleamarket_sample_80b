@@ -30,6 +30,9 @@
         = @product.name
       .mainbox__top__image
         = image_tag @image_first, alt: "kangaroo", class: "kangaroo"
+        - if @product.buyer_id.present?
+          .items-box_photo__sold
+            .items-box_photo__sold__inner SOLD
         .mainbox__top__image__sub
           = link_to ("#"),{ class: "pics"} do
             = image_tag "icon-01.png", alt: "kangaroo", class: "kangarooo"
@@ -138,7 +141,7 @@
             %ol
             商品の購入はこちら
             %ol
-            = link_to product_purchase_index_path(@product),{class:"buyer-show__button"} do
+            = link_to product_purchase_path(@product.id),{class:"buyer-show__button"} do
               購入
     .links
       %ul

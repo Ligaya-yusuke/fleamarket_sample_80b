@@ -18,12 +18,17 @@ Rails.application.routes.draw do
     member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      # get 'products', to: 'products#purchase'
+      # post 'buy', to: 'products#buy'
     end
     resources :purchase, only: [:index] do
       collection do
-        get 'index', to: 'purchase#index'
         post 'pay', to: 'purchase#pay'
         get 'done', to: 'purchase#done'
+      end
+      member do
+        get 'index', to: 'purchase#index'
+        post 'buy', to: 'purchase#buy'
       end
     end
   end
