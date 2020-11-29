@@ -4,7 +4,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
   def index
     #クレジットカードテーブルから顧客IDを検索
-    credit_card = CreditCard.where(user_id: current_user.id).first
+    credit_card = CreditCard.find_by(user_id: current_user.id)
     if credit_card.blank?
       #登録された情報がない場合に登録画面に移動
       redirect_to controller: "credit_card", action: "new"
@@ -18,8 +18,7 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    # @product = Product.find(params[:id]).first
-    credit_card = CreditCard.where(user_id: current_user.id).first
+    credit_card = CreditCard.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       :amount => @product.price,
@@ -30,7 +29,7 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    credit_card = CreditCard.find_by(user_id: current_user.id).first
+    credit_card = CreditCard.find_by(user_id: current_user.id)
     @product_purchaser= Product.find(params[:product_id])
     @product_purchaser.update(buyer_id: current_user.id)
   end
