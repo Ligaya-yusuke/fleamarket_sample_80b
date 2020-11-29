@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :items, only: [:index, :show]
-  resources :categories, only: [:index, :show, :edit]
+  resources :categories, only: [:index, :show, :edit,]
   resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
