@@ -158,25 +158,25 @@
       #pagenate
         = render "show_page"
       -# 以下の、”※ここまで確認コード”までのコードは売り切れ品を確認するための一時的な表示です。確認完了後コードは消します。
-      売り切れ品※あとで非表示にします。
-      .category--prodboxs--lis
-        - @products.each do |item|
-          - if item.buyer_id.present?
-            = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
-              .category--prodboxs--lis--product--image
-                = image_tag @image_first, alt: "#N/A", id: "assets", class: "image--pro"
-              .category--prodboxs--lis--product--body
-                .category--prodboxs--lis--product--body--name
-                  = item.name
-                .category--prodboxs--lis--product--body--detail
-                  %ul.detaillist
-                    %li
-                      = item.price
-                      円
-                    %li
-                      = icon('fas', 'fa-star', class: "staricon")
-                      1
-                  %p (税込)
+      -# 売り切れ品※あとで非表示にします。
+      -# .category--prodboxs--lis
+      -#   - @products.each do |item|
+      -#     - if item.buyer_id.present?
+      -#       = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
+      -#         .category--prodboxs--lis--product--image
+      -#           = image_tag @image_first, alt: "#N/A", id: "assets", class: "image--pro"
+      -#         .category--prodboxs--lis--product--body
+      -#           .category--prodboxs--lis--product--body--name
+      -#             = item.name
+      -#           .category--prodboxs--lis--product--body--detail
+      -#             %ul.detaillist
+      -#               %li
+      -#                 = item.price
+      -#                 円
+      -#               %li
+      -#                 = icon('fas', 'fa-star', class: "staricon")
+      -#                 1
+      -#             %p (税込)
                   -# カテゴリ確認のための一時的な表示です
                   = Category.find(item.category_id).category_name
       -# ※ここまで確認コード

@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
     array = []
     @products = Product.all.order(created_at: :desc)
     @products.each do |item|
-      unless item.buyer_id.present?
+      # unless item.buyer_id.present?
       array << item
-      end
+      # end
     end
     @items = Kaminari.paginate_array(array).page(params[:page]).per(15)
     @pickup_items = @items.per(5)

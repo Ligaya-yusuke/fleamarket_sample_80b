@@ -37,9 +37,9 @@ class ProductsController < ApplicationController
     @products = Product.all.order(created_at: :desc)
     @products.each do |item|
       if Category.find(item.category_id).parent.parent == @category.parent.parent
-        unless item.buyer_id.present?
+        # unless item.buyer_id.present?
         array << item
-        end
+        # end
       end
     end
     @items = Kaminari.paginate_array(array).page(params[:page]).per(5)
