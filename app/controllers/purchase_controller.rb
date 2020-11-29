@@ -33,7 +33,7 @@ class PurchaseController < ApplicationController
 
   def done
     credit_card = CreditCard.where(user_id: current_user.id).first
-    @product_purchaser= Product.find(params[:product_id])
+    @product_purchaser= Product.find_by(params[:product_id])
     @product_purchaser.update(buyer_id: current_user.id)
   end
   private
