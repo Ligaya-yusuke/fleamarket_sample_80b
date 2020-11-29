@@ -3,15 +3,16 @@
     .Header__logo
       =link_to root_path do
         =image_tag "logo.png", width: '200px', alt: "FURIMA"
+  
+  .Notification
+    - if flash[:alert]
+      - flash.each do |message_type, message|
+        - message2 = message.gsub(",","<br>")
+        = message2.html_safe
 
   .Products
     .Products__form
       =form_with model: @product, local:true do |form|
-        .Products__form__notification
-          - if flash[:alert]
-            - flash.each do |message_type, message|
-              - message2 = message.gsub(",","<br>")
-              = message2.html_safe
         .Products__form__images
           =form.label :"商品画像"
           %span 必須
@@ -91,7 +92,8 @@
           価格(300~9,999,999)
           =link_to "#" do
             =icon('far', 'question-circle')
-        .Product__form__sales
+
+        .Products__form__sales
           =form.label "販売価格"
           %span 必須
         .Products__form__yen
@@ -106,7 +108,7 @@
         -#   =form.submit "下書きに保存"
 
     .Return
-      =link_to "もどる", root_path 
+      =link_to "トップページにもどる", root_path 
     
   .Footer 
     .Footer__logo
