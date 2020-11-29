@@ -29,11 +29,13 @@
       .mainbox__top__title
         = @product.name
       .mainbox__top__image
-        = image_tag @image_first, alt: "kangaroo", class: "kangaroo"
-
+        .mainbox__top__image__main 
         - if @product.buyer_id.present?
-          .items-box_photo__sold
-            .items-box_photo__sold__inner SOLD
+          .mainbox__top__image__main__sold
+            .mainbox__top__image__main__sold__inner SOLD
+          = image_tag @image_first, alt: "kangaroo", class: "kangaroo" 
+        - else
+          = image_tag @image_first, alt: "kangaroo", class: "kangaroo"
         .mainbox__top__image__sub
         - unless @images.nil?
           #pagenate_image
@@ -122,9 +124,19 @@
     - if user_signed_in?
       .mainbox__bottom
         -# 出品者にしか情報編集・削除のリンクが出来ない制限
-        .seller-show
+        -# 出品者以外にしか購入が出来ない制限
+        -# 売り切れた商品が購入できない制限
+        .buyer-show
           %ul
-          - if current_user.id == @product.user_id
+          -if @product.buyer_id.present?
+            .buyer-show__sold SOLD OUT（売り切れ）
+          - elsif current_user.id != @product.user_id
+            %ol
+              商品の購入はこちら
+            %ol
+            = link_to product_purchase_path(@product.id),{class:"buyer-show__button"} do
+              購入
+          - else current_user.id == @product.user_id
             %ol
             出品商品の編集・削除はこちら
             %ol
@@ -133,15 +145,6 @@
             %ol
             = link_to product_path(@product.id), method: :delete ,class:"seller-show__button", data: {confirm: "本当に削除しますか？"} do
               削除
-        -# 出品者以外にしか購入が出来ない制限
-        .buyer-show
-          %ul
-          - if current_user.id != @product.user_id
-            %ol
-            商品の購入はこちら
-            %ol
-            = link_to product_purchase_path(@product.id),{class:"buyer-show__button"} do
-              購入
     .links
       %ul
         %li
@@ -177,7 +180,7 @@
       -#                 1
       -#             %p (税込)
                   -# カテゴリ確認のための一時的な表示です
-                  = Category.find(item.category_id).category_name
+                  -# = Category.find(item.category_id).category_name
       -# ※ここまで確認コード
 = render "items/thirdinfo"
 = render "items/footer"
