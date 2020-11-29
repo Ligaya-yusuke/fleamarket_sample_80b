@@ -30,16 +30,18 @@
         = @product.name
       .mainbox__top__image
         = image_tag @image_first, alt: "kangaroo", class: "kangaroo"
+
         - if @product.buyer_id.present?
           .items-box_photo__sold
             .items-box_photo__sold__inner SOLD
         .mainbox__top__image__sub
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "icon-01.png", alt: "kangaroo", class: "kangarooo"
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "icon-01.png", alt: "kangaroo1", class: "kangarooo"
-          = link_to ("#"),{ class: "pics"} do
-            = image_tag "icon-01.png", alt: "kangaroo2", class: "kangarooo"
+        - unless @images.nil?
+          #pagenate_image
+            = render "showimage_page"
+          -# .mainbox__top__image__sub
+          -#   - @images.each do |images|
+          -#     = image_tag images.src.url, alt: "kangaroo", class: "pics"
+
       .mainbox__top__price
         ¥
         = @product.price
@@ -74,9 +76,6 @@
             %td
               = @product.brand
           %tr
-            %th 商品のサイズ
-            %td 
-          %tr
             %th 商品の状態
             %td 
               - unless @product.buyer_id.present?
@@ -96,7 +95,7 @@
             %td
               = @shipping_day.name
       .extrainfo
-        %ul
+        %ul.box
           %li.favorite
             = icon('fas', 'heart', class: "likes")
             = link_to "お気に入り"

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_category, only: [:new, :create, :edit]
-  before_action :set_product, only: [:show, :edit]
+  before_action :set_category, only: [:new, :create, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update]
   before_action :move_to_signed_in, except: [:index, :show]
   # before_action :set_product, except: [:index, :new, :create]
   
@@ -21,12 +21,21 @@ class ProductsController < ApplicationController
       redirect_to root_path , notice: "商品を出品しました。"
     else
       flash[:alert] = @product.errors.full_messages.join(',')
-      redirect_to new_product_path
+      if @product.images.length == 0
+      end
+        @product.images.new
+      render :new
     end
   end
 
   def show
     @image_first = Image.where(product_id: @product).first.src.url
+    @images = Image.where(product_id: @product).slice(1..-1)
+    @kaminari_images = Kaminari.paginate_array(@images).page(params[:page]).per(3)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     @category = Category.find(@product.category_id)
     @user = User.find(@product.user_id)
     @address = Prefecture.find(@product.prefecture_id)
@@ -60,10 +69,15 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @produc.update(product_params)
-        redirect_to root_path
+    if @product.update(product_params)
+      # flash[:notice] = "商品情報が更新されました"
+      # redirect_to product_path(@product)
+      # 上2行を簡略化したコードが下の1行
+      redirect_to product_path(@product), notice: "商品情報が更新されました"
     else
-      render :edit
+      flash[:alert] = @product.errors.full_messages.join(',')
+      redirect_to edit_product_path
+      # redirect_toの時はflash,renderの時はflash.now
     end
   end
 

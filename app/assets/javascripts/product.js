@@ -7,17 +7,16 @@ function appendOption(category) {
 function appendChildrenBox(insertHTML) {
   let childSelectHtml = '';
   childSelectHtml = 
-    `<select class="item_input__body__category__children--select" id="children_category" required="true">
+    `<select class="item_input__body__category__children--select" id="children_category">
        <option value="" data-category="" >選択してください</option>
-       ${insertHTML}</select>
-     <i class = "fa fa-chevron-down"></i>`;
+       ${insertHTML}</select>`;
   $('#children_box').append(childSelectHtml);
 }
 //孫カテゴリーのHTML
 function appendGrandchildrenBox(insertHTML) {
   let grandchildSelectHtml = '';
   grandchildSelectHtml = 
-    `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="product[category_id]" required="true">
+    `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="product[category_id]">
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}</select>
      `;
@@ -30,7 +29,8 @@ $(document).on("change","#parent_category", function() {
   if (parentCategory != "") {
     $.ajax( {
       type: 'GET',
-      url: 'get_category_children',
+      // urlは絶対パスで表示させる（こうしないとrenderで返された時に、選択できなくなるため）
+      url: '/products/get_category_children',
       data: { parent_name: parentCategory },
       dataType: 'json'
     })
@@ -59,7 +59,8 @@ $(document).on('change', '#children_box', function() {
   //子カテゴリーが初期値でない場合
   if (childId != ""){
     $.ajax({
-      url: 'get_category_grandchildren',
+      // urlは絶対パスで表示させる（こうしないとrenderで返された時に、選択できなくなるため）
+      url: '/products/get_category_grandchildren',
       type: 'GET',
       data: { child_id: childId },
       datatype: 'json'

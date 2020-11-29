@@ -3,20 +3,21 @@
 .Sell {
   background-color: #dbedf0;
   width: 100%;
-  height: 100%;
+  height: 10%;
   
   .Header {
     &__logo {
-      margin: 0 auto;
       text-align: center;
-      padding: 20px 0;
+      margin-top: 30px;
+      margin-bottom: 60px;
     }   
   }
   
   .Products {
     background-color: #ffffff;
-    margin: 0 50px;
-    padding: 20px;
+    width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
     &__form {
       padding: 20px 0;
       font-weight: bold;
@@ -106,9 +107,6 @@
           @include must;
         }
       }
-      &__categorySelect {
-        @include box;
-      }
       
       &__brand {
         padding-top: 20px;
@@ -139,9 +137,6 @@
         span {
           @include must;
         }
-      }
-      &__deliveryChargeSelect {
-        @include box;
       }
 
       &__deliveryFrom {
@@ -179,16 +174,20 @@
         align-items: right;
         font-size: 20px;
         padding: 0 5px;
+        &__box{
+          margin-left: 10px;
+        }
       }
     }
   } 
   .Submit {
-      margin-top: 10px;
+      margin-top: 20px;
       align-items: center;
       @include button;
   }
   .Return {
     text-align: center;
+    padding-bottom: 10px;
     a{
       color: black;
     }
@@ -202,4 +201,16 @@
   }
 }
 
+.parent_category_box{
+  width: 100%;
+  height: 3vh;
+  line-height: 1.2;
+} 
 
+.item_input__body__category{
+  &__children--select,&__grandchildren--select{
+  width: 100%;
+  height: 3vh;
+  line-height: 1.2;
+  }
+}

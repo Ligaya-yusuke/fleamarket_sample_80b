@@ -8,6 +8,11 @@ ja:
         price: 商品価格
         infomation: 商品の説明
         images: 商品画像
+        prefecture_id: 発送元地域
+        condition_id: 商品の状態
+        delivery_charge_id: 送料の負担
+        shipping_day_id: 発送日数
+        category_id: カテゴリー
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
