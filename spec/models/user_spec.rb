@@ -73,28 +73,28 @@ describe Profile do
     it "is invalid without a first_name" do
       user = build(:profile, first_name: nil)
       user.valid?
-      expect(user.errors[:first_name]).to include("を入力してください", "全角文字で入力してください")
+      expect(user.errors[:first_name]).to include("を入力してください", "を全角文字で入力してください")
     end
 
     # 11. family_nameが空では登録できないこと、全角文字のみ入力できる
     it "is invalid without a family_name" do
       user = build(:profile, family_name: nil)
       user.valid?
-      expect(user.errors[:family_name]).to include("を入力してください", "全角文字で入力してください")
+      expect(user.errors[:family_name]).to include("を入力してください", "を全角文字で入力してください")
     end
 
     # 12. family_name_kanaが空では登録できないこと、全角のみ入力できる
     it "is invalid without a family_name_kana" do
       user = build(:profile, family_name_kana: nil)
       user.valid?
-      expect(user.errors[:family_name_kana]).to include("を入力してください", "全角で入力してください")
+      expect(user.errors[:family_name_kana]).to include("を入力してください", "を全角で入力してください")
     end
 
     # 13. first_name_kanaが空では登録できないこと、全角のみ入力できる
     it "is invalid without a first_name" do
       user = build(:profile, first_name_kana: nil)
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("を入力してください", "全角で入力してください")
+      expect(user.errors[:first_name_kana]).to include("を入力してください", "を全角で入力してください")
     end
 
     # 14. birthdayが空では登録できないこと
@@ -113,28 +113,28 @@ describe Address do
     it "is invalid without a ship_first_name" do
       user = build(:address, ship_first_name: nil)
       user.valid?
-      expect(user.errors[:ship_first_name]).to include("を入力してください")
+      expect(user.errors[:ship_first_name]).to include("を入力してください", "を全角文字で入力してください")
     end
 
     # 16. ship_family_nameが空では登録できないこと、全角文字のみ入力できる
     it "is invalid without a ship_family_name" do
       user = build(:address, ship_family_name: nil)
       user.valid?
-      expect(user.errors[:ship_family_name]).to include("を入力してください")
+      expect(user.errors[:ship_family_name]).to include("を入力してください", "を全角文字で入力してください")
     end
 
     # 17. ship_first_name_kanaが空では登録できないこと、全角文字のみ入力できる
     it "is invalid without a ship_first_name_kana" do
       user = build(:address, ship_first_name_kana: nil)
       user.valid?
-      expect(user.errors[:ship_first_name_kana]).to include("を入力してください", "全角文字で入力してください")
+      expect(user.errors[:ship_first_name_kana]).to include("を入力してください", "を全角文字で入力してください")
     end
 
     # 18. ship_family_name_kanaが空では登録できないこと、全角文字のみ入力できる
     it "is invalid without a ship_family_name_kana" do
       user = build(:address, ship_family_name_kana: nil)
       user.valid?
-      expect(user.errors[:ship_family_name_kana]).to include("を入力してください", "全角文字で入力してください")
+      expect(user.errors[:ship_family_name_kana]).to include("を入力してください", "を全角文字で入力してください")
     end
 
     # 19. post_codeが空では登録できないこと
@@ -148,7 +148,7 @@ describe Address do
     it "is invalid without a prefecture" do
       user = build(:address, prefecture: nil)
       user.valid?
-      expect(user.errors[:prefecture]).to include("を入力してください")
+      expect(user.errors[:prefecture_id]).to include("を入力してください")
     end
 
     # 21. cityが空では登録できないこと

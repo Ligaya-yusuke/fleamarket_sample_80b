@@ -18,8 +18,20 @@ Rails.application.routes.draw do
     member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      post 'purchase'
+      get 'purchased'
+      get 'buy'
     end
-    resources :purchase, only: [:index]
+    resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+      member do
+        get 'index', to: 'purchase#index'
+        post 'buy', to: 'purchase#buy'
+      end
+    end
   end
   devise_for :users, controllers: {
     registrations: "users/registrations",

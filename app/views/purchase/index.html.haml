@@ -1,52 +1,71 @@
 .Sell
   .Header
     .Header__logo
-      =link_to root_path do
-        =image_tag "logo.png", width: '20%', alt: "FURIMA"
+      = link_to root_path ,{class:"Heade__logo__tag"} do
+        = image_tag "logo.png", alt: "#N/A", id: "assets", class: "image"
 
   .purchase
-    .purchase--top 購入内容の確認
-    .purchase--fourinfo
-      = image_tag Image.where(product_id: @product).first.src.url, alt: "kangaroo", class: "purchase--fourinfo--image"
-      .purchase--fourinfo--threeinfo
-        .purchase--fourinfo--threeinfo--productname
-          = @product.name
-        .purchase--fourinfo--threeinfo--productprice
+    .purchase--main
+      .purchase--main--top 購入内容の確認
+      .purchase--main--fourinfo
+        = image_tag Image.where(product_id: @product).first.src.url, alt: "kangaroo", class: "purchase--main--fourinfo--image"
+        .purchase--main--fourinfo--threeinfo
+          .purchase--main--fourinfo--threeinfo--productname
+            = @product.name
+          .purchase--main--fourinfo--threeinfo--productprice
+            = @product.price
+            円(税込)
+          .purchase--main--fourinfo--threeinfo--productdel
+            = @delivery_charge.name
+      .purchase--main--priceinfo
+        %label.purchase--main--priceinfo--title 支払い金額
+        %label.purchase--main--priceinfo--price
+          ¥
           = @product.price
-          円(税込)
-        .purchase--fourinfo--threeinfo--productdel
-          = @delivery_charge.name
-    .purchase--priceinfo
-      %label.purchase--priceinfo--title 支払い金額
-      %label.purchase--priceinfo--price
-        ¥
-        = @product.price
-    .purchase--priceinfo
-      %label.purchase--priceinfo--title 支払い方法
-      %label.purchase--priceinfo--select
-        = link_to "登録してください",("#")
-    .purchase--priceinfo
-      %label.purchase--priceinfo--title 
-        .purchase--priceinfo--title--main 配送先
-        .purchase--priceinfo--title--aux
+
+      .purchase--main--priceinfo
+        .purchase-container
+          %label.purchase--main--priceinfo--title 支払い方法
+          - if @default_card_information.blank?
+            %br /
+          - else
+            -#以下カード情報を表示
+            .purchase--main--priceinfo--title--list
+              %p.purchase--main--priceinfo--title--list--lists クレジットカード
+              = "**** **** **** " + @default_card_information.last4
+              %p.purchase--main--priceinfo--title--list--lists 有効期限
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+        %label.purchase--main--priceinfo--select
+          = link_to "変更する", credit_card_show_path, {class:"auxlink"}
+
+      .purchase--main--addressinfo
+        .address-container
+          %label.purchase--main--addressinfo--title 
+            .purchase--main--addressinfo--title--main 配送先
+          .purchase--main--addressinfo--list
+            .purchase--main--addressinfo--list--post
+              〒
+              = @post_code
+            .purchase--main--addressinfo--list--post
+              = @address
+            - unless @buiding_number.empty?
+              .purchase--main--addressinfo--list--post
+                = @buiding_number
+            .purchase--main--addressinfo--list--post
+              = @user_name
+              様
+        .purchase--main--addressinfo--title--aux
           = link_to "#",{class:"auxlink"} do
-            変更する場合はこちらをクリック
-      %label.purchase--priceinfos
-        .purchase--priceinfos--user
-          = @user_name
-          様
-        .purchase--priceinfos--post
-          〒
-          = @post_code
-        .purchase--priceinfos--address
-          = @address
-        - unless @buiding_number.empty?
-          .purchase--priceinfos--address
-            = @buiding_number
+            変更する
     .purchaseform
       .purchaseform--button
+      = form_tag(action: :pay, method: :post) do
         %button{type: "submit", class: "purchaseform--button--submit"}購入する
+
   .Footer 
     .Footer__logo
-      =link_to root_path do
-        =image_tag "logo-white.png", width: '20%', alt: "FURIMA"
+      = link_to root_path do
+        = image_tag "logo-white.png", alt: "#N/A", id: "assets", class: "image"
+    .Footer__c @FURIMA

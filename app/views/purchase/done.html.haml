@@ -1,0 +1,16 @@
+.purchase-done
+  .purchase-done--index
+    %h1.purchase-done--index--text 購入が完了しました！
+    .purchase-done--index--lists
+      %h2.purchase-done--index--lists--list
+        ご購入ありがとうございます。
+        %br/
+        商品発送準備中ですので今しばらくお待ちください。
+    = link_to "トップページに戻る", root_path, class: "purchase-done--index__mypage"
+    = link_to "マイページに戻る", user_path(current_user.id), class: "purchase-done--index__mypage"
+    
+
+.credit-destroy
+  .credit-destroy__index
+    %h1.credit-destroy__index__text クレジットカード情報を削除しました
+    = link_to "マイページに戻る", "/users/#{current_user.id}", class: "credit-destroy__index__mypage"

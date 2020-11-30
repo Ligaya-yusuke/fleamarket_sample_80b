@@ -83,6 +83,9 @@
             = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
               .category--prodboxs--lis--product--image
                 = image_tag Image.where(product_id: item.id).first.src.url, alt: "#N/A", id: "assets", class: "image--pro"
+                - if item.buyer_id.present?
+                  .items-box_photo__mini
+                    .items-box_photo__mini__inner SOLD
               .category--prodboxs--lis--product--body
                 .category--prodboxs--lis--product--body--name
                   = item.name
@@ -94,7 +97,7 @@
                     %li
                       = icon('fas', 'fa-star', class: "staricon")
                       1
-                  %p (税込)
+                  %p (税込)             
     .category
       .category--top ピックアップブランド
       .category--prodboxs
@@ -106,6 +109,9 @@
             = link_to product_path(item.id),{class:"category--prodboxs--lis--product"} do
               .category--prodboxs--lis--product--image
                 = image_tag Image.where(product_id: item.id).first.src.url, alt: "#N/A", id: "assets", class: "image--pro"
+                - if item.buyer_id.present?
+                  .items-box_photo__mini
+                    .items-box_photo__mini__inner SOLD
               .category--prodboxs--lis--product--body
                 .category--prodboxs--lis--product--body--name
                   = item.name

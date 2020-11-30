@@ -5,7 +5,7 @@ FactoryBot.define do
     ship_first_name_kana    {"サトウ"}
     ship_family_name_kana     {"サトウ"}
     post_code            {"00000000"}
-    prefecture            {"東京都"}
+    prefecture_id            {1}
     city            {"渋谷区"}
     block_number            {"1-1"}
     building_number            {""}

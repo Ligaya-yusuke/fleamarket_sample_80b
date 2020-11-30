@@ -3,79 +3,125 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .purchase{
+  max-width: 700px;
+  min-width: 600px;
+  margin: 50px auto;
   background-color: #ffffff;
-  margin: 80px;
-  padding: 20px 200px;
-  &--top{
-    padding: 30px 0 40px 0;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: #3CCACE;
-  } 
-  &--fourinfo{
-    display: flex;
-    margin-right: auto;
-    &--image{
-      width: 300px;
-      height: 300px;
-      vertical-align: bottom;
-    }
-    &--threeinfo{
+  padding: 20px 30px;
+  &--main {
+    width: 500px;
+    margin: auto;
+    &--top{
+      padding: 20px 0;
+      width: 500px;
+      margin: 0 auto 40px ;
+      text-align: center;
       font-size: 30px;
-      margin-left: auto;
-        &--productname{
-          padding-top: 20px;
-        }
-        &--productprice{
-          font-weight: bold;
-          font-size: 15px;
-          padding-top: 10px;
-        }
-        &--productdel{
-          font-size: 15px;
-          font-weight: bold;
-          padding-top: 10px;
-        }
-    }
-  }
-  &--priceinfo{
-    display: flex;
-    width: 100%;
-    justify-content: start;
-    padding-top: 50px;
-    &--title{
-      font-size: 20px;
-      margin-right: auto;
-      &--aux{
-        font-size: 15px;
+      font-weight: bold;
+      color: rgb(51, 51, 51);
+      border-bottom: 1px solid rgb(206, 206, 206);
+    } 
+    &--fourinfo{
+      display: flex;
+      border-bottom: 1px solid rgb(206, 206, 206);
+      padding: 0 20px 40px 20px;
+      &--image{
+        width: 150px;
+        height: 150px;
+        vertical-align: bottom;
+        border-radius: 10px;
+      }
+      &--threeinfo{
+        width: 400px;
+        padding: 20px 30px;
+          &--productname{
+            font-size: 30px;
+          }
+          &--productprice{
+            font-size: 17px;
+            padding-top: 10px;
+          }
+          &--productdel{
+            font-size: 17px;
+            padding-top: 10px;
+          }
       }
     }
-    &--price{
-      font-size: 25px;
-      font-weight: bold;
+    &--priceinfo{
+      display: flex;
+      width: 100%;
+      justify-content: start;
+      padding: 40px 20px;
+      border-bottom: 1px solid rgb(206, 206, 206);
+      &--title{
+        font-size: 20px;
+        margin-right: auto;
+        &--aux{
+          font-size: 15px;
+        }
+        &--list {
+          padding: 10px 0 0 10px;
+          &--lists {
+            font-size: 16px;
+          }
+        }
+      }
+      &--price{
+        font-size: 28px;
+        font-weight: bold;
+      }
+      &--select{
+        font-size: 18px;
+        line-height: 100px;
+      }
     }
-    &--select{
-      font-size: 20px;
+    &--addressinfo {
+      display: flex;
+      width: 100%;
+      justify-content: start;
+      padding: 40px 20px;
+      border-bottom: 1px solid rgb(206, 206, 206);
+      &--title{
+        font-size: 20px;
+        margin-right: auto;
+        &--aux{
+          font-size: 18px;
+          line-height: 110px;
+        }
+      }
+      &--list {
+        padding: 10px 0 0 10px;
+        &--post {
+          font-size: 16px;
+          padding-bottom: 5px;
+        }
+      }
     }
-  }
-  &--priceinfos{
-    text-align: end;
-    &--user{
-      font-size: 20px;
-      padding-bottom: 10px;
+    &--priceinfos{
+      text-align: end;
+      &--user{
+        font-size: 20px;
+        padding-bottom: 10px;
+      }
+      &--post{
+        padding-bottom: 10px;
+      }
+      &--address{
+        font-size: 20px;
+      }
     }
-    &--post{
-      padding-bottom: 10px;
-    }
-    &--address{
-      font-size: 20px;
-    }
-  }
+  } 
+  
 }
 
 .auxlink{
   text-decoration: none;
+  color: rgb(9, 53, 247);
+}
+
+.auxlink:hover {
+  color: rgb(245, 206, 80);
+  transition: 0.6s;
 }
 
 .purchaseform{
@@ -85,19 +131,77 @@
   padding-bottom: 50px;
   padding-top: 50px;
   &--button{
-    width: 400px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #3CCACE;
-    border-radius: 40px;
-    background-color: #3CCACE;
+    
     &--submit{
-      border-style: none;
+      width: 400px;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #3CCACE;
+      border-radius: 40px;
       background-color: #3CCACE;
+      border-style: none;
       color: #f8f8f8;
       font-size: 18px;
+      outline: none;
+    }
+    &--submit:hover {
+      background-color: rgb(0, 222, 230);
+      transition: 0.7s;
+      display: block;
+    }
+  }
+}
+
+.purchase-container {
+  width: 380px;
+  height: 100%;
+}
+
+.address-container {
+  width: 380px;
+  height: 100%;
+}
+
+// done
+
+.purchase-done{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  &--index {
+    width: 500px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 60px auto;
+    padding: 30px 40px;
+    &--text {
+      font-size: 24px;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      font-weight: bold;
+    }
+    &--lists {
+      margin: 30px 0;
+      width: 420px;
+      &--list {
+        font-size: 16px;
+        color: rgb(44, 44, 44);
+      }
+    }
+    &__mypage {
+      margin-top: 10px;
+      background-color: #3CCACE;
+      border: 0;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      outline: 0;
+      line-height: 48px;
+    }
+    &__mypage:hover {
+      background-color: rgb(0, 222, 230);
+      transition: 0.7s;
     }
   }
 }
