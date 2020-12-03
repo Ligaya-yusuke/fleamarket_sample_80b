@@ -79,24 +79,14 @@ gem 'devise-i18n-views'
 gem 'jp_prefecture'
 
 gem 'jquery-rails' 
-
 gem "font-awesome-sass"
-
 gem 'ancestry'
 gem 'active_hash'
-gem 'jquery-rails'
 gem 'pry-rails'
-
-
 gem 'carrierwave'
 gem 'mini_magick'
-
-
 gem 'payjp'
 gem 'dotenv-rails'
-
-gem 'jquery-rails'
-
 gem 'kaminari'
 
 # fackerの追加
