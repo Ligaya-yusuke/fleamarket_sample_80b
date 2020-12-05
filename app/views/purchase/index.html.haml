@@ -13,7 +13,7 @@
           .purchase--main--fourinfo--threeinfo--productname
             = @product.name
           .purchase--main--fourinfo--threeinfo--productprice
-            = @product.price
+            = @product.price.to_s.reverse.scan(/.{1,3}/).join(',').reverse
             円(税込)
           .purchase--main--fourinfo--threeinfo--productdel
             = @delivery_charge.name
@@ -21,7 +21,7 @@
         %label.purchase--main--priceinfo--title 支払い金額
         %label.purchase--main--priceinfo--price
           ¥
-          = @product.price
+          = @product.price.to_s.reverse.scan(/.{1,3}/).join(',').reverse
 
       .purchase--main--priceinfo
         .purchase-container
