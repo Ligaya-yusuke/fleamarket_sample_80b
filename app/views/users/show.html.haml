@@ -7,7 +7,7 @@
     = render "side-bar"
     .mypage-main__container
       .mypage-main__header
-        -# = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "mypage-main__header__image" 
+        = image_tag "MyPage.png", alt: "#N/A", id: "assets", class: "mypage-main__header__image" 
         %h1.mypage-main__header__nickname
           = @user.nickname
         %p.mypage-main__header__count
@@ -27,7 +27,6 @@
                   = image_tag Image.where(product_id: item.id).first.src.url, alt: "#N/A", id: "assets", class: "mypage-main__items__lists__list__image"
                 - else
                   = image_tag Image.where(product_id: item.id).first.src.url, alt: "#N/A", id: "assets", class: "mypage-main__items__lists__list__image"
-
                 .mypage-main__items__lists__list__body 
                   .mypage-main__items__lists__list__body__name
                     = item.name
@@ -38,6 +37,8 @@
                     %li.mypage-main__items__lists__list__body__text__price
                       = icon('fas', 'fa-star', class: "staricon")
                       1
+        = paginate @item
+
              
 
       
