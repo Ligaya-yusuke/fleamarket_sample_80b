@@ -46,7 +46,7 @@
 
       .mainbox__top__price
         ¥
-        = @product.price
+        = @product.price.to_s.reverse.scan(/.{1,3}/).join(',').reverse
         .mainbox__top__price__tax
           (税込)送料込み
       .product-description
