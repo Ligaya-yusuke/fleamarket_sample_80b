@@ -32,7 +32,7 @@
                     = item.name
                   %ul.mypage-main__items__lists__list__body__text
                     %li.mypage-main__items__lists__list__body__text__price
-                      = item.price
+                      = item.price.to_s.reverse.scan(/.{1,3}/).join(',').reverse
                       円
                     %li.mypage-main__items__lists__list__body__text__price
                       = icon('fas', 'fa-star', class: "staricon")
