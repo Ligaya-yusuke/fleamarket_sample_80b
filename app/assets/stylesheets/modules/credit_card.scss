@@ -37,6 +37,7 @@ a {
   width: 100vw;
   height: 700px;
   display: flex;
+  justify-content: center;
 
   // クレジット登録
   &__new {
@@ -90,7 +91,6 @@ a {
   &__main {
     width: 800px;
     max-width: 800px;
-    margin: 0 auto;
     text-align: center;
     height: 550px;
     background-color: rgba(240, 239, 239, 0.863);
