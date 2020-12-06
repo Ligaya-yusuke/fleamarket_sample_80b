@@ -9,7 +9,8 @@ class UsersController < ApplicationController
         format.html
         format.js
       end
-    @count = Product.where(user_id: current_user.id).count
+    @count = current_user.products.count
+
   end
 
 
