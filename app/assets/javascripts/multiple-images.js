@@ -3,8 +3,8 @@ $(document).on('turbolinks:load', ()=> {
   const buildFileField = (num)=> {
     const html =`<div class="Products__form__images__box__previews__group" data-index="${num}">
                   <input class="Products__form__images__box__previews__group__jsFile" type="file" name="product[images_attributes][${num}][src]" id="product_images_attributes_${num}_src" kl_vkbd_parsed="true">
-                <div class="Products__form__images__box__previews__group__jsRemove">削除</div>
-              </div>`;
+                  <div class="Products__form__images__box__previews__group__jsRemove">削除</div>
+                 </div>`;
     return html;
   }
     // プレビュー用のimgタグ生成
@@ -51,5 +51,5 @@ $(document).on('turbolinks:load', ()=> {
 
     // 画面入力欄が0個にならないように設定
     if ($('.Products__form__images__box__previews__group__jsFile').length == 0) $('#Image-box').append(buildFileField(fileIndex[0]));
-  })
+  });
 });

@@ -56,15 +56,16 @@
               }
               // 削除ボタンあとで
               &__jsRemove{
-              width:50px;
-              font-size:12px;
-              color: black;
-              text-align:center;
-              display:block;
-              // padding:10px 0 10px;
-              background:#6BCBF6;
-              // border-radius: 20px;   
-              background-color: #dbedf0;
+                width:50px;
+                font-size:12px;
+                color: black;
+                text-align:center;
+                display:block;
+                // padding:10px 0 10px;
+                background:#6BCBF6;
+                // border-radius: 20px;   
+                background-color: #dbedf0;
+                cursor: pointer;
               }
             } 
           }
@@ -166,7 +167,7 @@
       &__sales {
         span {
           @include must;
-        } 
+        }
       }
       &__yen {
         display: flex;

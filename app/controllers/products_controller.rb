@@ -69,6 +69,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    # binding.pry
     if @product.update(product_params)
       # flash[:notice] = "商品情報が更新されました"
       # redirect_to product_path(@product)
