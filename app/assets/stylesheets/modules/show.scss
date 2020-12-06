@@ -118,8 +118,8 @@ a {
           height: 100px;
           background-color: white;
           &__name {
-            font-size: 20px;
-            padding: 5px;
+            font-size: 18px;
+            width: 200px;
           }
           &__text {
             display: flex;
@@ -137,4 +137,21 @@ a {
 
 .black{
   color: black;
+}
+
+
+.length1 {
+  font-size: 15px;
+  text-align: left;
+  padding: 5px 10px 0 10px;
+}
+
+.length2{
+  text-align: left;
+  padding: 5px 10px 0 10px;
+}
+
+.length3{
+  text-align: left;
+  padding: 5px 10px 10px 10px;
 }
