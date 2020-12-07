@@ -16,10 +16,12 @@
           =form.label :"商品画像"
           %span 必須
           %br
+          最大５枚までアップロードできます。
+          %br
           #image-box-1
             .item-num-0#image-box__container
               = form.fields_for :images do |i|
-                .Products__form__images__box
+                .input-area
                   = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
                   %label{for: "img-file"}
                     %i.fas.fa-camera
