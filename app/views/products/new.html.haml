@@ -16,13 +16,21 @@
           =form.label :"商品画像"
           %span 必須
           %br
+          %p 最大5枚までアップロードできます
           #image-box-1
             .item-num-0#image-box__container
               = form.fields_for :images do |i|
-                .Products__form__images__box
-                  = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+                .input-area
+                  = i.file_field :image, type: 'file', name: "item[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
                   %label{for: "img-file"}
                     %i.fas.fa-camera
+          -# #image-box-1
+          -#   .item-num-0#image-box__container
+          -#     = form.fields_for :images do |i|
+          -#       .Products__form__images__box
+          -#         = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+          -#         %label{for: "img-file"}
+          -#           %i.fas.fa-camera
           -# #Image-box.Products__form__images__box
           -#   -# カメラクリック保存実装あとで
           -#   -# = icon('fas','camera') 
