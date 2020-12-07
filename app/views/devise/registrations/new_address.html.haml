@@ -8,25 +8,25 @@
           = f.label :氏名
           %span1.form-require 必須
           %br/
-        = f.text_field :ship_first_name, autofocus: true, class: 'input-default', placeholder: "例）鈴木"
+        = f.text_field :ship_family_name, autofocus: true, class: 'input-default', placeholder: "例）鈴木"
       .field
         .contents
           = f.label :名前
           %span1.form-require 必須
           %br/
-        = f.text_field :ship_family_name, autofocus: true, class: 'input-default', placeholder: "例）太朗"
+        = f.text_field :ship_first_name, autofocus: true, class: 'input-default', placeholder: "例）太朗"
       .field
         .contents
           = f.label :氏名（かな）
           %span1.form-require 必須
           %br/
-        = f.text_field :ship_first_name_kana, autofocus: true, class: 'input-default', placeholder: "例）すずき"
+        = f.text_field :ship_family_name_kana, autofocus: true, class: 'input-default', placeholder: "例）すずき"
       .field
         .contents
           = f.label :名前（かな）
           %span1.form-require 必須
           %br/
-        = f.text_field :ship_family_name_kana, autofocus: true, class: 'input-default', placeholder: "例）たろう"
+        = f.text_field :ship_first_name_kana, autofocus: true, class: 'input-default', placeholder: "例）たろう"
       .field
         .contents
           = f.label :郵便番号

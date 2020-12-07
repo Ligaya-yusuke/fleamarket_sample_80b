@@ -33,7 +33,7 @@
                 .Products__form__images__box__previews__group__jsRemove 削除
               -# 新規作成時にはaccepts_nested_attributes_forメソッドを通じて子要素の画像の更新や削除を行う必要がないため、保存していない際にこの子要素の削除について決めるチェックボックスをview上に表示する必要がない
               - if @product.persisted?
-                = i.check_box :_destroy, data: { index: i.index}, class: "hidden-destroy", style: "display: block;"
+                = i.check_box :_destroy, data: { index: i.index}, class: "hidden-destroy", style: "display: none;"
             -# 編集画面のフォームでは新しく画像を追加する可能性もあるため、新規画像追加のためのボタンを表示させている
             -# fields_forの外にあるのは新規の入力欄。editでビルドされる入力欄は既存の画像枚数分だけなので、画像追加用のinputを生成している
             - if @product.persisted?
