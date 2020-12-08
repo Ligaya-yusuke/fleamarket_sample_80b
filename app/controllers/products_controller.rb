@@ -23,8 +23,9 @@ class ProductsController < ApplicationController
       flash[:alert] = @product.errors.full_messages.join(',')
       if @product.images.length == 0
       end
-        @product.images.new
+        # @product.images.new
       render :new
+      # redirect_to new_product_path
     end
   end
 
