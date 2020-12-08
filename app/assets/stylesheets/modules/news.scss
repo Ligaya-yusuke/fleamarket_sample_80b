@@ -215,3 +215,59 @@
   line-height: 1.2;
   }
 }
+
+
+.item-num-0{
+  width: 100%;
+}
+.item-num-1{
+  width: 461px;
+}
+.item-num-2{
+  width: 350px;
+}
+.item-num-3{
+  width: 234px;
+}
+.item-num-4{
+  width: 120px;
+}
+//下段のfile_field
+.item-num-5{
+  width: 100%;
+}
+.item-num-6{
+  width: 491px;
+}
+.item-num-7{
+  width: 363px;
+}
+.item-num-8{
+  width: 234px;
+}
+.item-num-9{
+  width: 106px;
+}
+
+#image-box-1{
+  display: flex;
+}
+.input-area{
+  display: flex;
+  height: 150px;
+  width: 100%;
+  border: 1px dashed whitesmoke;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 245, 245);
+  border: 1px dashed rgb(204, 204, 204);
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  transition: all 0.5s ease-out 0s;
+  &__camera {
+    padding: 66px 270px;
+    cursor: pointer !important;
+
+  }
+}

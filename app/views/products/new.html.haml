@@ -16,26 +16,42 @@
           =form.label :"商品画像"
           %span 必須
           %br
-          #Image-box.Products__form__images__box
-            -# カメラクリック保存実装あとで
-            -# = icon('fas','camera') 
-            -# -# %br ファイルのアップロード
-            #Previews.Products__form__images__box__previews
-              - if @product.persisted?
-                - @product.images.each_with_index do |image, i|
-                  =image_tag image.src.url, data: {index: i}, width: '100', height: '100'
-            =form.fields_for :images do |i|
-              .Products__form__images__box__previews__group{ data: {index: 'image.index'}}
-                -# 画像ボタン変更用(あとで)
-                -# =i.label :src, "画像をアップロード", class: "Image__input__button"
-                = i.file_field :src, class:'Products__form__images__box__previews__group__jsFile'
-                .Products__form__images__box__previews__group__jsRemove 削除
-              - if @product.persisted?
-                = check_box :_destroy, data: { index: 'image.index'}, class: "hidden-destroy"
-              - if @product.persisted?
-                .Products__form__images__box__previews__group{ data: {index: '@product.images.count'}}
-                  = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'Products__form__images__box__previews__group__jsFile'
-                .Products__form__images__box__previews__group__jsRemove 削除
+          %p 最大5枚までアップロードできます
+          #image-box-1
+            .item-num-0#image-box__container
+              .input-area
+                %label.input-area__camera{for: "img-file"}
+                  %i.fas.fa-camera
+                    = form.fields_for :images do |i|
+                      = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+                  
+          -# #image-box-1
+          -#   .item-num-0#image-box__container
+          -#     = form.fields_for :images do |i|
+          -#       .Products__form__images__box
+          -#         = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+          -#         %label{for: "img-file"}
+          -#           %i.fas.fa-camera
+          -# #Image-box.Products__form__images__box
+          -#   -# カメラクリック保存実装あとで
+          -#   -# = icon('fas','camera') 
+          -#   -# -# %br ファイルのアップロード
+          -#   #Previews.Products__form__images__box__previews
+          -#     - if @product.persisted?
+          -#       - @product.images.each_with_index do |image, i|
+          -#         =image_tag image.src.url, data: {index: i}, width: '100', height: '100'
+          -#   =form.fields_for :images do |i|
+          -#     .Products__form__images__box__previews__group{ data: {index: 'image.index'}}
+          -#       -# 画像ボタン変更用(あとで)
+          -#       -# =i.label :src, "画像をアップロード", class: "Image__input__button"
+          -#       = i.file_field :src, class:'Products__form__images__box__previews__group__jsFile'
+          -#       .Products__form__images__box__previews__group__jsRemove 削除
+          -#     - if @product.persisted?
+          -#       = check_box :_destroy, data: { index: 'image.index'}, class: "hidden-destroy"
+          -#     - if @product.persisted?
+          -#       .Products__form__images__box__previews__group{ data: {index: '@product.images.count'}}
+          -#         = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'Products__form__images__box__previews__group__jsFile'
+          -#       .Products__form__images__box__previews__group__jsRemove 削除
 
         .Products__form__name
           =form.label :"商品名"
