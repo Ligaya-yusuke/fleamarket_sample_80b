@@ -21,6 +21,8 @@
             -# = icon('fas','camera') 
             -# -# %br ファイルのアップロード
             #Previews.Products__form__images__box__previews
+              %label{for: "item_images_attributes_0_image", class: "abel-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
               - if @product.persisted?
                 - @product.images.each_with_index do |image, i|
                   =image_tag image.src.url, data: {index: i}, width: '100', height: '100'
@@ -29,6 +31,10 @@
                 -# 画像ボタン変更用(あとで)
                 -# =i.label :src, "画像をアップロード", class: "Image__input__button"
                 = i.file_field :src, class:'Products__form__images__box__previews__group__jsFile'
+                %input{class:"Products__form__images__box__previews__group__jsFile", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                %input{class:"Products__form__images__box__previews__group__jsFile", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                %input{class:"Products__form__images__box__previews__group__jsFile", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                %input{class:"Products__form__images__box__previews__group__jsFile", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
                 .Products__form__images__box__previews__group__jsRemove 削除
               - if @product.persisted?
                 = check_box :_destroy, data: { index: 'image.index'}, class: "hidden-destroy"
