@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
       flash[:alert] = @product.errors.full_messages.join(',')
       if @product.images.length == 0
       end
-        @product.images.new
       render :new
     end
   end
