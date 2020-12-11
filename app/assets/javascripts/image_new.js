@@ -1,6 +1,5 @@
 $(document).on('click', function(){
   $(function(){
-    
     //プレビューのhtmlを定義
     function buildHTML(count) {
       let html = `<div class="preview-box" id="preview-box__${count}">
@@ -15,7 +14,7 @@ $(document).on('click', function(){
                         <span>削除</span>
                       </div>
                     </div>
-                  </div>`
+                  </div>`;
       return html;
     }
 
@@ -23,19 +22,20 @@ $(document).on('click', function(){
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
       let prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      labelWidth = (600 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
       $('.label-content').css('width', labelWidth);
     }
 
+    $('.label-box').on('click', function() {
     // プレビューの追加
-    $(document).on('change', '.hidden-field', function() {
       setLabel();
       //hidden-fieldのidの数値のみ取得
-      let id = $(this).attr('id').replace(/[^0-9]/g, '');
+      let id = $('input'[type="file"]).attr('id').parseintreplace(/[^0-9]/g, '');
+      console.log()
       //labelボックスのidとforを更新
       $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
-      let file = this.files[0];
+      let file = $('input'[type="file"]).files[0];
       let reader = new FileReader();
       //readAsDataURLで指定したFileオブジェクトを読み込む
       reader.readAsDataURL(file);
@@ -70,7 +70,7 @@ $(document).on('click', function(){
 
     // 画像の削除
     $(document).on('click', '.delete-box', function() {
-      let count = $('.preview-box').length;
+      let count_delete = $('.preview-box').length;
       setLabel(count);
       //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
       let id = $(this).attr('id').replace(/[^0-9]/g, '');
