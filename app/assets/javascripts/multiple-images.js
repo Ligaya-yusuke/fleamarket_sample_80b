@@ -4,7 +4,7 @@ $(document).on('click', ()=> {
     const html =`<div class="Products__form__images__box__previews__group" data-index="${num}">
                   <input class="Products__form__images__box__previews__group__jsFile" type="file" name="product[images_attributes][${num}][src]" id="product_images_attributes_${num}_src" kl_vkbd_parsed="true">
                   <div class="Products__form__images__box__previews__group__jsRemove">削除</div>
-                 </div>`;
+                </div>`;
     return html;
   }
     // プレビュー用のimgタグ生成

@@ -1,5 +1,3 @@
-// scss_fleamarket
-
 .Sell {
   background-color: #dbedf0;
   width: 100%;
@@ -35,16 +33,13 @@
             &__group {
               &__jsFile {
               }
-              // 削除ボタンあとで
               &__jsRemove {
                 width: 50px;
                 font-size: 12px;
                 color: black;
                 text-align: center;
                 display: block;
-                // padding:10px 0 10px;
                 background: #6bcbf6;
-                // border-radius: 20px;
                 background-color: #dbedf0;
                 cursor: pointer;
               }
@@ -148,20 +143,10 @@
       &__sales {
         display: flex;
         justify-content: space-between;
-        // justify-content: flex-end;
         &__calculation {
           span {
             @include must;
           }
-        }
-        // &__yen {
-        //   // align-items: right;
-        //   // font-size: 20px;
-        //   // padding-left: 50px;
-        // }
-        &__box {
-          // align-items: right;
-          // margin-left: 5px;
         }
       }
       &__fees {
