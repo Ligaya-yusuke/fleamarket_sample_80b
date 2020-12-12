@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.images.new
+    @product.images.build
   end
 
   def create
@@ -71,6 +71,7 @@ class ProductsController < ApplicationController
   def update
     # binding.pry
     if @product.update(product_params)
+      # binding.pry
       # flash[:notice] = "商品情報が更新されました"
       # redirect_to product_path(@product)
       # 上2行を簡略化したコードが下の1行

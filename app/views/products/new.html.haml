@@ -1,3 +1,39 @@
+-# .Sell
+-#   .Header
+-#     .Header__logo
+-#       =link_to root_path do
+-#         =image_tag "logo.png", width: '200px', alt: "FURIMA"
+-#   .Products
+-#     .Products__form
+-#       %h2 商品の情報を入力
+-#       = form_with model: @product, class: "form", id: "product-form", local:true do |f|
+-#         .Products__form__notification
+-#           - if flash[:alert]
+-#             - flash.each do |message_type, message|
+-#               - message2 = message.gsub(",","<br>")
+-#               = message2.html_safe
+-#         .Products__form__images
+-#           .form-image__title
+-#             %label 出品画像
+-#             %span 必須
+-#             .form-image__text 最大5枚までアップロードできます
+-#             = form_with model: @product, class:"form" do |f| 
+-#               = f.fields_for :images do |f_img|
+-#                 .clearfix
+-#                   %ul#previews
+-#                     %li.input
+-#                       %label.upload-label
+-#                         .upload-label__text
+-#                           クリックしてファイルをアップロード
+-#                           .input-area
+-#                             = f_img.file_field :name, class: "hidden image_upload"
+
+
+
+
+
+
+
 .Sell
   .Header
     .Header__logo

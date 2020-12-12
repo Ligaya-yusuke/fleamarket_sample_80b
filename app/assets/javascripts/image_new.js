@@ -28,7 +28,7 @@ $(function(){
         var html= `<div class='item-image' data-image="${file.name}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
-                        <img src=${src} width="110" height="79" >
+                        <img src=${src} width="112" height="112" >
                       </div>
                     </div>
                     <div class='item-image__operetion'>
@@ -47,14 +47,16 @@ $(function(){
 $(document).on("click", '.item-image__operetion--delete', function(){
   //削除を押されたプレビュー要素を取得
   var target_image = $(this).parent().parent()
+  console.log(target_image)
   //削除を押されたプレビューimageのfile名を取得
   var target_name = $(target_image).data('image')
+  console.log(target_name)
   //プレビューがひとつだけの場合、file_fieldをクリア
   if(file_field.files.length==1){
     //inputタグに入ったファイルを削除
     $('input[type=file]').val(null)
     dataBox.clearData();
-    console.log(dataBox)
+    console.log(image)
   }else{
     //プレビューが複数の場合
     $.each(file_field.files, function(i,input){
@@ -68,6 +70,7 @@ $(document).on("click", '.item-image__operetion--delete', function(){
   }
   //プレビューを削除
   target_image.remove()
+  // product[images_attributes][#{@product.images.count}][src].remove()
   //image-box__containerクラスをもつdivタグのクラスを削除のたびに変更
   var num = $('.item-image').length
   $('#image-box__container').show()
