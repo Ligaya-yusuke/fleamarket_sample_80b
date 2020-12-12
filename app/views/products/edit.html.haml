@@ -18,9 +18,6 @@
           %span 必須
           %br
           #Image-box.Products__form__images__box
-            -# カメラクリック保存実装あとで
-            -# = icon('fas','camera') 
-            -# -# %br ファイルのアップロード
             #Previews.Products__form__images__box__previews
               - if @product.persisted?
                 - @product.images.each_with_index do |image, i|
@@ -94,19 +91,16 @@
 
         .Products__form__price
           価格(¥ 300~9,999,999)
-          -# =link_to "#" do
-          -#   =icon('far', 'question-circle')
         .Products__form__sales
           .Products__form__sales__calculation
             =form.label "販売価格￥"
             %span 必須
-          -# .Products__form__sales__calculation__yen
             
           =form.number_field :price, class: ".Products__form__sales__box"
         
         .Products__form__fees
           .Products__form__fees__label
-            =form.label "販売手数料(１０％)￥"
+            =form.label "販売手数料(10%)￥"
           .Products__form__fees__rate ➖
 
             
@@ -115,13 +109,6 @@
             =form.label"販売利益￥"
           .Products__form__profits__amount ➖
         =form.submit "更新する", class: "Submit"
-
-        -# 余裕があれば実装（手数料計算、下書き保存）
-        -# .Products__form__fees 販売手数料(10%)
-        -# .Products__form__profits 販売利益
-
-        -# =form_with model: @sell do |form|
-        -#   =form.submit "下書きに保存"
 
     .Return
       =link_to "トップページに戻る", root_path 
