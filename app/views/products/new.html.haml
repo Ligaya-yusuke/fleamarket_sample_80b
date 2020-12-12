@@ -18,13 +18,26 @@
           %br
           最大５枚までアップロードできます。
           %br
-          #image-box-1
-            .item-num-0#image-box__container
-              %label{for: "img-file"}
-                .input-area
-                  %i.fas.fa-camera{class:"input-area-icon"}
-                = form.fields_for :images do |i|
-                  = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+          .post__drop__box__container
+            .prev-content
+            .label-content
+              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                -# preタグ整形済み文字
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = form.fields_for :images do |i|
+                = i.file_field :image, class: "hidden-field"
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+          -# #image-box-1
+          -#   .item-num-0#image-box__container
+          -#     %label{for: "img-file"}
+          -#       .input-area
+          -#         %i.fas.fa-camera{class:"input-area-icon"}
+          -#       = form.fields_for :images do |i|
+          -#         = i.file_field :image, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
             -# 下記”＊＊＊＊＊”まで、変更する可能性があるため、残しておく。
           -# #Image-box.Products__form__images__box
           -#   -# カメラクリック保存実装あとで
