@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'credit_card/show'
   get 'credit_card/destroy'
   get 'users/show'
+  get 'users/sign_out'
 
 
 

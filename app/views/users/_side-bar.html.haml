@@ -15,4 +15,4 @@
     %li.mypage-main__side__lists__list
       = link_to "お支払い情報", new_credit_card_path, {id:"btnc"}
     %li.mypage-main__side__lists__list
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, id: "btnc", data: {confirm: "ログアウトしますか？"}
+      = link_to "ログアウト", users_sign_out_path, {id:"btnc"}
