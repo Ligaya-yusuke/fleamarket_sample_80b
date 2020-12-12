@@ -3,13 +3,19 @@ $(document).on('click', ()=> {
   const buildFileField = (num)=> {
     const html =`<div class="Products__form__images__box__previews__group" data-index="${num}">
                   <input class="Products__form__images__box__previews__group__jsFile" type="file" name="product[images_attributes][${num}][src]" id="product_images_attributes_${num}_src" kl_vkbd_parsed="true">
-                  <div class="Products__form__images__box__previews__group__jsRemove">削除</div>
+                  <div class="Products__form__images__box__previews__group__jsRemoveUpper">削除</div>
                  </div>`;
     return html;
   }
     // プレビュー用のimgタグ生成
     const buildImg = (index, url)=> {
-      const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+      const html = `<div class='Products__form__images__box__p'>
+                      <img data-index="${index}" src="${url}" width="100px" height="100px">
+                      <div class='Product-image__operation'>
+                        <div class='Products__form__images__box__previews__group__jsEdit'>編集</div>
+                        <div class='Products__form__images__box__previews__group__jsRemoveUpper' id="Image-box">削除</div>
+                      </div>
+                    </div>`
       return html;
     }
     // file_fieldのnameに動的なindexをつけるための配列
@@ -39,14 +45,15 @@ $(document).on('click', ()=> {
     }
   });
 
-  $('#Image-box').on('click', '.Products__form__images__box__previews__group__jsRemove', function() {
-    const targetIndex = $(this).parent().data('index');
+  $('#Image-box').on('click', '.Products__form__images__box__previews__group__jsRemoveUpper', function() {
+    // console.log('OK')
+    const targetIndex = $(this).parent().parent().data('index');
     // 該当indexをふられているチェックボックスを取得
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
       // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画面入力欄が0個にならないように設定

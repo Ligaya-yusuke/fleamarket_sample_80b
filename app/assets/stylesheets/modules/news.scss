@@ -32,15 +32,36 @@
         }
         &__box{
           &__previews{
-          // 写真背景装飾あとで
-          // background-color: #dbedf0;
-          // text-align: center;
-          // display: block;
-          // padding: 50px 0;
-          // border-style: dotted;
-          // border-color: #dddddd;
-          // color: black;
-          // font-size: small;
+            display: flex;
+            text-align: left;
+            .Products__form__images__box__p{
+              margin-right: 5px;
+              padding-bottom: 10px;
+              .Product-image__operation{
+                display: flex;
+                justify-content: space-around;
+                .Products__form__images__box__previews__group__jsEdit{
+                  width:40px;
+                  font-size:14px;
+                  color: black;
+                  text-align:center;
+                  background:#6BCBF6;
+                  border-radius: 20px;   
+                  background-color: #dbedf0;
+                  cursor: pointer;
+                }
+                .Products__form__images__box__previews__group__jsRemoveUpper{
+                  width:40px;
+                  font-size:14px;
+                  color: black;
+                  text-align:center;
+                  background:#6BCBF6;
+                  border-radius: 20px;   
+                  background-color: #dbedf0;
+                  cursor: pointer;
+                }
+              }
+            }
             &__group {
               &__jsFile{
                 // 選択ボタン消す（あとで）
@@ -56,14 +77,12 @@
               }
               // 削除ボタンあとで
               &__jsRemove{
-                width:50px;
-                font-size:12px;
+                width:40px;
+                font-size:14px;
                 color: black;
-                text-align:center;
-                display:block;
-                // padding:10px 0 10px;
+                text-align: center;
                 background:#6BCBF6;
-                // border-radius: 20px;   
+                border-radius: 20px;   
                 background-color: #dbedf0;
                 cursor: pointer;
               }
@@ -215,5 +234,3 @@
   line-height: 1.2;
   }
 }
-
-
