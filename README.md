@@ -1,27 +1,24 @@
-# README
+# 概要
+URL：http://54.248.40.61/
+Github（最終課題のリポジトリ）：https://github.com/Ligaya-yusuke/fleamarket_sample_80b
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+■ Basic認証
+ID：nagoya80b
+Pass：nagoya80b
 
-Things you may want to cover:
+■ テスト用アカウント
+◯ 購入者用
+メールアドレス：airforceone@a.com
+パスワード：1qaz2wsx
 
-* Ruby version
+◯ 購入用カード情報
+番号：4242424242424242
+期限：12/20
+セキュリティカード：123
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+◯ 出品者用
+メールアドレス：sample@a.com 
+パスワード：1qaz2wsx 
 
 ## usersテーブル
 
